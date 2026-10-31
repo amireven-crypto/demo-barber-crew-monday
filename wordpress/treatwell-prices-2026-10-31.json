@@ -1,0 +1,784 @@
+[
+ {
+  "group": "Haircut - Young Barber",
+  "items": [
+   {
+    "name": "Herren - Haarschnitt",
+    "price": "30.00",
+    "full": "30.00",
+    "range": false,
+    "dur": [
+     50,
+     50
+    ],
+    "opts": [
+     {
+      "name": "Herren - Haarschnitt",
+      "price": "30.00",
+      "from_full": "30.00",
+      "dur": [
+       50,
+       50
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Bart trimmen",
+    "price": "18.00",
+    "full": "18.00",
+    "range": false,
+    "dur": [
+     20,
+     20
+    ],
+    "opts": [
+     {
+      "name": "Herren - Bart trimmen",
+      "price": "18.00",
+      "from_full": "18.00",
+      "dur": [
+       20,
+       20
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Bartschnitt",
+    "price": "20.00",
+    "full": "20.00",
+    "range": false,
+    "dur": [
+     30,
+     30
+    ],
+    "opts": [
+     {
+      "name": "Herren - Bartschnitt",
+      "price": "20.00",
+      "from_full": "20.00",
+      "dur": [
+       30,
+       30
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Haarschnitt & Rasur",
+    "price": "45.00",
+    "full": "45.00",
+    "range": false,
+    "dur": [
+     75,
+     75
+    ],
+    "opts": [
+     {
+      "name": "Herren - Haarschnitt & Rasur",
+      "price": "45.00",
+      "from_full": "45.00",
+      "dur": [
+       75,
+       75
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "group": "Kinder - Haarschnitte & Stylings",
+  "items": [
+   {
+    "name": "Kinder - Haarschnitt (bis 12)",
+    "price": "32.00",
+    "full": "32.00",
+    "range": false,
+    "dur": [
+     30,
+     30
+    ],
+    "opts": [
+     {
+      "name": "Kinder - Haarschnitt (bis 12)",
+      "price": "32.00",
+      "from_full": "32.00",
+      "dur": [
+       30,
+       30
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "group": "HAIR",
+  "items": [
+   {
+    "name": "Herren - Premium Haarschnitt (Kurz)",
+    "price": "36.00",
+    "full": "36.00",
+    "range": false,
+    "dur": [
+     30,
+     30
+    ],
+    "opts": [
+     {
+      "name": "Herren - Premium Haarschnitt (Kurz)",
+      "price": "36.00",
+      "from_full": "36.00",
+      "dur": [
+       30,
+       30
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Premium Scissors Cut | Scheerenschnitt ( Mittel-lang)",
+    "price": "43.00",
+    "full": "43.00",
+    "range": false,
+    "dur": [
+     40,
+     40
+    ],
+    "opts": [
+     {
+      "name": "Herren - Premium Scissors Cut | Scheerenschnitt ( Mittel-lang)",
+      "price": "43.00",
+      "from_full": "43.00",
+      "dur": [
+       40,
+       40
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Premium Scissors Cut | Premium Scherenschnitt (Long - Hair)",
+    "price": "48.00",
+    "full": "48.00",
+    "range": false,
+    "dur": [
+     40,
+     40
+    ],
+    "opts": [
+     {
+      "name": "45 minuten",
+      "price": "48.00",
+      "from_full": "48.00",
+      "dur": [
+       40,
+       40
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Haarschnitt mit Kopfmassage",
+    "price": "43.00",
+    "full": "43.00",
+    "range": false,
+    "dur": [
+     40,
+     40
+    ],
+    "opts": [
+     {
+      "name": "Herren - Haarschnitt mit Kopfmassage",
+      "price": "43.00",
+      "from_full": "43.00",
+      "dur": [
+       40,
+       40
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - MaschinenSchnitt - eine länge | Clipper Cut - one lenght",
+    "price": "30.00",
+    "full": "30.00",
+    "range": false,
+    "dur": [
+     15,
+     15
+    ],
+    "opts": [
+     {
+      "name": "Herren - MaschinenSchnitt - eine länge | Clipper Cut - one lenght",
+      "price": "30.00",
+      "from_full": "30.00",
+      "dur": [
+       15,
+       15
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Konturen Rasur | Line Cut",
+    "price": "15.00",
+    "full": "15.00",
+    "range": false,
+    "dur": [
+     10,
+     10
+    ],
+    "opts": [
+     {
+      "name": "Herren - Konturen Rasur | Line Cut",
+      "price": "15.00",
+      "from_full": "15.00",
+      "dur": [
+       10,
+       10
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Kopfrasur",
+    "price": "29.00",
+    "full": "29.00",
+    "range": false,
+    "dur": [
+     20,
+     20
+    ],
+    "opts": [
+     {
+      "name": "Herren - Kopfrasur",
+      "price": "29.00",
+      "from_full": "29.00",
+      "dur": [
+       20,
+       20
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "group": "COMBO´S",
+  "items": [
+   {
+    "name": "Herren - Haarschnitt & Bart Styling - Kurz (ohne heißer Kompresse)",
+    "price": "53.00",
+    "full": "53.00",
+    "range": false,
+    "dur": [
+     45,
+     45
+    ],
+    "opts": [
+     {
+      "name": "Herren - Haarschnitt & Bart Styling - Kurz (ohne heißer Kompresse)",
+      "price": "53.00",
+      "from_full": "53.00",
+      "dur": [
+       45,
+       45
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Haarschnitt & Bart Styling - Mittel (ohne heißer Kompresse)",
+    "price": "60.00",
+    "full": "60.00",
+    "range": false,
+    "dur": [
+     50,
+     50
+    ],
+    "opts": [
+     {
+      "name": "Herren - Haarschnitt & Bart Styling - Mittel (ohne heißer Kompresse)",
+      "price": "60.00",
+      "from_full": "60.00",
+      "dur": [
+       50,
+       50
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Haarschnitt & Bart Styling - Lang (ohne heißer Kompresse)",
+    "price": "68.00",
+    "full": "68.00",
+    "range": false,
+    "dur": [
+     60,
+     60
+    ],
+    "opts": [
+     {
+      "name": "Herren - Haarschnitt & Bart Styling - Lang (ohne heißer Kompresse)",
+      "price": "68.00",
+      "from_full": "68.00",
+      "dur": [
+       60,
+       60
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Premium Haarschnitt & Bartschnitt mit Hot Towel",
+    "price": "64.00",
+    "full": "64.00",
+    "range": false,
+    "dur": [
+     60,
+     60
+    ],
+    "opts": [
+     {
+      "name": "Herren - Premium Haarschnitt & Bartschnitt mit Hot Towel",
+      "price": "64.00",
+      "from_full": "64.00",
+      "dur": [
+       60,
+       60
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Haarschnitt & Hot Towel | Ear + Nose Waxing",
+    "price": "78.00",
+    "full": "78.00",
+    "range": false,
+    "dur": [
+     70,
+     70
+    ],
+    "opts": [
+     {
+      "name": "Herren - Haarschnitt & Hot Towel | Ear + Nose Waxing",
+      "price": "78.00",
+      "from_full": "78.00",
+      "dur": [
+       70,
+       70
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "group": "BEARD",
+  "items": [
+   {
+    "name": "Herren - Bartschnitt mit Hot Towel",
+    "price": "32.00",
+    "full": "32.00",
+    "range": false,
+    "dur": [
+     30,
+     30
+    ],
+    "opts": [
+     {
+      "name": "Herren - Bartschnitt mit Hot Towel",
+      "price": "32.00",
+      "from_full": "32.00",
+      "dur": [
+       30,
+       30
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Beard Styling",
+    "price": "23.00",
+    "full": "23.00",
+    "range": false,
+    "dur": [
+     20,
+     20
+    ],
+    "opts": [
+     {
+      "name": "Herren - Beard Styling",
+      "price": "23.00",
+      "from_full": "23.00",
+      "dur": [
+       20,
+       20
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Bart trimmen | ohne Rasur",
+    "price": "18.00",
+    "full": "18.00",
+    "range": false,
+    "dur": [
+     15,
+     15
+    ],
+    "opts": [
+     {
+      "name": "Herren - Bart trimmen | ohne Rasur",
+      "price": "18.00",
+      "from_full": "18.00",
+      "dur": [
+       15,
+       15
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Kinder - Haarschnitt (bis 12 Jahre)",
+    "price": "32.00",
+    "full": "32.00",
+    "range": false,
+    "dur": [
+     30,
+     30
+    ],
+    "opts": [
+     {
+      "name": "Kinder - Haarschnitt (bis 12 Jahre)",
+      "price": "32.00",
+      "from_full": "32.00",
+      "dur": [
+       30,
+       30
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "group": "GREY COVER",
+  "items": [
+   {
+    "name": "Herren - Grauhaarkaschierung",
+    "price": "30.00",
+    "full": "30.00",
+    "range": false,
+    "dur": [
+     20,
+     20
+    ],
+    "opts": [
+     {
+      "name": "Herren - Grauhaarkaschierung",
+      "price": "30.00",
+      "from_full": "30.00",
+      "dur": [
+       20,
+       20
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "group": "WAXING",
+  "items": [
+   {
+    "name": "Herren Waxing - Nase",
+    "price": "8.00",
+    "full": "8.00",
+    "range": false,
+    "dur": [
+     10,
+     10
+    ],
+    "opts": [
+     {
+      "name": "Herren Waxing - Nase",
+      "price": "8.00",
+      "from_full": "8.00",
+      "dur": [
+       10,
+       10
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren Waxing - Ohren",
+    "price": "8.00",
+    "full": "8.00",
+    "range": false,
+    "dur": [
+     10,
+     10
+    ],
+    "opts": [
+     {
+      "name": "Herren Waxing - Ohren",
+      "price": "8.00",
+      "from_full": "8.00",
+      "dur": [
+       10,
+       10
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren Waxing - Nase & Ohren",
+    "price": "15.00",
+    "full": "15.00",
+    "range": false,
+    "dur": [
+     10,
+     10
+    ],
+    "opts": [
+     {
+      "name": "Herren Waxing - Nase & Ohren",
+      "price": "15.00",
+      "from_full": "15.00",
+      "dur": [
+       10,
+       10
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "group": "PERM CURL | DAUERWELLE",
+  "items": [
+   {
+    "name": "Herren - Dauerwelle | Oberkopf (Kurz-Mittel)",
+    "price": "110.00",
+    "full": "110.00",
+    "range": false,
+    "dur": [
+     90,
+     90
+    ],
+    "opts": [
+     {
+      "name": "Herren - Dauerwelle | Oberkopf (Kurz-Mittel)",
+      "price": "110.00",
+      "from_full": "110.00",
+      "dur": [
+       90,
+       90
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Dauerwelle | Ganzer Kopf (Kurz-Mittel)",
+    "price": "130.00",
+    "full": "130.00",
+    "range": false,
+    "dur": [
+     105,
+     105
+    ],
+    "opts": [
+     {
+      "name": "Herren - Dauerwelle | Ganzer Kopf (Kurz-Mittel)",
+      "price": "130.00",
+      "from_full": "130.00",
+      "dur": [
+       105,
+       105
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Dauerwelle | Oberkopf (Mittel-Lang)",
+    "price": "160.00",
+    "full": "160.00",
+    "range": false,
+    "dur": [
+     100,
+     100
+    ],
+    "opts": [
+     {
+      "name": "Herren - Dauerwelle | Oberkopf (Mittel-Lang)",
+      "price": "160.00",
+      "from_full": "160.00",
+      "dur": [
+       100,
+       100
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Herren - Dauerwelle | Ganzer Kopf (Mittel-Lang)",
+    "price": "190.00",
+    "full": "190.00",
+    "range": false,
+    "dur": [
+     105,
+     105
+    ],
+    "opts": [
+     {
+      "name": "Herren - Dauerwelle | Ganzer Kopf (Mittel-Lang)",
+      "price": "190.00",
+      "from_full": "190.00",
+      "dur": [
+       105,
+       105
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "group": "EXTRAS",
+  "items": [
+   {
+    "name": "Augenbrauen Styling",
+    "price": "10.00",
+    "full": "10.00",
+    "range": false,
+    "dur": [
+     10,
+     10
+    ],
+    "opts": [
+     {
+      "name": "Augenbrauen Styling",
+      "price": "10.00",
+      "from_full": "10.00",
+      "dur": [
+       10,
+       10
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Augenbrauen färben",
+    "price": "10.00",
+    "full": "10.00",
+    "range": false,
+    "dur": [
+     10,
+     10
+    ],
+    "opts": [
+     {
+      "name": "Augenbrauen färben",
+      "price": "10.00",
+      "from_full": "10.00",
+      "dur": [
+       10,
+       10
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Wimpern färben",
+    "price": "10.00",
+    "full": "10.00",
+    "range": false,
+    "dur": [
+     10,
+     10
+    ],
+    "opts": [
+     {
+      "name": "Wimpern färben",
+      "price": "10.00",
+      "from_full": "10.00",
+      "dur": [
+       10,
+       10
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Kopfmassage mit Haartonic",
+    "price": "10.00-20.00",
+    "full": "10.00",
+    "range": true,
+    "dur": [
+     5,
+     15
+    ],
+    "opts": [
+     {
+      "name": "5 Minuten",
+      "price": "10.00",
+      "from_full": "10.00",
+      "dur": [
+       5,
+       5
+      ]
+     },
+     {
+      "name": "10 Minuten",
+      "price": "15.00",
+      "from_full": "15.00",
+      "dur": [
+       10,
+       10
+      ]
+     },
+     {
+      "name": "15 Minuten",
+      "price": "20.00",
+      "from_full": "20.00",
+      "dur": [
+       15,
+       15
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "group": "Herren - Haarschnitte & Stylings",
+  "items": [
+   {
+    "name": "Herren - Haarschnitt (Mittel Lang)",
+    "price": "43.00",
+    "full": "43.00",
+    "range": false,
+    "dur": [
+     30,
+     30
+    ],
+    "opts": [
+     {
+      "name": "Herren - Haarschnitt (Mittel Lang)",
+      "price": "43.00",
+      "from_full": "43.00",
+      "dur": [
+       30,
+       30
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]
