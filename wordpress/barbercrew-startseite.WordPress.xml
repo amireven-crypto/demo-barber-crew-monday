@@ -829,7 +829,7 @@
 <p class="bc-big">Taborstrasse 20/G3<br>1020 Wien</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p><a href="https://www.google.com/maps/search/?api=1&query=Taborstra%C3%9Fe+20%2C+1020+Wien" target="_blank" rel="noreferrer noopener">Auf Google Maps öffnen</a></p>
+<p><a href="https://www.google.com/maps/search/?api=1&query=Taborstra%C3%9Fe+20%2C+1020+Wien" target="_blank" rel="noreferrer noopener">Auf Google Maps öffnen</a><span class="bc-maps-sep" aria-hidden="true"> · </span><a href="https://maps.apple.com/?q=Taborstra%C3%9Fe+20%2C+1020+Wien&address=Taborstra%C3%9Fe+20%2C+1020+Wien" target="_blank" rel="noreferrer noopener">Auf Apple Maps öffnen</a></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
