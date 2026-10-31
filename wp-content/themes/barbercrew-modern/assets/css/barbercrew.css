@@ -237,3 +237,10 @@ html{scroll-behavior:smooth}
 .bc-header__inner{gap:24px}
 @media (max-width:1360px){ .bc-header__tel .bc-tel__label{display:none} .bc-nav{gap:18px} .bc-nav a{letter-spacing:.1em} }
 @media (max-width:780px){ .bc-hero .bc-eyebrow{letter-spacing:.18em;font-size:.7rem!important} }
+/* mobile readability + tap targets */
+@media (max-width:780px){
+  .bc-eyebrow{font-size:.78rem!important}
+  .bc-hero .bc-eyebrow{font-size:.75rem!important;letter-spacing:.14em}
+  .bc-hero__meta .bc-tel__label,.bc-tel__label{font-size:12px}
+  .bc-contact a:not(.wp-block-button__link):not(.bc-tel),.bc-footer a:not(.bc-tel):not(.wp-block-button__link){display:inline-block;padding:10px 0;min-height:44px;box-sizing:border-box}
+}
