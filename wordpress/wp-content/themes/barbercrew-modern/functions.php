@@ -31,7 +31,7 @@ add_action( 'wp_enqueue_scripts', function () {
 		wp_enqueue_style( 'colibri-parent', get_template_directory_uri() . '/style.css', array(), $ver );
 		return;
 	}
-	wp_enqueue_style( 'bc-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap', array(), null );
+	// Schriften selbst gehostet via @font-face in barbercrew.css (DSGVO: keine Google-Fonts-Anfragen).
 	wp_enqueue_style( 'barbercrew', $dir . '/assets/css/barbercrew.css', array(), $ver );
 	wp_enqueue_script( 'barbercrew', $dir . '/assets/js/barbercrew.js', array(), $ver, true );
 }, 20 );

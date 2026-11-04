@@ -31,7 +31,7 @@
   if (grid) {
     var groups = grid.querySelectorAll('.bc-price-group');
     var tabs = document.createElement('div');
-    tabs.className = 'bc-tabs'; tabs.setAttribute('role', 'tablist');
+    tabs.className = 'bc-tabs'; tabs.setAttribute('role', 'group'); tabs.setAttribute('aria-label', 'Preiskategorien filtern');
     var cats = [{ key: 'all', label: 'Alle' }];
     groups.forEach(function (g) {
       var h = g.querySelector('h3');
@@ -40,10 +40,10 @@
     });
     cats.forEach(function (c, i) {
       var b = document.createElement('button');
-      b.type = 'button'; b.className = 'bc-tab' + (i === 0 ? ' is-active' : ''); b.textContent = c.label;
+      b.type = 'button'; b.className = 'bc-tab' + (i === 0 ? ' is-active' : ''); b.textContent = c.label; b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
       b.addEventListener('click', function () {
-        tabs.querySelectorAll('.bc-tab').forEach(function (t) { t.classList.remove('is-active'); });
-        b.classList.add('is-active');
+        tabs.querySelectorAll('.bc-tab').forEach(function (t) { t.classList.remove('is-active'); t.setAttribute('aria-pressed', 'false'); });
+        b.classList.add('is-active'); b.setAttribute('aria-pressed', 'true');
         groups.forEach(function (g) { g.classList.toggle('is-hidden', c.key !== 'all' && !g.classList.contains(c.key)); });
       });
       tabs.appendChild(b);

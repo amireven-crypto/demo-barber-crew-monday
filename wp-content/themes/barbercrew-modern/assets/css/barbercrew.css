@@ -244,3 +244,56 @@ html{scroll-behavior:smooth}
   .bc-hero__meta .bc-tel__label,.bc-tel__label{font-size:12px}
   .bc-contact a:not(.wp-block-button__link):not(.bc-tel),.bc-footer a:not(.bc-tel):not(.wp-block-button__link){display:inline-block;padding:10px 0;min-height:44px;box-sizing:border-box}
 }
+
+/* Akzentfarbe Messing/Gold (Nov 2026) – sparsam: Haupt-CTA, Preise, Sterne, Eyebrow-Linie, Nav-Hover. Blau bleibt Markenfarbe. */
+:root{ --bc-brass:#c9a35b; --bc-brass-light:#dcbc7c; --bc-brass-deep:#a07a35; }
+.bc-btn--solid,.bc-landing .is-style-fill .wp-block-button__link{background:var(--bc-brass);border-color:var(--bc-brass);color:var(--bc-ink)}
+.bc-btn--solid:hover,.bc-landing .is-style-fill .wp-block-button__link:hover{background:var(--bc-brass-light);border-color:var(--bc-brass-light);color:var(--bc-ink)}
+.bc-btn--solid:focus-visible,.bc-landing .wp-block-button__link:focus-visible{outline:2px solid var(--bc-brass-light);outline-offset:3px}
+.bc-sticky-book{box-shadow:0 14px 34px -10px rgba(201,163,91,.6)}
+.bc-eyebrow::before{background:var(--bc-brass)}
+.bc-light .bc-eyebrow::before{background:var(--bc-brass-deep)}
+.bc-nav a::after{background:var(--bc-brass)}
+.bc-item__price{color:var(--bc-brass)}
+.bc-review__stars{color:var(--bc-brass)}
+
+/* Ziffern-Schrift: Manrope (SIL OFL 1.1, selbst gehostet, nur Ziffern + € : / + – via unicode-range).
+   Buchstaben in denselben Elementen bleiben in Open Sans / Playfair. */
+@font-face{font-family:"BC Num";src:url("../fonts/manrope-num.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap;unicode-range:U+0020,U+002B,U+002F,U+0030-0039,U+003A,U+2013,U+20AC}
+:root{--bc-num:"BC Num"}
+.bc-item__price,.bc-stat__num,.bc-big{font-family:var(--bc-num),var(--bc-serif)!important;font-variant-numeric:lining-nums tabular-nums}
+.bc-item__price{font-weight:600;letter-spacing:-.01em}
+.bc-stat__num{font-weight:700;letter-spacing:-.02em}
+.bc-tel,.bc-tel__num,.bc-item__dur,.bc-hero__meta,.bc-hours,.bc-footer__tel,.bc-btn-tel .wp-block-button__link{font-family:var(--bc-num),var(--bc-sans);font-variant-numeric:lining-nums tabular-nums}
+.bc-contact-tel .bc-tel{font-family:var(--bc-num),var(--bc-serif)}
+
+/* ===== Audit-Fixes Nov 2026: WCAG 2.2 AA, Performance, DSGVO ===== */
+/* Schriften selbst gehostet (SIL OFL 1.1) – keine Anfragen an Google Fonts */
+@font-face{font-family:"Open Sans";src:url("../fonts/opensans-latin.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Playfair Display";src:url("../fonts/playfair-latin.woff2") format("woff2");font-weight:600 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Playfair Display";src:url("../fonts/playfair-italic-latin.woff2") format("woff2");font-weight:600 700;font-style:italic;font-display:swap}
+/* Hintergrundbilder als WebP */
+.bc-hero{background:
+  linear-gradient(180deg,rgba(15,20,22,.35) 0%,rgba(15,20,22,.15) 40%,rgba(15,20,22,.92) 100%),
+  linear-gradient(90deg,rgba(15,20,22,.85) 0%,rgba(15,20,22,0) 65%),
+  url("../img/hero.webp") center 30%/cover no-repeat}
+@media (max-width:780px){.bc-hero{background:
+  linear-gradient(180deg,rgba(15,20,22,.35) 0%,rgba(15,20,22,.15) 40%,rgba(15,20,22,.92) 100%),
+  linear-gradient(90deg,rgba(15,20,22,.85) 0%,rgba(15,20,22,0) 65%),
+  url("../img/hero-900.webp") center 30%/cover no-repeat}}
+.bc-cta{background:linear-gradient(rgba(15,20,22,.82),rgba(15,20,22,.82)),url("../img/wohlfuehl.webp") center/cover fixed}
+@media (max-width:780px),(prefers-reduced-motion:reduce){.bc-cta{background-attachment:scroll}}
+/* Kontrast: Gold-Buttons immer mit dunkler Schrift (vorher überschrieb .bc-landing a die Farbe) */
+.bc-landing .bc-btn--solid,.bc-landing .bc-btn--solid:hover{color:var(--bc-ink)}
+/* Kontrast: Zahlen-Band in tieferem Markenblau (Weiß 5,6:1 statt 2,6:1) */
+.bc-band{background:var(--bc-sky-deep)}
+.bc-stat__label{opacity:1}
+/* Kontrast: kursive Akzentwörter auf hellem Grund */
+.bc-light .bc-h2 em,.bc-reviews .bc-h2 em{color:var(--bc-sky-deep)}
+/* Fokus deutlich sichtbar */
+.bc-landing a:focus-visible,.bc-landing button:focus-visible{outline:2px solid var(--bc-brass-light);outline-offset:3px}
+.bc-light a:focus-visible,.bc-reviews a:focus-visible{outline-color:var(--bc-sky-deep)}
+/* Tippziele mind. 24×24 px (WCAG 2.5.8) */
+.bc-footer nav a{display:inline-block;padding:6px 0;min-height:24px}
+/* Kontrast: kleine Labels auf hellem Grund in dunklerem Blau (5,3:1) */
+.bc-light .bc-eyebrow,.bc-reviews .bc-eyebrow{color:#025f8a}
