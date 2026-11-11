@@ -1,7 +1,7 @@
 # The Barber Crew – Modern Redesign (Demo)
 
 Demo eines modernen Redesigns für **The Barber Crew**, Taborstraße 20/G3, 1020 Wien (aktuelle Seite: https://barber-crew.at/).
-Gleiche Markenfarben, Inhalte und Übergänge (fadeIn / slideInDown) wie das Original – nur moderner.
+**Version 2 (Nov 2026): IKEA-Stil** – flach, minimal, kräftige Noto-Sans-Typo, Farbflächen, Preisschilder. Markenfarben wie das Original; der Messing/Gold-Akzent wurde zu Orange (#FF6A13). Animationen: Open Design [motion-anything](https://github.com/nexu-io/motion-anything) (scroll-reveal, fade-in-up, count-up), lokal eingebunden. Vorherige Version: Tag `pre-ikea`.
 
 ## Aufbau des Repos
 | Pfad | Inhalt |

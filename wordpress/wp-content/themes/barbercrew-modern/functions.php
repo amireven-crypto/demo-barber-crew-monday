@@ -32,8 +32,13 @@ add_action( 'wp_enqueue_scripts', function () {
 		return;
 	}
 	// Schriften selbst gehostet via @font-face in barbercrew.css (DSGVO: keine Google-Fonts-Anfragen).
-	wp_enqueue_style( 'barbercrew', $dir . '/assets/css/barbercrew.css', array(), $ver );
+	wp_enqueue_style( 'barbercrew', $dir . '/assets/css/barbercrew.css', array( 'ma-scroll-reveal', 'ma-fade-in-up', 'ma-count-up' ), $ver );
 	wp_enqueue_script( 'barbercrew', $dir . '/assets/js/barbercrew.js', array(), $ver, true );
+	// Animationen: Open Design motion-anything (Apache-2.0), lokal eingebunden – läuft nach barbercrew.js.
+	foreach ( array( 'scroll-reveal', 'fade-in-up', 'count-up' ) as $r ) {
+		wp_enqueue_style( 'ma-' . $r, $dir . '/assets/vendor/motion-anything/' . $r . '.css', array(), $ver );
+		wp_enqueue_script( 'ma-' . $r, $dir . '/assets/vendor/motion-anything/' . $r . '.js', array( 'barbercrew' ), $ver, true );
+	}
 }, 20 );
 
 /** Auf der Landing-Seite die Parent-Styles/Skripte von Colibri entfernen (eigenes Layout). */

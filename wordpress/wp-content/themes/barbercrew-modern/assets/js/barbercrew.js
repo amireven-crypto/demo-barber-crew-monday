@@ -1,6 +1,31 @@
-/* The Barber Crew – Modern: Header, Menü, Preis-Tabs, Scroll-Reveal */
+/* The Barber Crew – Modern: Header, Menü, Preis-Tabs.
+   Animationen laufen über Open Design motion-anything (vendor/motion-anything):
+   scroll-reveal (data-reveal), fade-in-up (data-fade), count-up (data-count).
+   Dieses Skript läuft VOR den Recipes und übersetzt die alten reveal-*-Klassen
+   (auch im WordPress-Inhalt) in deren data-Attribute. */
 (function () {
   document.documentElement.classList.add('js');
+
+  // --- Mapping auf motion-anything-Recipes ---
+  var STEP = 60, MAX = 240; // Stagger 60ms, gedeckelt (MOTION-SPEC: Sequenz innerhalb "slow")
+  document.querySelectorAll('[class*="reveal-"]').forEach(function (el) {
+    if (el.closest('.bc-hero')) el.setAttribute('data-fade', '');
+    else if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', '');
+  });
+  var heroFade = document.querySelectorAll('.bc-hero [data-fade]');
+  heroFade.forEach(function (el, i) { el.setAttribute('data-fade-delay', String(Math.min(i * STEP, MAX))); });
+  document.querySelectorAll('.bc-stagger').forEach(function (p) {
+    var kids = p.querySelectorAll(':scope > [data-reveal], :scope > .wp-block-group__inner-container > [data-reveal]');
+    Array.prototype.forEach.call(kids, function (c, i) { c.setAttribute('data-reveal-delay', String(Math.min(i * STEP, MAX))); });
+  });
+  // count-up nur für die eine Kennzahl "120+" (restraint: eine Zahl pro Ansicht)
+  document.querySelectorAll('.bc-stat__num').forEach(function (el) {
+    var m = el.textContent.trim().match(/^(\d+)\+$/);
+    if (m && !el.hasAttribute('data-count')) {
+      el.setAttribute('data-count', m[1]); el.setAttribute('data-count-suffix', '+'); el.setAttribute('data-count-duration', '700');
+    }
+  });
+
   var header = document.querySelector('.bc-header');
   var sticky = document.querySelector('.bc-sticky-book');
   var hero = document.querySelector('.bc-hero');
@@ -44,23 +69,15 @@
       b.addEventListener('click', function () {
         tabs.querySelectorAll('.bc-tab').forEach(function (t) { t.classList.remove('is-active'); t.setAttribute('aria-pressed', 'false'); });
         b.classList.add('is-active'); b.setAttribute('aria-pressed', 'true');
-        groups.forEach(function (g) { g.classList.toggle('is-hidden', c.key !== 'all' && !g.classList.contains(c.key)); });
+        groups.forEach(function (g) {
+          var hide = c.key !== 'all' && !g.classList.contains(c.key);
+          g.classList.toggle('is-hidden', hide);
+          if (!hide) g.classList.add('is-in'); // gefilterte Gruppen sofort sichtbar
+        });
       });
       tabs.appendChild(b);
     });
     grid.parentNode.insertBefore(tabs, grid);
-    // Auf dem Handy startet die Liste mit der ersten Kategorie (kürzer zum Scrollen)
     if (window.matchMedia('(max-width: 780px)').matches && tabs.children[1]) tabs.children[1].click();
   }
-
-  // Scroll-Reveal (fadeIn / slideInDown wie im Original)
-  var els = document.querySelectorAll('[class*="reveal-"]');
-  document.querySelectorAll('.bc-stagger').forEach(function (p) {
-    Array.prototype.forEach.call(p.children, function (c, i) { c.style.setProperty('--d', (i * 0.12) + 's'); });
-  });
-  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-  els.forEach(function (e) { io.observe(e); });
 })();
