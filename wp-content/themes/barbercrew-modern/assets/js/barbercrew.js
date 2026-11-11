@@ -1,6 +1,6 @@
 /* The Barber Crew – Modern: Header, Menü, Preis-Tabs.
    Animationen laufen über Open Design motion-anything (vendor/motion-anything):
-   scroll-reveal (data-reveal), fade-in-up (data-fade), count-up (data-count).
+   scroll-reveal (data-reveal), fade-in-up (data-fade), count-up (data-count), card-lift-hover (.lift-card).
    Dieses Skript läuft VOR den Recipes und übersetzt die alten reveal-*-Klassen
    (auch im WordPress-Inhalt) in deren data-Attribute. */
 (function () {
@@ -25,6 +25,9 @@
       el.setAttribute('data-count', m[1]); el.setAttribute('data-count-suffix', '+'); el.setAttribute('data-count-duration', '700');
     }
   });
+
+  // card-lift-hover (motion-anything) auf Karten
+  document.querySelectorAll('.bc-stat, .bc-gallery figure, .bc-review, .bc-contact__grid > .wp-block-group__inner-container > *').forEach(function (el) { el.classList.add('lift-card'); });
 
   var header = document.querySelector('.bc-header');
   var sticky = document.querySelector('.bc-sticky-book');

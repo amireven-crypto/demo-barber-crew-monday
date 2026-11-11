@@ -5,7 +5,8 @@ Unmodified copies of Open Design / OpenMotion **motion-anything** recipes
 
 - `recipes/web/scroll-reveal` – section and card reveals on scroll
 - `recipes/web/fade-in-up`   – hero entrance on load
-- `recipes/web/count-up`     – the "120+" stat in the blue band
+- `recipes/web/count-up`     – the "120+" stat
+- `recipes/web/card-lift-hover` – hover lift on stat, gallery, review and contact cards
 
 Hosted locally (no CDN, no third-party requests). Speed is tuned in
 `../../css/barbercrew.css` to the library's MOTION-SPEC bands (fast/base) and its ease-out
