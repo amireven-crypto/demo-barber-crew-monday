@@ -265,9 +265,10 @@ html:not(.js) [data-reveal],html:not(.js) [data-fade]{opacity:1;transform:none}
 .bc-lang__flag,.bc-lang__trigger{display:inline-flex;align-items:center;justify-content:center;gap:4px;min-width:44px;height:40px;border:0;border-radius:999px;background:transparent;color:var(--bc-white);cursor:pointer;padding:0 8px;font:800 .7rem/1 var(--bc-sans);transition:background-color var(--ma-fast) var(--ma-out)}
 .bc-lang__flag:hover,.bc-lang__trigger:hover,.bc-lang.is-open .bc-lang__trigger{background:var(--bc-card-hi)}
 .bc-flag{display:block;width:26px;height:auto;border-radius:3px;flex:0 0 auto}
-.bc-lang:not(.is-de) .bc-lang__flag .bc-flag{opacity:.85}
-.bc-lang__code:empty{display:none}
-.bc-lang__code{color:var(--bc-orange);text-shadow:var(--bc-tglow)}
+.bc-lang__cur{display:inline-flex}
+.bc-lang__label{font-size:.72rem;font-weight:800;letter-spacing:.04em;color:var(--bc-white)}
+.bc-lang__flag[aria-expanded="true"]{background:var(--bc-card-hi)}
+.bc-lang__opt .bc-flag{box-shadow:0 0 0 1px rgba(255,255,255,.18)}
 .bc-lang__trigger{position:relative;width:44px;padding:0}
 .bc-lang__trigger span{position:absolute;left:14px;right:14px;height:2px;border-radius:2px;background:var(--bc-white)}
 .bc-lang__trigger span:first-child{top:16px}.bc-lang__trigger span:last-child{top:22px}

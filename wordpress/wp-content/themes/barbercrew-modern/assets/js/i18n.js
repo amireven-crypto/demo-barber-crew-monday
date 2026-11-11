@@ -197,9 +197,18 @@
 
   // ---------- geteilte Flagge Deutschland / Österreich (Diagonale) ----------
   var FLAG_N = 0;
-  function flag() {
-    var id = 'bcflag' + (++FLAG_N);
-    return '<svg class="bc-flag" viewBox="0 0 30 20" width="30" height="20" aria-hidden="true" focusable="false">' +
+  function flag(code) {
+    var id = 'bcflag' + (++FLAG_N), o = '<svg class="bc-flag" width="30" height="20" aria-hidden="true" focusable="false" ';
+    if (code === 'ru') return o + 'viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#FFFFFF"/><rect y="6.67" width="30" height="6.67" fill="#0039A6"/><rect y="13.33" width="30" height="6.67" fill="#D52B1E"/></svg>';
+    if (code === 'he') return o + 'viewBox="0 0 30 20"><rect width="30" height="20" fill="#FFFFFF"/><rect y="1.9" width="30" height="3.1" fill="#0038B8"/><rect y="15" width="30" height="3.1" fill="#0038B8"/>' +
+      '<g fill="none" stroke="#0038B8" stroke-width=".75"><path d="M15 5.9L18.55 12.05H11.45Z"/><path d="M15 14.1L11.45 7.95H18.55Z"/></g></svg>';
+    if (code === 'en') return o + 'viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice">' +
+      '<defs><clipPath id="' + id + 't"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath></defs>' +
+      '<rect width="60" height="30" fill="#012169"/><path d="M0 0L60 30M60 0L0 30" stroke="#FFFFFF" stroke-width="6"/>' +
+      '<path d="M0 0L60 30M60 0L0 30" clip-path="url(#' + id + 't)" stroke="#C8102E" stroke-width="4"/>' +
+      '<path d="M30 0v30M0 15h60" stroke="#FFFFFF" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></svg>';
+    // Deutsch: geteilte Flagge Deutschland / Österreich (Diagonale)
+    return o + 'viewBox="0 0 30 20">' +
       '<defs><clipPath id="' + id + 'a"><path d="M0 0H30L0 20Z"/></clipPath><clipPath id="' + id + 'b"><path d="M30 0V20H0Z"/></clipPath></defs>' +
       '<g clip-path="url(#' + id + 'a)"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#DD0000"/><rect y="13.33" width="30" height="6.67" fill="#FFCE00"/></g>' +
       '<g clip-path="url(#' + id + 'b)"><rect width="30" height="20" fill="#C8102E"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></g>' +
@@ -212,12 +221,12 @@
     var self = this, pid = 'bc-lang-panel-' + (++uid);
     var wrap = document.createElement('div'); wrap.className = 'bc-lang bc-lang--' + where;
     wrap.innerHTML =
-      '<button type="button" class="bc-lang__flag">' + flag() + '<span class="bc-lang__code" aria-hidden="true"></span></button>' +
+      '<button type="button" class="bc-lang__flag" aria-expanded="false" aria-controls="' + pid + '"><span class="bc-lang__cur"></span><span class="bc-lang__label" aria-hidden="true"></span></button>' +
       '<button type="button" class="bc-lang__trigger" aria-expanded="false" aria-controls="' + pid + '"><span></span><span></span></button>' +
       '<div class="bc-lang__panel" id="' + pid + '" hidden>' +
         '<ul class="bc-lang__list" data-stagger>' +
-          '<li><button type="button" class="bc-lang__opt bc-lang__opt--default" data-lang="de">' + flag() + '<span class="bc-lang__name" lang="de">Deutsch</span><span class="bc-lang__tag"></span></button></li>' +
-          LANGS.map(function (l) { return '<li><button type="button" class="bc-lang__opt" data-lang="' + l + '"><span class="bc-lang__badge" aria-hidden="true">' + l.toUpperCase() + '</span><span class="bc-lang__name" lang="' + l + '" dir="' + (l === 'he' ? 'rtl' : 'ltr') + '">' + NAMES[l] + '</span><span class="bc-lang__check" aria-hidden="true"></span></button></li>'; }).join('') +
+          '<li><button type="button" class="bc-lang__opt bc-lang__opt--default" data-lang="de">' + flag('de') + '<span class="bc-lang__name" lang="de">Deutsch</span><span class="bc-lang__tag"></span></button></li>' +
+          LANGS.map(function (l) { return '<li><button type="button" class="bc-lang__opt" data-lang="' + l + '">' + flag(l) + '<span class="bc-lang__name" lang="' + l + '" dir="' + (l === 'he' ? 'rtl' : 'ltr') + '">' + NAMES[l] + '</span><span class="bc-lang__check" aria-hidden="true"></span></button></li>'; }).join('') +
         '</ul></div>';
     anchor.parentNode.insertBefore(wrap, anchor.nextSibling);
     var fbtn = wrap.querySelector('.bc-lang__flag'), trig = wrap.querySelector('.bc-lang__trigger'), panel = wrap.querySelector('.bc-lang__panel'), list = panel.querySelector('ul');
@@ -234,18 +243,18 @@
     }
     function open() {
       switchers.forEach(function (s) { if (s !== self) s.close(); });
-      panel.hidden = false; place(); trig.setAttribute('aria-expanded', 'true'); wrap.classList.add('is-open');
+      panel.hidden = false; place(); trig.setAttribute('aria-expanded', 'true'); fbtn.setAttribute('aria-expanded', 'true'); wrap.classList.add('is-open');
       list.classList.remove('is-in'); void list.offsetWidth;
       requestAnimationFrame(function () { list.classList.add('is-in'); });
       var cur = panel.querySelector('[aria-current="true"]') || opts[0]; cur.focus();
     }
     this.close = function (focusBack) {
       if (panel.hidden) return;
-      panel.hidden = true; trig.setAttribute('aria-expanded', 'false'); wrap.classList.remove('is-open'); list.classList.remove('is-in');
+      panel.hidden = true; trig.setAttribute('aria-expanded', 'false'); fbtn.setAttribute('aria-expanded', 'false'); wrap.classList.remove('is-open'); list.classList.remove('is-in');
       if (focusBack) trig.focus();
     };
     trig.addEventListener('click', function () { panel.hidden ? open() : self.close(); });
-    fbtn.addEventListener('click', function () { self.close(); if (current !== 'de') apply('de'); });
+    fbtn.addEventListener('click', function () { panel.hidden ? open() : self.close(); }); // Anzeige der aktuellen Sprache öffnet ebenfalls das Panel
     opts.forEach(function (o) { o.addEventListener('click', function () { var l = o.getAttribute('data-lang'); self.close(true); if (l !== current) apply(l); }); });
     panel.addEventListener('keydown', function (e) {
       var a = Array.prototype.indexOf.call(opts, document.activeElement);
@@ -257,12 +266,14 @@
     document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) self.close(); });
     window.addEventListener('resize', function () { if (!panel.hidden) place(); });
     window.addEventListener('scroll', function () { if (!panel.hidden) place(); }, { passive: true });
+    var shown = null;
     this.update = function () {
       var isDe = current === 'de';
       wrap.classList.toggle('is-de', isDe);
-      fbtn.setAttribute('aria-label', isDe ? 'Deutsch – Standardsprache' : ui('Zurück zu Deutsch'));
-      fbtn.setAttribute('aria-pressed', isDe ? 'true' : 'false');
-      fbtn.querySelector('.bc-lang__code').textContent = isDe ? '' : current.toUpperCase();
+      if (shown !== current) { fbtn.querySelector('.bc-lang__cur').innerHTML = flag(current); shown = current; }
+      fbtn.querySelector('.bc-lang__label').textContent = current.toUpperCase();
+      fbtn.setAttribute('aria-label', ui('Sprache wählen') + ': ' + NAMES[current]);
+      fbtn.setAttribute('data-current', current);
       trig.setAttribute('aria-label', ui('Sprache wählen') + (isDe ? '' : ' (' + NAMES[current] + ')'));
       panel.querySelector('.bc-lang__tag').textContent = ui('Standardsprache');
       opts.forEach(function (o) { var on = o.getAttribute('data-lang') === current; o.setAttribute('aria-current', on ? 'true' : 'false'); });
