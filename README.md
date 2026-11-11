@@ -1,7 +1,7 @@
 # The Barber Crew – Modern Redesign (Demo)
 
 Demo eines modernen Redesigns für **The Barber Crew**, Taborstraße 20/G3, 1020 Wien (aktuelle Seite: https://barber-crew.at/).
-**Version 3 (Nov 2026): Spotify-Stil** – dunkles Theme (#121212/#181818/#000), kräftige Figtree-Typo (lokal), Karten mit Hover-Lift, Pill-Buttons, Verlauf Blau→Schwarz, Neon-Orange-Akzent (#FF6A13) mit weichem Glow. Palette: Blau #03A9F4/#026E9F, Schwarz, Weiß, Orange. Animationen: Open Design [motion-anything](https://github.com/nexu-io/motion-anything) (scroll-reveal, fade-in-up, count-up, card-lift-hover), lokal eingebunden. Ursprüngliche Version: Tag `pre-ikea`.
+**Version 3 (Nov 2026): Spotify-Stil** – dunkles Theme (#121212/#181818/#000), kräftige Figtree-Typo (lokal), Karten mit Hover-Lift, Pill-Buttons, Verlauf Blau→Schwarz, Neon-Orange-Akzent (#FF6A13) mit weichem Glow. Palette: Blau #03A9F4/#026E9F, Schwarz, Weiß, Orange. Animationen: Open Design [motion-anything](https://github.com/nexu-io/motion-anything) (scroll-reveal, fade-in-up, count-up, card-lift-hover), lokal eingebunden. Sprachumschalter: Deutsch ist fester Standard (geteilte Flagge AT/DE), umschaltbar auf Русский / עברית (RTL) / English; Wahl nur lokal im Browser gespeichert. Ursprüngliche Version: Tag `pre-ikea`.
 
 ## Aufbau des Repos
 | Pfad | Inhalt |

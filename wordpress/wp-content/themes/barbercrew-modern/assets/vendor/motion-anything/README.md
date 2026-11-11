@@ -6,6 +6,7 @@ Unmodified copies of Open Design / OpenMotion **motion-anything** recipes
 - `recipes/web/scroll-reveal` – section and card reveals on scroll
 - `recipes/web/fade-in-up`   – hero entrance on load
 - `recipes/web/count-up`     – the "120+" stat
+- `recipes/web/stagger-list` (CSS) – options of the language panel stagger in when it opens
 - `recipes/web/card-lift-hover` – hover lift on stat, gallery, review and contact cards
 
 Hosted locally (no CDN, no third-party requests). Speed is tuned in

@@ -32,7 +32,7 @@ add_action( 'wp_enqueue_scripts', function () {
 		return;
 	}
 	// Schriften selbst gehostet via @font-face in barbercrew.css (DSGVO: keine Google-Fonts-Anfragen).
-	wp_enqueue_style( 'barbercrew', $dir . '/assets/css/barbercrew.css', array( 'ma-scroll-reveal', 'ma-fade-in-up', 'ma-count-up', 'ma-card-lift-hover' ), $ver );
+	wp_enqueue_style( 'barbercrew', $dir . '/assets/css/barbercrew.css', array( 'ma-scroll-reveal', 'ma-fade-in-up', 'ma-count-up', 'ma-card-lift-hover', 'ma-stagger-list' ), $ver );
 	wp_enqueue_script( 'barbercrew', $dir . '/assets/js/barbercrew.js', array(), $ver, true );
 	// Animationen: Open Design motion-anything (Apache-2.0), lokal eingebunden – läuft nach barbercrew.js.
 	foreach ( array( 'scroll-reveal', 'fade-in-up', 'count-up' ) as $r ) {
@@ -40,6 +40,9 @@ add_action( 'wp_enqueue_scripts', function () {
 		wp_enqueue_script( 'ma-' . $r, $dir . '/assets/vendor/motion-anything/' . $r . '.js', array( 'barbercrew' ), $ver, true );
 	}
 	wp_enqueue_style( 'ma-card-lift-hover', $dir . '/assets/vendor/motion-anything/card-lift-hover.css', array(), $ver );
+	wp_enqueue_style( 'ma-stagger-list', $dir . '/assets/vendor/motion-anything/stagger-list.css', array(), $ver );
+	// Sprachumschalter (Deutsch Standard; RU / HE / EN) – läuft nach den Recipes
+	wp_enqueue_script( 'barbercrew-i18n', $dir . '/assets/js/i18n.js', array( 'barbercrew', 'ma-scroll-reveal', 'ma-fade-in-up', 'ma-count-up' ), $ver, true );
 }, 20 );
 
 /** Auf der Landing-Seite die Parent-Styles/Skripte von Colibri entfernen (eigenes Layout). */
