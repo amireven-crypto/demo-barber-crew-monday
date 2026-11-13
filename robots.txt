@@ -1,0 +1,3 @@
+# Demo preview – not an official site. Do not index.
+User-agent: *
+Disallow: /
