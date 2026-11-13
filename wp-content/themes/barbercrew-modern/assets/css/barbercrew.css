@@ -34,8 +34,9 @@ html{scroll-behavior:smooth;scroll-padding-top:84px;background:var(--bc-base)}
 .bc-main .is-layout-flow > *,.bc-main .is-layout-constrained > *{margin-block-start:0}
 .bc-main .wp-block-image{margin:0}
 .bc-main p{margin:0 0 1em}
-.bc-skip{position:absolute;left:1em;top:1em;transform:translateY(-300%);background:var(--bc-white);color:var(--bc-black);padding:.7em 1.2em;z-index:200;font-weight:700;border-radius:999px}
-.bc-skip:focus{transform:none}
+.bc-skip{position:absolute;left:1em;top:1em;transform:translateY(-300%);background:#fff;color:#000;padding:.7em 1.2em;z-index:200;font-weight:700;border-radius:999px}
+.bc-landing a.bc-skip,.bc-landing a.bc-skip:focus,.bc-landing a.bc-skip:focus-visible{color:#000;background:#fff}
+.bc-skip:focus,.bc-skip:focus-visible{transform:none}
 [dir="rtl"] .bc-skip{left:auto;right:1em}
 
 /* ---------- Pill-Buttons ---------- */
