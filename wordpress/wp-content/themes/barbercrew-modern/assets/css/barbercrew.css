@@ -322,3 +322,9 @@ html:not(.js) [data-reveal],html:not(.js) [data-fade]{opacity:1;transform:none}
 .nav-open .bc-burger::before{opacity:0}
 .nav-open .bc-burger span:first-child,.nav-open .bc-burger span:last-child{top:21px}
 [dir="rtl"] .bc-lang__panel{direction:rtl}
+/* QA 2026-11-13: header controls reach the 44px recommended tap size (layout unchanged in every language). */
+.bc-header__logo{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+.bc-burger{width:44px;height:44px;min-width:44px;flex:none}
+.bc-header .bc-tel,.bc-header__tel .bc-tel{min-height:44px;display:inline-flex;align-items:center}
+.bc-lang__flag,.bc-lang__trigger{height:44px;min-height:44px}
+.bc-footer .bc-tel{min-height:44px;display:inline-flex;align-items:center}
