@@ -328,3 +328,43 @@ html:not(.js) [data-reveal],html:not(.js) [data-fade]{opacity:1;transform:none}
 .bc-header .bc-tel,.bc-header__tel .bc-tel{min-height:44px;display:inline-flex;align-items:center}
 .bc-lang__flag,.bc-lang__trigger{height:44px;min-height:44px}
 .bc-footer .bc-tel{min-height:44px;display:inline-flex;align-items:center}
+
+/* ---------- Hell-Modus: folgt der Systemeinstellung (prefers-color-scheme), 13 Nov 2026 ----------
+   Inhaltsflächen werden hell (warmes Papier), Header, Hero, CTA-Band und Footer bleiben dunkel
+   (weißes Logo, Fotos). Orange/Blau als Text werden für AA auf Hell abgedunkelt. */
+@media (prefers-color-scheme: light){
+  :root{
+    --bc-base:#F5F2ED; --bc-card:#FFFFFF; --bc-card-hi:#ECE7E0;
+    --bc-white:#141414; --bc-muted:rgba(20,20,20,.74); --bc-line:rgba(0,0,0,.12);
+    --bc-sky:#036A9C; --bc-orange:#C2410C; --bc-orange-light:#D9531A;
+    --bc-tglow:none; --bc-glow:0 4px 14px rgba(194,65,12,.28); --bc-glow-strong:0 6px 20px rgba(194,65,12,.38);
+  }
+  html{background:var(--bc-base)}
+  /* Dark islands keep the original dark tokens */
+  .bc-header,.bc-hero,.bc-footer,.bc-cta .bc-wrap,.bc-lang__panel,.bc-sticky-book{
+    --bc-base:#121212; --bc-card:#181818; --bc-card-hi:#242424;
+    --bc-white:#ffffff; --bc-muted:rgba(255,255,255,.72); --bc-line:rgba(255,255,255,.12);
+    --bc-sky:#03a9f4; --bc-orange:#ff6a13; --bc-orange-light:#ff8540;
+    --bc-glow:0 0 18px rgba(255,106,19,.45),0 0 2px rgba(255,106,19,.6);
+    --bc-glow-strong:0 0 26px rgba(255,106,19,.6),0 0 3px rgba(255,106,19,.8);
+    --bc-tglow:0 0 12px rgba(255,106,19,.45);
+    color:var(--bc-white);
+  }
+  .bc-hero{background-color:#121212}
+  /* Solid orange buttons on light grounds: brand orange fill, black label (AA) */
+  .bc-landing .bc-btn--solid,.bc-landing .is-style-fill .wp-block-button__link{background:#ff6a13;border-color:#ff6a13;color:#000}
+  .bc-landing .bc-btn--solid:hover,.bc-landing .is-style-fill .wp-block-button__link:hover{background:#ff8540;border-color:#ff8540;color:#000}
+  .bc-btn,.bc-landing .wp-block-button__link{border-color:rgba(0,0,0,.45)}
+  .bc-btn:hover,.bc-landing .wp-block-button__link:hover{border-color:#141414}
+  .bc-hero .bc-btn,.bc-cta .bc-btn,.bc-header .bc-btn,.bc-hero .wp-block-button__link,.bc-cta .wp-block-button__link{border-color:rgba(255,255,255,.55)}
+  .bc-feel .bc-card{background:linear-gradient(165deg,#FFFFFF 40%,#D7ECF7 130%)}
+  .bc-prices{background:linear-gradient(180deg,var(--bc-base) 0%,#EAE5DD 100%)}
+  .bc-portfolio{background:#EAE5DD}
+  .bc-tab:hover{box-shadow:inset 0 0 0 1px rgba(0,0,0,.35)}
+  .bc-tab.is-active{background:#141414;color:#fff}
+  .bc-contact a{text-decoration-color:rgba(0,0,0,.45)}
+  .bc-landing .lift-card:hover{box-shadow:0 14px 30px rgba(0,0,0,.14)}
+  .bc-stat,.bc-card,.bc-price-group,.bc-review,.bc-gallery figure,.bc-contact__grid > *,.bc-contact__grid > .wp-block-group__inner-container > *{box-shadow:0 1px 0 rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06)}
+  .bc-landing a:focus-visible,.bc-landing button:focus-visible{outline-color:#141414}
+  .bc-header a:focus-visible,.bc-header button:focus-visible,.bc-hero a:focus-visible,.bc-footer a:focus-visible,.bc-cta a:focus-visible{outline-color:#fff}
+}
