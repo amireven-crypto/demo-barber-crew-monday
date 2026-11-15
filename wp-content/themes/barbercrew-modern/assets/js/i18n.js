@@ -130,6 +130,20 @@
     ['Impressum', 'Legal notice', 'Импрессум', 'פרטי העסק'],
     ['Datenschutzerklärung', 'Privacy policy', 'Политика конфиденциальности', 'מדיניות פרטיות'],
     ['Schnellbuchung', 'Quick booking', 'Быстрая запись', 'הזמנה מהירה'],
+    // KELDER-Redesign (Nov 2026): neue Kurztexte
+    ['Preise nach Kategorie', 'Prices by category', 'Цены по категориям', 'מחירים לפי קטגוריה'],
+    ['ab', 'from', 'от', 'החל מ־'],
+    ['Dauer', 'Duration', 'Длительность', 'משך'],
+    ['Mo', 'Mo', 'Пн', 'ב׳'], ['Di', 'Tu', 'Вт', 'ג׳'], ['Mi', 'We', 'Ср', 'ד׳'], ['Do', 'Th', 'Чт', 'ה׳'], ['Fr', 'Fr', 'Пт', 'ו׳'], ['Sa', 'Sa', 'Сб', 'ש׳'], ['So', 'Su', 'Вс', 'א׳'],
+    ['Online buchen', 'Book online', 'Онлайн-запись', 'הזמנה אונליין'],
+    ['Service wählen und freien Termin über Treatwell buchen – in wenigen Klicks.', 'Pick a service and book a free slot on Treatwell – in a few clicks.', 'Выберите услугу и свободное время на Treatwell – всего за несколько кликов.', 'בוחרים שירות ותור פנוי ב-Treatwell – בכמה קליקים.'],
+    ['Ankommen', 'Arrive', 'Приходите', 'מגיעים'],
+    ['Wir heißen Sie herzlich willkommen – mit heißem Kaffee oder einem kühlen Getränk Ihrer Wahl.', 'We welcome you warmly – with a hot coffee or a cool drink of your choice.', 'Мы тепло встречаем вас – горячим кофе или прохладным напитком на ваш выбор.', 'מקבלים אותך בחום – עם קפה חם או משקה קר לבחירתך.'],
+    ['Ihr Schnitt', 'Your cut', 'Ваша стрижка', 'התספורת שלך'],
+    ['Haarschnitt, Bart und Rasur – traditionelles Handwerk mit hochwertigen Produkten.', 'Haircut, beard and shave – traditional craft with high-quality products.', 'Стрижка, борода и бритьё – традиционное мастерство и качественные продукты.', 'תספורת, זקן וגילוח – מלאכת יד מסורתית עם מוצרים איכותיים.'],
+    ['Neuer Look', 'New look', 'Новый образ', 'לוק חדש'],
+    ['Entspannt nach Hause – und gern bis zum nächsten Mal.', 'Head home relaxed – see you next time.', 'Уходите отдохнувшим – до новой встречи.', 'יוצאים רגועים – ונתראה בפעם הבאה.'],
+    ['Bis bald', 'See you soon', 'До встречи', 'להתראות'],
     // Sprachumschalter selbst
     ['Sprache wählen', 'Choose language', 'Выбрать язык', 'בחירת שפה'],
     ['Standardsprache', 'Default', 'По умолчанию', 'ברירת מחדל'],
@@ -153,7 +167,7 @@
     if (/\d+ (Std|Min)\./.test(de)) { var d = DUR[lang]; return de.replace(d[0], d[1]).replace(d[2], d[3]); }
     return null;
   }
-  var SKIP = 'script,style,.bc-langs,.bc-lang,.bc-item__price,.bc-stat__num,.bc-tel__num';
+  var SKIP = 'script,style,.bc-langs,.bc-lang,.bc-item__price,.bc-stat__num,.bc-tel__num,.k-num,.k-lines';
   var origText = [], origAttr = [];
   function collect() {
     var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
@@ -192,6 +206,7 @@
     document.title = TITLE[lang];
     try { if (lang === 'de') localStorage.removeItem('bc-lang'); else localStorage.setItem('bc-lang', lang); } catch (e) {}
     switchers.forEach(function (s) { s.update(); });
+    try { document.dispatchEvent(new CustomEvent('bc:lang', { detail: lang })); } catch (e) {}
   }
   function ui(key) { return current === 'de' ? key : MAP[norm(key)][IDX[current]]; }
 
