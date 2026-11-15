@@ -6,7 +6,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Konzept-Redesign von PIXELPOP für The Barber Crew – Barbershop in Wien, Taborstraße 20, 1020 Wien. Haarschnitt, Bart, Rasur. Termin online buchen.">
-<script src="wp-content/themes/barbercrew-modern/assets/js/boot.js?ver=4.1.2.kelder"></script>
+<script src="wp-content/themes/barbercrew-modern/assets/js/boot.js?ver=4.1.3.kelder"></script>
 <title>The Barber Crew &#8211; Barbershop Wien – Taborstraße 20</title>
 <meta name='robots' content="noindex, nofollow" />
 <link rel="canonical" href="https://amireven-crypto.github.io/demo-barber-crew-monday/">
@@ -16,8 +16,8 @@
 <link rel="alternate" hreflang="he" href="https://amireven-crypto.github.io/demo-barber-crew-monday/?lang=he">
 <link rel="alternate" hreflang="x-default" href="https://amireven-crypto.github.io/demo-barber-crew-monday/">
 <link rel="preload" href="wp-content/themes/barbercrew-modern/assets/fonts/figtree-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="wp-content/themes/barbercrew-modern/assets/vendor/motion-anything/stagger-list.css?ver=4.1.2.kelder">
-<link rel="stylesheet" href="wp-content/themes/barbercrew-modern/assets/css/kelder.css?ver=4.1.2.kelder">
+<link rel="stylesheet" href="wp-content/themes/barbercrew-modern/assets/vendor/motion-anything/stagger-list.css?ver=4.1.3.kelder">
+<link rel="stylesheet" href="wp-content/themes/barbercrew-modern/assets/css/kelder.css?ver=4.1.3.kelder">
 <link rel="icon" href="wp-content/themes/barbercrew-modern/assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="wp-content/themes/barbercrew-modern/assets/img/favicon-180.png">
 <meta name="color-scheme" content="light dark">
@@ -40,13 +40,6 @@
 <body class="bc-landing k-body">
 <a class="bc-skip" href="#inhalt">Zum Inhalt springen</a>
 
-<!-- Preloader: Logo baut sich auf, Zähler läuft (KELDER intro) – rein dekorativ -->
-<div class="k-loader" aria-hidden="true">
-  <img class="k-loader__logo" src="wp-content/themes/barbercrew-modern/assets/img/logo-white-280.webp" alt="" width="140" height="73">
-  <p class="k-loader__label">positive Bewertungen</p>
-  <p class="k-loader__num"><span class="k-num" data-odo="120" data-odo-suffix="+" data-odo-loader>120+</span></p>
-</div>
-
 <header class="bc-header k-header" id="top">
   <div class="bc-header__inner">
     <a class="bc-header__logo" href="./" aria-label="The Barber Crew – Startseite">
@@ -60,6 +53,7 @@
       <a href="#kontakt">Kontakt</a>
     </nav>
     <a class="bc-tel bc-header__tel" href="tel:+4319553551" aria-label="Telefon: +43&nbsp;1&nbsp;955&nbsp;35&nbsp;51"><span class="bc-tel__label">Telefon</span> <span class="bc-tel__num">+43&nbsp;1&nbsp;955&nbsp;35&nbsp;51</span></a>
+    <div class="bc-lang bc-lang--header" data-lang-mount="header"></div>
     <a class="k-btn k-btn--ghost bc-header__cta" href="https://buchung.treatwell.at/ort/the-barber-crew/" target="_blank" rel="noopener">Termin buchen</a>
     <button type="button" class="bc-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="bc-nav"><span></span><span></span></button>
   </div>
@@ -78,51 +72,20 @@
       <a class="k-btn k-btn--accent" href="https://buchung.treatwell.at/ort/the-barber-crew/" target="_blank" rel="noreferrer noopener"><span>Termin buchen</span><b class="k-arrow" aria-hidden="true"></b></a>
       <a class="k-btn k-btn--line" href="#preise">Preise ansehen</a>
     </div>
-    <p class="k-hero__note" data-intro>Konzept-Redesign von PIXELPOP – keine offizielle Seite von The Barber Crew</p>
+    <p class="k-hero__note" data-intro><span class="k-hero__note-pill">Konzept-Redesign von PIXELPOP – keine offizielle Seite von The Barber Crew</span></p>
   </div>
 
   <div class="k-dash-wrap">
-    <div class="k-dash" data-intro-card>
-      <div class="k-dash__left">
-        <p class="k-dash__label">positive Bewertungen</p>
-        <p class="k-dash__big"><span class="k-num bc-stat__num" data-odo="120" data-odo-suffix="+">120+</span></p>
-        <p class="k-chip k-chip--glass"><span class="k-chip__ico" aria-hidden="true">↗</span><span>Mo – Fr</span>: <span dir="ltr" class="k-time">9:00 – 18:30 Uhr</span></p>
-        <dl class="k-rows">
-          <div><dt>Sprachen im Team</dt><dd><span class="k-num" data-odo="4">4</span></dd></div>
-          <div><dt>Montag bis Freitag</dt><dd class="bc-stat__num">9–18:30</dd></div>
-          <div><dt>Wien · Taborstraße</dt><dd class="bc-stat__num">1020</dd></div>
-        </dl>
-      </div>
-      <div class="k-dash__right">
-        <div class="k-dash__top">
-          <p class="k-dash__label">Preise nach Kategorie</p>
-          <div class="k-seg" role="group" aria-label="Preiskategorien filtern">
-            <span class="k-seg__ind" aria-hidden="true"></span>
-            <button type="button" class="k-seg__b is-on" data-cat="cat-hair" aria-pressed="true">Haare</button>
-            <button type="button" class="k-seg__b" data-cat="cat-beard" aria-pressed="false">Bart</button>
-            <button type="button" class="k-seg__b" data-cat="cat-combo" aria-pressed="false">Kombis</button>
-          </div>
-        </div>
-        <div class="k-chart" aria-hidden="true">
-          <svg class="k-chart__svg" viewBox="0 0 600 220" preserveAspectRatio="none">
-            <defs><linearGradient id="kArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9cc8ff" stop-opacity=".45"/><stop offset="1" stop-color="#9cc8ff" stop-opacity="0"/></linearGradient></defs>
-            <g class="k-chart__grid"><line x1="0" y1="20" x2="600" y2="20"/><line x1="0" y1="85" x2="600" y2="85"/><line x1="0" y1="150" x2="600" y2="150"/><line x1="0" y1="215" x2="600" y2="215"/></g>
-            <path class="k-chart__area" d=""/>
-            <path class="k-chart__line" d=""/>
-            <line class="k-chart__cursor" x1="0" y1="0" x2="0" y2="220"/>
-          </svg>
-          <span class="k-chart__pt" aria-hidden="true"></span>
-          <span class="k-chart__end" aria-hidden="true"></span>
-          <div class="k-chart__tip"><b></b><span></span></div>
-          <div class="k-chart__axis"><span></span><span></span><span></span><span></span></div>
-          <div class="k-chart__x"></div>
-        </div>
-        <div class="k-dash__legend" aria-hidden="true"><i style="--w:8"></i><i style="--w:3"></i><i style="--w:5"></i></div>
-        <ul class="k-legend">
-          <li><b aria-hidden="true"></b>Haare <span class="bc-stat__num">8</span></li>
-          <li><b aria-hidden="true"></b>Bart <span class="bc-stat__num">3</span></li>
-          <li><b aria-hidden="true"></b>Kombis <span class="bc-stat__num">5</span></li>
-        </ul>
+    <div class="k-dash k-dash--photo" data-intro-card>
+      <figure class="k-dash__photo">
+        <img decoding="async" src="wp-content/themes/barbercrew-modern/assets/img/p4.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p4-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p4.webp 800w" sizes="(max-width: 780px) 92vw, 1100px" width="800" height="800" alt="Haarschnitt beim Barber" fetchpriority="high">
+      </figure>
+      <div class="k-dash__glass">
+        <span class="k-dash__star">★ 4,9</span>
+        <span>120+ Bewertungen</span>
+        <span class="k-hours-range">Mo–Fr, <span dir="ltr" class="k-time">9:00–18:30</span></span>
+        <span>Taborstraße 20</span>
+        <span>ab 15 €</span>
       </div>
     </div>
   </div>
@@ -139,17 +102,16 @@
       </div>
     </div>
     <div class="k-bento">
-      <div class="k-card k-bento__a" data-reveal>
-        <h3 class="k-card__t">Preise nach Kategorie</h3>
-        <p class="k-card__s">Von – bis je Kategorie, vom günstigsten bis zum teuersten Service.</p>
-        <div class="k-floor" aria-hidden="true">
-          <span class="k-floor__tag"><span>ab</span> <span class="bc-stat__num">8 €</span></span>
-          <div class="k-floor__bars" data-floor="15:48,18:32,53:78,110:190,18:45,32:32,8:30"></div>
+      <div class="k-card k-bento__a k-bento__a--photo" data-reveal>
+        <figure class="k-bento__shot" data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p1.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p1-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p1.webp 800w" sizes="(max-width: 780px) 100vw, 420px" width="800" height="800" alt="Bartrasur mit Rasiermesser"></figure>
+        <div class="k-bento__shotcap">
+          <h3 class="k-card__t">Rasur mit Hot Towel</h3>
+          <p class="k-card__s">ab 18 €</p>
         </div>
       </div>
       <div class="k-card k-bento__b" data-reveal>
         <h3 class="k-card__t">Öffnungszeiten</h3>
-        <p class="k-card__s"><span>Mo – Fr</span>: <span dir="ltr" class="k-time">9:00 – 18:30 Uhr</span></p>
+        <p class="k-card__s"><span class="k-hours-range">Mo–Fr, <span dir="ltr" class="k-time">9:00–18:30 Uhr</span></span></p>
         <div class="k-week" aria-hidden="true">
           <ul class="k-week__l"><li>Mo</li><li>Di</li><li>Mi</li><li>Do</li><li>Fr</li><li>Sa</li><li>So</li></ul>
           <ul class="k-days"><li></li><li></li><li></li><li></li><li></li><li class="is-off"></li><li class="is-off"></li></ul>
@@ -158,15 +120,15 @@
       <div class="k-card k-bento__c" data-reveal>
         <h3 class="k-card__t">Leistungen</h3>
         <p class="k-card__s">Preise in Euro inkl. MwSt.</p>
-        <p class="k-big"><span class="k-num" data-odo="35">35</span></p>
-        <p class="k-card__s">Haare, Bart, Kombis, Dauerwelle, Young Barber, Kinder, Extras &amp; Waxing</p>
+        <p class="k-big">35 <span class="k-big__unit">Leistungen</span></p>
+        <p class="k-card__s">in 7 Kategorien: Haare, Bart, Kombis, Dauerwelle, Young Barber, Kinder, Extras &amp; Waxing</p>
       </div>
       <div class="k-card k-card--blue k-bento__d" data-reveal>
         <figure class="k-bento__photo" data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/mission.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/mission-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/mission.webp 800w" sizes="(max-width: 780px) 100vw, 400px" width="800" height="800" alt="Barber mit Scheren und Werkzeug am Gürtel" data-parallax></figure>
-        <p class="k-giant"><span class="k-num bc-stat__num" data-odo="120" data-odo-suffix="+">120+</span></p>
+        <p class="k-giant"><span class="k-num bc-stat__num">120+</span></p>
         <ul class="k-ticks">
           <li><b aria-hidden="true"></b><span><small>Wien · Taborstraße</small>Taborstraße 20/G3, 1020 Wien</span></li>
-          <li><b aria-hidden="true"></b><span><small>Mo – Fr</small><span dir="ltr" class="k-time">9:00 – 18:30 Uhr</span></span></li>
+          <li><b aria-hidden="true"></b><span><small>Mo–Fr</small><span dir="ltr" class="k-time">9:00–18:30 Uhr</span></span></li>
         </ul>
         <h3 class="k-card__t">positive Bewertungen</h3>
         <p class="k-card__s">Ein Auszug aus über <em>120</em> positiven Bewertungen</p>
@@ -194,20 +156,20 @@
     </div>
     <div class="k-instr">
       <article class="k-inst" data-reveal>
-        <div class="k-inst__vis"><canvas class="k-dotsicon" data-icon="scissors" aria-hidden="true"></canvas></div>
-        <div class="k-inst__row k-inst__row--top"><h3>Haare</h3><p class="k-inst__pct"><span class="k-ab">ab</span> <span class="k-num" data-odo="15" data-odo-suffix=" €">15 €</span></p></div>
+        <div class="k-inst__vis"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p4-480.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p4-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p4.webp 800w" sizes="(max-width: 700px) 100vw, 33vw" width="800" height="800" alt="Haarschnitt beim Barber"></div>
+        <div class="k-inst__row k-inst__row--top"><h3>Haare</h3><p class="k-inst__pct"><span class="k-ab">ab</span> <span class="k-num">15 €</span></p></div>
         <p class="k-inst__sub">Schnitt, Rasur &amp; Kopfmassage</p>
         <dl class="k-inst__dl"><div><dt>Leistungen</dt><dd class="bc-stat__num">8</dd></div><div><dt>Dauer</dt><dd dir="ltr">10 – 40 Min.</dd></div></dl>
       </article>
       <article class="k-inst" data-reveal>
-        <div class="k-inst__vis"><canvas class="k-dotsicon" data-icon="razor" aria-hidden="true"></canvas></div>
-        <div class="k-inst__row k-inst__row--top"><h3>Bart</h3><p class="k-inst__pct"><span class="k-ab">ab</span> <span class="k-num" data-odo="18" data-odo-suffix=" €">18 €</span></p></div>
+        <div class="k-inst__vis"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p1-480.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p1-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p1.webp 800w" sizes="(max-width: 700px) 100vw, 33vw" width="800" height="800" alt="Bartrasur mit Rasiermesser"></div>
+        <div class="k-inst__row k-inst__row--top"><h3>Bart</h3><p class="k-inst__pct"><span class="k-ab">ab</span> <span class="k-num">18 €</span></p></div>
         <p class="k-inst__sub">Hot Towel, Styling &amp; Trimmen</p>
         <dl class="k-inst__dl"><div><dt>Leistungen</dt><dd class="bc-stat__num">3</dd></div><div><dt>Dauer</dt><dd dir="ltr">15 – 30 Min.</dd></div></dl>
       </article>
       <article class="k-inst" data-reveal>
-        <div class="k-inst__vis"><canvas class="k-dotsicon" data-icon="comb" aria-hidden="true"></canvas></div>
-        <div class="k-inst__row k-inst__row--top"><h3>Kombis</h3><p class="k-inst__pct"><span class="k-ab">ab</span> <span class="k-num" data-odo="53" data-odo-suffix=" €">53 €</span></p></div>
+        <div class="k-inst__vis"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p6-480.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p6-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p6.webp 800w" sizes="(max-width: 700px) 100vw, 33vw" width="800" height="800" alt="Haarschnitt mit Kamm und Sprühflasche"></div>
+        <div class="k-inst__row k-inst__row--top"><h3>Kombis</h3><p class="k-inst__pct"><span class="k-ab">ab</span> <span class="k-num">53 €</span></p></div>
         <p class="k-inst__sub">Haarschnitt &amp; Bart in einem Termin</p>
         <dl class="k-inst__dl"><div><dt>Leistungen</dt><dd class="bc-stat__num">5</dd></div><div><dt>Dauer</dt><dd dir="ltr">45 Min. – 1 Std. 10 Min.</dd></div></dl>
       </article>
@@ -278,6 +240,14 @@
     </div>
     <p class="bc-price-foot">Preise in Euro inkl. MwSt., laut Treatwell-Buchungsseite (Stand: 31.10.2026). Verbindlich ist der Preis bei der Buchung.</p>
     <div class="k-center" data-reveal><a class="k-btn k-btn--dark" href="https://buchung.treatwell.at/ort/the-barber-crew/" target="_blank" rel="noreferrer noopener"><span>Termin buchen</span><b class="k-arrow" aria-hidden="true"></b></a></div>
+    <div class="bc-gallery k-gallery" id="galerie" tabindex="-1">
+      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p1.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p1-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p1.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Bartrasur mit Rasiermesser"></figure>
+      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p2.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p2-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p2.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Klassischer Barber-Stuhl"></figure>
+      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p3.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p3-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p3.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Vintage-Barbierwerkzeug"></figure>
+      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p4.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p4-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p4.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Haarschnitt beim Barber"></figure>
+      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p5.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p5-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p5.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Aufsätze für Haarschneidemaschinen"></figure>
+      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p6.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p6-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p6.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Haarschnitt mit Kamm und Sprühflasche"></figure>
+    </div>
   </div>
 </section>
 
@@ -285,7 +255,7 @@
 <section class="k-section k-visit">
   <div class="k-wrap">
     <div class="k-panel">
-      <figure class="k-panel__bg" aria-hidden="true"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/wohlfuehl.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/wohlfuehl-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/wohlfuehl.webp 800w" sizes="(max-width: 780px) 100vw, 1200px" width="800" height="800" alt=""></figure>
+      <figure class="k-panel__bg" aria-hidden="true"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p2.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p2-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p2.webp 800w" sizes="(max-width: 780px) 100vw, 1200px" width="800" height="800" alt=""></figure>
       <svg class="k-silk k-silk--l" data-silk="18" viewBox="0 0 300 900" preserveAspectRatio="none" aria-hidden="true"></svg>
       <svg class="k-silk k-silk--r" data-silk="16" viewBox="0 0 300 900" preserveAspectRatio="none" aria-hidden="true"></svg>
       <div class="k-panel__head">
@@ -296,10 +266,10 @@
       <ol class="k-steps">
         <li class="k-steps__glow" aria-hidden="true"></li>
         <li class="k-steps__rail" aria-hidden="true"><i></i></li>
-        <li class="k-step"><span class="k-step__side"><span class="k-step__meta">Treatwell</span><span class="k-step__n" aria-hidden="true">01</span></span><span class="k-step__dot" aria-hidden="true"></span><div class="k-step__body"><h3>Online buchen</h3><p>Service wählen und verfügbaren Termin über Treatwell buchen – in wenigen Klicks.</p></div></li>
-        <li class="k-step"><span class="k-step__side"><span class="k-step__meta">Taborstraße 20</span><span class="k-step__n" aria-hidden="true">02</span></span><span class="k-step__dot" aria-hidden="true"></span><div class="k-step__body"><h3>Ankommen</h3><p>Wir heißen Sie herzlich willkommen – mit heißem Kaffee oder einem kühlen Getränk Ihrer Wahl.</p></div></li>
-        <li class="k-step"><span class="k-step__side"><span class="k-step__meta">Mo – Fr</span><span class="k-step__n" aria-hidden="true">03</span></span><span class="k-step__dot" aria-hidden="true"></span><div class="k-step__body"><h3>Ihr Schnitt</h3><p>Haarschnitt, Bart und Rasur – traditionelles Handwerk mit hochwertigen Produkten.</p></div></li>
-        <li class="k-step"><span class="k-step__side"><span class="k-step__meta">Bis bald</span><span class="k-step__n" aria-hidden="true">04</span></span><span class="k-step__dot" aria-hidden="true"></span><div class="k-step__body"><h3>Neuer Look</h3><p>Entspannt nach Hause – und gern bis zum nächsten Mal.</p></div></li>
+        <li class="k-step"><span class="k-step__side"><span class="k-step__n" aria-hidden="true">01</span></span><span class="k-step__dot" aria-hidden="true"></span><div class="k-step__body"><span class="k-step__meta">Treatwell</span><h3>Online buchen</h3><p>Service wählen und verfügbaren Termin über Treatwell buchen – in wenigen Klicks.</p></div></li>
+        <li class="k-step"><span class="k-step__side"><span class="k-step__n" aria-hidden="true">02</span></span><span class="k-step__dot" aria-hidden="true"></span><div class="k-step__body"><span class="k-step__meta">Taborstraße 20</span><h3>Ankommen</h3><p>Wir heißen Sie herzlich willkommen – mit heißem Kaffee oder einem kühlen Getränk Ihrer Wahl.</p></div></li>
+        <li class="k-step"><span class="k-step__side"><span class="k-step__n" aria-hidden="true">03</span></span><span class="k-step__dot" aria-hidden="true"></span><div class="k-step__body"><span class="k-step__meta">Mo–Fr</span><h3>Ihr Schnitt</h3><p>Haarschnitt, Bart und Rasur – traditionelles Handwerk mit hochwertigen Produkten.</p></div></li>
+        <li class="k-step"><span class="k-step__side"><span class="k-step__n" aria-hidden="true">04</span></span><span class="k-step__dot" aria-hidden="true"></span><div class="k-step__body"><span class="k-step__meta">Bis bald</span><h3>Neuer Look</h3><p>Entspannt nach Hause – und gern bis zum nächsten Mal.</p></div></li>
       </ol>
     </div>
   </div>
@@ -314,19 +284,40 @@
     </div>
     <div class="k-revgrid">
       <article class="k-card k-review" data-reveal>
-        <div class="k-review__vis"><div class="k-review__top"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/golan.png" width="52" height="52" alt="Golan Yonatan"><svg class="k-quote" viewBox="0 0 64 48" aria-hidden="true"><path d="M6 44V26C6 13 13 5 26 3M38 44V26c0-13 7-21 20-23"/></svg></div><span class="k-review__bars" aria-hidden="true" data-bars="3,5,4,6,5,7,6,8"></span></div>
-        <p class="k-review__who">Golan Yonatan</p>
+        <div class="k-review__vis">
+          <div class="k-review__top"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/golan.png" width="52" height="52" alt="Golan Yonatan">
+            <div>
+              <p class="k-review__who">Golan Yonatan</p>
+              <p class="k-review__src">Google-Bewertung</p>
+            </div>
+          </div>
+          <p class="k-review__stars" aria-label="5 von 5 Sternen">★★★★★</p>
+        </div>
         <div class="k-review__txt"><p>Super service. Super preise. Nette friseure. Coole musik. Alles hochprofessionell.</p><p>Viele sprachen werden perfekt gesprochen: Deutsch, englisch, russisch und hebräisch</p></div>
       </article>
       <article class="k-card k-review" data-reveal>
-        <div class="k-review__vis"><div class="k-review__top"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/david.png" width="52" height="52" alt="David Goldberger"><svg class="k-quote" viewBox="0 0 64 48" aria-hidden="true"><path d="M6 44V26C6 13 13 5 26 3M38 44V26c0-13 7-21 20-23"/></svg></div><span class="k-review__bars" aria-hidden="true" data-bars="2,3,5,4,6,7,7,8"></span></div>
-        <p class="k-review__who">David Goldberger</p>
+        <div class="k-review__vis">
+          <div class="k-review__top"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/david.png" width="52" height="52" alt="David Goldberger">
+            <div>
+              <p class="k-review__who">David Goldberger</p>
+              <p class="k-review__src">Google-Bewertung</p>
+            </div>
+          </div>
+          <p class="k-review__stars" aria-label="5 von 5 Sternen">★★★★★</p>
+        </div>
         <div class="k-review__txt"><p>Ein sehr toller Service , ein sehr sauberes Barber Shop alles Tip Top.</p><p>Habe eine neue Friseur gemacht bekommen und mein Bart wurde auch sehr schön geschnitten mit einem wunderschönen Verlauf.</p><p>Ich freue mich auf das nächste Mal!</p></div>
       </article>
       <article class="k-card k-review" data-reveal>
-        <div class="k-review__vis"><div class="k-review__top"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/beni.png" width="52" height="52" alt="Beni Reichmann"><svg class="k-quote" viewBox="0 0 64 48" aria-hidden="true"><path d="M6 44V26C6 13 13 5 26 3M38 44V26c0-13 7-21 20-23"/></svg></div><span class="k-review__bars" aria-hidden="true" data-bars="4,4,5,6,6,7,8,8"></span></div>
-        <p class="k-review__who">Beni Reichmann</p>
-        <div class="k-review__txt"><p>Ich bin überwältigt von den Engagement und Einsatz der Fachkräfte</p><p>Da merkt man gleich dass man mit einem Profi zu tun hat ich wollte gar nicht raus man wird verwöhnt und als wahren Kunden wahrgenommen top weiter so komme bestimmt wieder solange ich Haare im Kopf hab</p></div>
+        <div class="k-review__vis">
+          <div class="k-review__top"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/beni.png" width="52" height="52" alt="Beni Reichmann">
+            <div>
+              <p class="k-review__who">Beni Reichmann</p>
+              <p class="k-review__src">Google-Bewertung</p>
+            </div>
+          </div>
+          <p class="k-review__stars" aria-label="5 von 5 Sternen">★★★★★</p>
+        </div>
+        <div class="k-review__txt"><p>Ich bin überwältigt von den Engagement und Einsatz der Fachkräfte</p><p>Da merkt man gleich dass man mit einem Profi zu tun hat ich wollte gar nicht raus man wird verwöhnt und als wahren Kunden wahrgenommen top weiter so komme bestimmt wieder solange ich Haare im Kopf hab.</p></div>
       </article>
     </div>
   </div>
@@ -337,15 +328,9 @@
   <div class="k-wrap">
     <div class="k-port">
       <div class="k-card k-card--blue k-cubecard" data-reveal>
-        <div class="k-cube-scene" aria-hidden="true">
-          <div class="k-cube">
-            <span style="background-image:url(wp-content/themes/barbercrew-modern/assets/img/p1-480.webp)"></span>
-            <span style="background-image:url(wp-content/themes/barbercrew-modern/assets/img/p2-480.webp)"></span>
-            <span style="background-image:url(wp-content/themes/barbercrew-modern/assets/img/p3-480.webp)"></span>
-            <span style="background-image:url(wp-content/themes/barbercrew-modern/assets/img/p4-480.webp)"></span>
-            <span style="background-image:url(wp-content/themes/barbercrew-modern/assets/img/p5-480.webp)"></span>
-            <span style="background-image:url(wp-content/themes/barbercrew-modern/assets/img/p6-480.webp)"></span>
-          </div>
+        <div class="k-photostack" aria-hidden="true">
+          <img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p2-480.webp" alt="" width="480" height="480">
+          <img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p6-480.webp" alt="" width="480" height="480">
         </div>
         <p class="k-pill k-pill--glass"><span class="k-pill__icon" aria-hidden="true"></span>Portfolio</p>
         <h2 class="k-cubecard__t">Handwerk, das man sieht</h2>
@@ -355,22 +340,14 @@
       <div class="k-card k-hourscard" data-reveal>
         <p class="k-eyebrow"><span class="k-eyebrow__ico" aria-hidden="true"></span>Öffnungszeiten</p>
         <div class="k-hours__top">
-          <p class="k-hours__big"><span class="k-num bc-stat__num" data-odo="9" data-odo-suffix="–18:30">9–18:30</span></p>
+          <p class="k-hours__big"><span class="k-num bc-stat__num">9–18:30</span></p>
           <p class="k-hours__side"><span>Montag bis Freitag</span><br>Taborstraße 20/G3, 1020 Wien</p>
         </div>
-        <p class="k-hours__ex"><span>Mo – Fr</span>: <span dir="ltr" class="k-time">9:00 – 18:30 Uhr</span></p>
+        <p class="k-hours__ex"><span class="k-hours-range">Mo–Fr, <span dir="ltr" class="k-time">9:00–18:30 Uhr</span></span></p>
         <div class="k-progress" aria-hidden="true"><i class="k-progress__fill"></i><i class="k-progress__end"></i><i class="k-progress__mark"></i></div>
         <p class="k-progress__ends" aria-hidden="true" dir="ltr"><span>9:00</span><span>18:30</span></p>
         <div><a class="k-btn k-btn--dark" href="https://buchung.treatwell.at/ort/the-barber-crew/" target="_blank" rel="noreferrer noopener"><span>Termin buchen</span><b class="k-arrow" aria-hidden="true"></b></a></div>
       </div>
-    </div>
-    <div class="bc-gallery k-gallery" id="galerie" tabindex="-1">
-      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p1.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p1-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p1.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Bartrasur mit Rasiermesser"></figure>
-      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p2.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p2-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p2.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Klassischer Barber-Stuhl"></figure>
-      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p3.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p3-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p3.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Vintage-Barbierwerkzeug"></figure>
-      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p4.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p4-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p4.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Haarschnitt beim Barber"></figure>
-      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p5.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p5-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p5.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Aufsätze für Haarschneidemaschinen"></figure>
-      <figure data-mask><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p6.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p6-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p6.webp 800w" sizes="(max-width: 780px) 50vw, 400px" width="800" height="800" alt="Haarschnitt mit Kamm und Sprühflasche"></figure>
     </div>
   </div>
 </section>
@@ -389,15 +366,8 @@
         </div>
         <p class="k-field__note">Online über Treatwell oder telefonisch.</p>
       </div>
-      <div class="k-ctacard__vis" aria-hidden="true">
-        <div class="k-ticket">
-          <div class="k-ticket__body">
-            <i class="k-ticket__v"></i>
-            <span class="k-ticket__badge"><img src="wp-content/themes/barbercrew-modern/assets/img/logo-white-280.webp" alt="" width="140" height="73" loading="lazy" decoding="async"></span>
-            <span class="k-ticket__line">Taborstraße 20 → 1020 Wien</span>
-          </div>
-          <div class="k-ticket__flap"></div>
-        </div>
+      <div class="k-ctacard__vis">
+        <figure class="k-ctacard__photo"><img decoding="async" loading="lazy" src="wp-content/themes/barbercrew-modern/assets/img/p2.webp" srcset="wp-content/themes/barbercrew-modern/assets/img/p2-480.webp 480w, wp-content/themes/barbercrew-modern/assets/img/p2.webp 800w" sizes="(max-width: 780px) 100vw, 520px" width="800" height="800" alt="Klassischer Barber-Stuhl"></figure>
       </div>
     </div>
   </div>
@@ -413,7 +383,7 @@
   <div class="k-footer__in">
     <div class="k-footer__grid">
       <div class="k-footer__brand">
-        <p class="k-footer__tag">Barbershop · Wien · 2. Bezirk</p>
+        <p class="k-footer__tag">Barbershop · Wien · 2. Bezirk</p>
         <p class="k-footer__btns"><a class="k-btn k-btn--fline" href="https://www.google.com/maps/search/?api=1&#038;query=Taborstra%C3%9Fe+20%2C+1020+Wien" target="_blank" rel="noreferrer noopener" aria-label="Auf Google Maps öffnen">Google Maps</a><a class="k-btn k-btn--fline" href="https://maps.apple.com/?q=Taborstra%C3%9Fe+20%2C+1020+Wien&#038;address=Taborstra%C3%9Fe+20%2C+1020+Wien" target="_blank" rel="noreferrer noopener" aria-label="Auf Apple Maps öffnen">Apple Maps</a></p>
       </div>
       <div class="k-footer__col">
@@ -433,7 +403,7 @@
         <h2>Rechtliches</h2>
         <a href="https://barber-crew.at/impressum/">Impressum</a>
         <a href="https://barber-crew.at/datenschutzerklaerung/">Datenschutzerklärung</a>
-        <p class="k-footer__hours"><span>Öffnungszeiten</span><br><span>Mo – Fr</span>: <span dir="ltr" class="k-time">9:00 – 18:30 Uhr</span></p>
+        <p class="k-footer__hours"><span>Öffnungszeiten</span><br><span class="k-hours-range">Mo–Fr, <span dir="ltr" class="k-time">9:00–18:30 Uhr</span></span></p>
       </nav>
     </div>
     <div class="k-footer__bottom">
@@ -446,7 +416,7 @@
 <script defer src="wp-content/themes/barbercrew-modern/assets/vendor/gsap/gsap.min.js?ver=3.15.1"></script>
 <script defer src="wp-content/themes/barbercrew-modern/assets/vendor/gsap/ScrollTrigger.min.js?ver=3.15.1"></script>
 <script defer src="wp-content/themes/barbercrew-modern/assets/vendor/lenis/lenis.min.js?ver=1.3.27"></script>
-<script defer src="wp-content/themes/barbercrew-modern/assets/js/kelder.js?ver=4.1.2.kelder"></script>
-<script defer id="barbercrew-i18n-js" src="wp-content/themes/barbercrew-modern/assets/js/i18n.js?ver=4.1.2.kelder"></script>
+<script defer src="wp-content/themes/barbercrew-modern/assets/js/kelder.js?ver=4.1.3.kelder"></script>
+<script defer id="barbercrew-i18n-js" src="wp-content/themes/barbercrew-modern/assets/js/i18n.js?ver=4.1.3.kelder"></script>
 </body>
 </html>

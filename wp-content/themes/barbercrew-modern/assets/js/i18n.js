@@ -112,7 +112,7 @@
     ['Habe eine neue Friseur gemacht bekommen und mein Bart wurde auch sehr schön geschnitten mit einem wunderschönen Verlauf.', 'I got a new haircut and my beard was trimmed beautifully too, with a gorgeous fade.', 'Мне сделали новую стрижку, и бороду тоже подстригли очень красиво, с прекрасным переходом.', 'קיבלתי תספורת חדשה וגם הזקן נגזם יפה מאוד, עם פייד מושלם.'],
     ['Ich freue mich auf das nächste Mal!', 'Looking forward to next time!', 'Жду следующего раза!', 'מחכה לפעם הבאה!'],
     ['Ich bin überwältigt von den Engagement und Einsatz der Fachkräfte', 'I am overwhelmed by the dedication and commitment of the professionals', 'Я в восторге от увлечённости и отдачи мастеров', 'אני המום מהמסירות וההשקעה של אנשי המקצוע'],
-    ['Da merkt man gleich dass man mit einem Profi zu tun hat ich wollte gar nicht raus man wird verwöhnt und als wahren Kunden wahrgenommen top weiter so komme bestimmt wieder solange ich Haare im Kopf hab', 'You notice right away that you are dealing with a pro. I didn’t want to leave – you get pampered and treated like a real customer. Top, keep it up, I’ll definitely be back as long as I have hair on my head', 'Сразу видно, что имеешь дело с профи. Не хотелось уходить – тебя балуют и относятся как к настоящему клиенту. Супер, так держать, обязательно приду снова, пока у меня есть волосы на голове', 'רואים מיד שמדובר במקצוען. לא רציתי לצאת – מפנקים אותך ומתייחסים אליך כמו ללקוח אמיתי. מעולה, תמשיכו ככה, אחזור בטוח כל עוד יש לי שיער על הראש'],
+    ['Da merkt man gleich dass man mit einem Profi zu tun hat ich wollte gar nicht raus man wird verwöhnt und als wahren Kunden wahrgenommen top weiter so komme bestimmt wieder solange ich Haare im Kopf hab.', 'You notice right away that you are dealing with a pro. I didn’t want to leave – you get pampered and treated like a real customer. Top, keep it up, I’ll definitely be back as long as I have hair on my head', 'Сразу видно, что имеешь дело с профи. Не хотелось уходить – тебя балуют и относятся как к настоящему клиенту. Супер, так держать, обязательно приду снова, пока у меня есть волосы на голове', 'רואים מיד שמדובר במקצוען. לא רציתי לצאת – מפנקים אותך ומתייחסים אליך כמו ללקוח אמיתי. מעולה, תמשיכו ככה, אחזור בטוח כל עוד יש לי שיער על הראש'],
     ['Bereit für Ihren neuen Look?', 'Ready for your new look?', 'Готовы к новому образу?', 'מוכנים ללוק חדש?'],
         ['Verfügbaren Termin wählen und online buchen – schnell und unkompliziert.', 'Pick an available time and book online – quick and easy.', 'Выберите свободное время и запишитесь онлайн – быстро и просто.', 'בוחרים מועד פנוי וקובעים תור אונליין – מהר ופשוט.'],
     ['Besuchen Sie ', 'Visit ', 'Приходите ', 'בואו '],
@@ -166,6 +166,18 @@
     ['Nach oben', 'Back to top', 'Наверх', 'חזרה למעלה'],
     ['Menü schließen', 'Close menu', 'Закрыть меню', 'סגירת תפריט'],
     ['Taborstraße 20 → 1020 Wien', 'Taborstraße 20 → 1020 Vienna', 'Taborstraße 20 → 1020 Вена', 'Taborstraße 20 → 1020 וינה'],
+    ['120+ Bewertungen', '120+ reviews', '120+ отзывов', '120+ ביקורות'],
+    ['Mo–Fr,', 'Mon–Fri,', 'Пн–Пт,', 'ב׳–ו׳,'],
+    ['Mo–Fr', 'Mon–Fri', 'Пн–Пт', 'ב׳–ו׳'],
+    ['9:00–18:30 Uhr', '9:00–18:30', '9:00–18:30', '9:00–18:30'],
+    ['9:00–18:30', '9:00–18:30', '9:00–18:30', '9:00–18:30'],
+    ['Taborstraße 20', 'Taborstraße 20', 'Taborstraße 20', 'Taborstraße 20'],
+    ['ab 15 €', 'from €15', 'от 15 €', 'מ-15 €'],
+    ['ab 18 €', 'from €18', 'от 18 €', 'מ-18 €'],
+    ['Rasur mit Hot Towel', 'Shave with hot towel', 'Бритьё с горячим полотенцем', 'גילוח עם מגבת חמה'],
+    ['in 7 Kategorien: Haare, Bart, Kombis, Dauerwelle, Young Barber, Kinder, Extras & Waxing', 'in 7 categories: Hair, beard, combos, perm, Young Barber, kids, extras & waxing', 'в 7 категориях: волосы, борода, комплексы, завивка, Young Barber, дети, дополнительно и воск', 'ב-7 קטגוריות: שיער, זקן, חבילות, סלסול, Young Barber, ילדים, תוספות ושעווה'],
+    ['Google-Bewertung', 'Google review', 'Отзыв Google', 'ביקורת Google'],
+    ['5 von 5 Sternen', '5 out of 5 stars', '5 из 5 звёзд', '5 מתוך 5 כוכבים'],
     // Sprachumschalter selbst
     ['Sprache wählen', 'Choose language', 'Выбрать язык', 'בחירת שפה'],
     ['Standardsprache', 'Default', 'По умолчанию', 'ברירת מחדל'],
@@ -322,17 +334,18 @@
   var switchers = [], uid = 0;
   function Switcher(anchor, where) {
     var self = this, pid = 'bc-lang-panel-' + (++uid);
-    var wrap = document.createElement('div'); wrap.className = 'bc-lang bc-lang--' + where;
+    var wrap = document.querySelector('[data-lang-mount="' + where + '"]') || document.createElement('div');
+    wrap.className = 'bc-lang bc-lang--' + where;
+    wrap.removeAttribute('data-lang-mount');
     wrap.innerHTML =
-      '<button type="button" class="bc-lang__flag" aria-expanded="false" aria-controls="' + pid + '"><span class="bc-lang__cur"></span><span class="bc-lang__label" aria-hidden="true"></span></button>' +
-      '<button type="button" class="bc-lang__trigger" aria-expanded="false" aria-controls="' + pid + '"><span></span><span></span></button>' +
+      '<button type="button" class="bc-lang__flag" aria-expanded="false" aria-controls="' + pid + '" aria-haspopup="listbox"><span class="bc-lang__cur"></span><span class="bc-lang__label" aria-hidden="true"></span><span class="bc-lang__chev" aria-hidden="true"></span></button>' +
       '<div class="bc-lang__panel" id="' + pid + '" hidden>' +
         '<ul class="bc-lang__list" data-stagger>' +
           '<li><button type="button" class="bc-lang__opt bc-lang__opt--default" data-lang="de">' + flag('de') + '<span class="bc-lang__name" lang="de">Deutsch</span><span class="bc-lang__tag"></span></button></li>' +
           LANGS.map(function (l) { return '<li><button type="button" class="bc-lang__opt" data-lang="' + l + '">' + flag(l) + '<span class="bc-lang__name" lang="' + l + '" dir="' + (l === 'he' ? 'rtl' : 'ltr') + '">' + NAMES[l] + '</span><span class="bc-lang__check" aria-hidden="true"></span></button></li>'; }).join('') +
         '</ul></div>';
-    anchor.parentNode.insertBefore(wrap, anchor.nextSibling);
-    var fbtn = wrap.querySelector('.bc-lang__flag'), trig = wrap.querySelector('.bc-lang__trigger'), panel = wrap.querySelector('.bc-lang__panel'), list = panel.querySelector('ul');
+    if (!wrap.parentNode) anchor.parentNode.insertBefore(wrap, anchor.nextSibling);
+    var fbtn = wrap.querySelector('.bc-lang__flag'), trig = fbtn, panel = wrap.querySelector('.bc-lang__panel'), list = panel.querySelector('ul');
     var opts = panel.querySelectorAll('.bc-lang__opt');
     // motion-anything stagger-list: Verzögerungen wie im Recipe (Schritt 40ms)
     Array.prototype.forEach.call(list.children, function (c, i) { c.style.setProperty('--st-delay', (i * 40) + 'ms'); });
