@@ -86,6 +86,19 @@
     });
   });
 
+  // Preisspannen-Balken (KELDER "You set the floor"): dunkel = ab-Preis, hell = bis-Preis
+  $$('[data-floor]').forEach(function (el) {
+    var v = el.getAttribute('data-floor').split(',').map(function (x) { return x.split(':').map(Number); });
+    var mx = Math.max.apply(null, v.map(function (x) { return x[1]; }));
+    v.forEach(function (x) {
+      var b = d.createElement('i'); b.className = 'k-floor__bar';
+      b.innerHTML = '<b class="k-floor__hi" style="--h:' + ((x[1] - x[0]) / mx * 100).toFixed(1) + '%"></b><b class="k-floor__lo" style="--h:' + Math.max(6, x[0] / mx * 100).toFixed(1) + '%"></b>';
+      el.appendChild(b);
+    });
+  });
+  // Legenden-Balken im Dashboard: Breite = Anzahl Leistungen
+  $$('.k-dash__legend i').forEach(function (i) { i.style.flexGrow = i.style.getPropertyValue('--w') || 1; });
+
   // Wortmarke im Footer in Buchstaben (dekorativ, aria-hidden)
   var wm = $('.k-wordmark');
   if (wm) wm.innerHTML = wm.textContent.split('').map(function (c) { return '<span class="k-ch">' + (c === ' ' ? '\u00a0' : c) + '</span>'; }).join('');
@@ -95,17 +108,115 @@
   function onScroll() {
     var y = W.scrollY;
     if (header) header.classList.toggle('is-scrolled', y > 40);
-    if (sticky) sticky.classList.toggle('is-visible', y > (hero ? hero.offsetHeight * 0.75 : 600));
+    var ft = d.querySelector('.k-footer:not(.is-fixed)');
+    if (sticky) sticky.classList.toggle('is-visible', y > (hero ? hero.offsetHeight * 0.75 : 600) && !(ft && ft.getBoundingClientRect().top < W.innerHeight - 60));
   }
   W.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  var burger = $('.bc-burger');
-  if (burger) {
-    burger.addEventListener('click', function () {
-      var open = d.body.classList.toggle('nav-open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+
+  var burger = $('.bc-burger'), mainEl = $('.k-main'), footer = $('.k-footer'), quick = $('.bc-quick'), gate = $('.k-foot-gate');
+  var tr = function (s) { return W.bcTr ? W.bcTr(s) : s; };
+  function tabbables(root) {
+    return $$('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])', root).filter(function (el) {
+      return el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden' && !el.closest('[inert]');
     });
-    d.addEventListener('keydown', function (e) { if (e.key === 'Escape' && d.body.classList.contains('nav-open')) { d.body.classList.remove('nav-open'); burger.setAttribute('aria-expanded', 'false'); burger.focus(); } });
   }
+  function navOpen() { return d.body.classList.contains('nav-open'); }
+  function setNav(open, focusBurger) {
+    d.body.classList.toggle('nav-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', tr(open ? 'Menü schließen' : 'Menü öffnen'));
+    [mainEl, quick].forEach(function (el) { if (el) el.inert = open; });
+    footState();
+    if (open) { var f = $('.bc-nav a'); if (f) { f.focus(); setTimeout(function () { if (navOpen() && d.activeElement !== f && !$('.bc-header').contains(d.activeElement) || d.activeElement === burger) f.focus(); }, 80); } }
+    else if (focusBurger) burger.focus();
+  }
+  if (burger) {
+    burger.addEventListener('click', function () { setNav(!navOpen()); });
+    d.addEventListener('keydown', function (e) {
+      if (!navOpen()) return;
+      if (e.key === 'Escape') { setNav(false, true); return; }
+      if (e.key !== 'Tab') return;
+      var list = tabbables($('.bc-header')); if (!list.length) return;
+      var first = list[0], last = list[list.length - 1];
+      if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
+      else if (list.indexOf(d.activeElement) < 0) { e.preventDefault(); first.focus(); }
+    });
+    W.matchMedia('(min-width: 961px)').addEventListener('change', function (m) { if (m.matches && navOpen()) setNav(false); });
+    $$('.bc-nav a').forEach(function (a) { a.addEventListener('click', function () { if (navOpen()) setNav(false); }); });
+    d.addEventListener('bc:lang', function () { burger.setAttribute('aria-label', tr(navOpen() ? 'Menü schließen' : 'Menü öffnen')); });
+  }
+
+  /* ================= Footer: fixiert unter der Seite (KELDER-Vorhang) =================
+     Der Footer liegt fixiert hinter <main>; <main> bekommt unten genau die Footer-Höhe als Abstand.
+     Solange er verdeckt ist, ist er inert (kein Fokus auf unsichtbare Links). Ein Fokus-Tor davor
+     scrollt bei Tab ans Ende, gibt den Footer frei und setzt den Fokus hinein. Ist der Footer höher
+     als das Fenster (kleine Handys), bleibt er im normalen Fluss. */
+  var fin = $('.k-footer__in'), footH = 0, fixedFoot = false, wmPlayed = false, footP = -1;
+  function footLayout() {
+    if (!footer) return;
+    footer.classList.remove('is-fixed'); html.style.removeProperty('--foot-h');
+    footH = footer.offsetHeight;
+    fixedFoot = d.documentElement.classList.contains('js') && footH < W.innerHeight - 40;
+    footer.classList.toggle('is-fixed', fixedFoot);
+    if (fixedFoot) html.style.setProperty('--foot-h', footH + 'px');
+    footP = -1; footState();
+  }
+  function footState() {
+    if (!footer) return;
+    var rem = d.documentElement.scrollHeight - (W.scrollY + W.innerHeight);
+    var p = fixedFoot ? Math.max(0, Math.min(1, 1 - rem / footH)) : 1;
+    footer.inert = navOpen() || (fixedFoot && p < 0.5);
+    if (ANIM && fin && fixedFoot && Math.abs(p - footP) > 0.001) { fin.style.transform = 'translate3d(0,' + (-(1 - p) * 30).toFixed(2) + '%,0)'; footP = p; }
+    if (ANIM && !wmPlayed && p > 0.55 && (fixedFoot || footer.getBoundingClientRect().top < W.innerHeight * 0.75)) { wmPlayed = true; playWordmark(); }
+  }
+  function playWordmark() { var chs = $$('.k-wordmark .k-ch'); if (chs.length && G) G.fromTo(chs, { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, ease: 'expo.out', duration: 1.4, stagger: 0.045 }); }
+  if (ANIM) G.set('.k-wordmark .k-ch', { yPercent: 110, opacity: 0 });
+  var lenisRef = null;
+  function scrollToY(y, cb) {
+    if (lenisRef) lenisRef.scrollTo(y, { duration: 1.4, onComplete: cb, force: true });
+    else { W.scrollTo(0, y); if (cb) cb(); }
+  }
+  function revealFooter(focusEl) {
+    var max = d.documentElement.scrollHeight - W.innerHeight;
+    if (lenisRef) lenisRef.scrollTo(max, { immediate: true, force: true }); else W.scrollTo(0, max);
+    footState(); footer.inert = false;
+    (focusEl || tabbables(footer)[0] || footer).focus({ preventScroll: true });
+  }
+  if (gate && footer) {
+    gate.addEventListener('focus', function (e) {
+      if (e.relatedTarget && footer.contains(e.relatedTarget)) {
+        var back = tabbables(quick).concat([]).filter(function (x) { return getComputedStyle(x).opacity !== '0'; });
+        var prev = back.length ? back[back.length - 1] : tabbables(mainEl).pop();
+        if (prev) prev.focus(); return;
+      }
+      revealFooter();
+    });
+  }
+  // Anker: #kontakt (fixierter Footer) und #top brauchen eigene Ziele; übrige Anker sanft (Lenis)
+  function goto(id, e) {
+    var t = id && d.getElementById(id); if (!t) return;
+    if (e) e.preventDefault();
+    if (navOpen()) setNav(false);
+    if (t === footer) {
+      var max = d.documentElement.scrollHeight - W.innerHeight;
+      scrollToY(max, function () { footState(); footer.inert = false; footer.focus({ preventScroll: true }); });
+      history.replaceState(null, '', '#' + id); return;
+    }
+    if (id === 'top') { scrollToY(0, function () { var l = $('.bc-header__logo'); if (l) l.focus({ preventScroll: true }); }); return; }
+    if (lenisRef) lenisRef.scrollTo(t, { offset: -72, duration: 1.4 }); else t.scrollIntoView();
+    if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex', '-1');
+    t.focus({ preventScroll: true }); history.replaceState(null, '', '#' + id);
+  }
+  $$('a[href^="#"]:not(.bc-skip)').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href').slice(1);
+      if (lenisRef || id === 'kontakt' || id === 'top') goto(id, e);
+    });
+  });
+  W.addEventListener('scroll', footState, { passive: true });
+  d.addEventListener('bc:lang', function () { requestAnimationFrame(footLayout); });
+  W.addEventListener('resize', function () { footLayout(); });
 
   /* ================= Zeilen-Split (Maske pro Zeile) =================
      Originalknoten bleiben erhalten (in .k-orig verschoben) → i18n-Referenzen bleiben gültig.
@@ -142,8 +253,12 @@
     words.forEach(function (w) { var t = Math.round(w.offsetTop); if (t !== last) { rows.push([]); last = t; } rows[rows.length - 1].push(w); });
     box.innerHTML = '';
     var inners = [];
+    var hostDir = getComputedStyle(this.el).direction, ta = getComputedStyle(this.el).textAlign;
+    if (ta === 'start') ta = hostDir === 'rtl' ? 'right' : 'left'; else if (ta === 'end') ta = hostDir === 'rtl' ? 'left' : 'right';
     rows.forEach(function (r) {
       var line = d.createElement('span'); line.className = 'k-line';
+      // RTL-Seite, aber Zeile ohne hebräische Zeichen (z. B. Markenname): Wörter in LTR-Reihenfolge halten
+      if (hostDir === 'rtl' && !/[\u0590-\u05FF]/.test(r.map(function (w) { return w.textContent; }).join(''))) { line.style.direction = 'ltr'; line.style.textAlign = ta; }
       var inn = d.createElement('span'); inn.className = 'k-line__in';
       r.forEach(function (w, i) { if (i && w._sp) inn.appendChild(d.createTextNode(' ')); inn.appendChild(w); });
       line.appendChild(inn); box.appendChild(line); inners.push(inn);
@@ -161,7 +276,7 @@
   function Halftone(cv) {
     var ctx = cv.getContext('2d'), host = cv.parentNode, w = 0, h = 0, dpr = Math.min(W.devicePixelRatio || 1, MOBILE ? 1.5 : 2);
     var sp = MOBILE ? 12 : 11, maxR = sp * 0.36, mx = -9999, my = -9999, cm = 0, on = true, t0 = performance.now(), frame = 0;
-    var accent = [255, 106, 19];
+    var accent = [218, 246, 65];
     function size() { var r = host.getBoundingClientRect(); w = r.width; h = r.height; cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
     function ss(a, b, x) { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); }
     function draw(now) {
@@ -336,6 +451,8 @@
       var max = Math.max.apply(null, state.items.map(function (i) { return i.price; }));
       state.max = Math.ceil(max * 1.15 / 10) * 10;
       axis.forEach(function (s, i) { s.textContent = Math.round(state.max * (1 - i / 3) * (185 / 195)) + ' €'; });
+      var xb = $('.k-chart__x', wrap); if (xb) xb.innerHTML = state.items.map(function (it) { var du = $('.bc-item__dur', it.el); return '<span>' + (du ? du.textContent.replace(/</g, '') : '') + '</span>'; }).join('');
+      if (xb) requestAnimationFrame(function () { var sp = $$('span', xb), tot = 0; sp.forEach(function (x) { tot += x.offsetWidth + 10; }); var step = tot > xb.clientWidth ? Math.ceil(tot / Math.max(1, xb.clientWidth)) : 1; sp.forEach(function (x, i) { x.style.visibility = i % step === 0 ? '' : 'hidden'; }); });
       var tg = targetYs(state.items, state.max);
       var mi = 0; state.items.forEach(function (it, i) { if (it.price >= state.items[mi].price) mi = i; });
       if (animate && ANIM) {
@@ -368,7 +485,7 @@
         G.fromTo([end, tip], { opacity: 0 }, { opacity: 1, duration: 0.6, delay: delay + 1.5, ease: 'power2.out' });
         G.fromTo('.k-dash__legend i', { scaleX: 0 }, { scaleX: 1, duration: 1.2, delay: delay + 0.4, stagger: 0.12, ease: 'expo.out' });
       },
-      refresh: function () { moveInd($('.k-seg__b.is-on')); render(); showTip(wrap.classList.contains('is-hover') ? state.def : state.def); }
+      refresh: function () { moveInd($('.k-seg__b.is-on')); setCat(state.cat, false); }
     };
     moveInd($('.k-seg__b.is-on'));
     W.addEventListener('resize', api.refresh);
@@ -384,17 +501,21 @@
       return { wd: wd, min: (+o.hour % 24) * 60 + +o.minute };
     } catch (e) { var n = new Date(); return { wd: (n.getDay() + 6) % 7, min: n.getHours() * 60 + n.getMinutes() }; }
   }
+  // KELDER "Swept every business day": Datumschips der aktuellen Woche (Wien); vergangene Werktage blau, heute Limette, kommende umrandet, Wochenende grau
   function Days(ul) {
-    var lis = $$('li', ul), today = viennaNow().wd, i = -1, timer = 0;
-    function set(k) { lis.forEach(function (l, j) { l.classList.toggle('is-hot', j === k); }); }
-    if (!ANIM) { set(today); return; }
-    function step() { i++; if (i > 4) { set(today); i = -1; timer = setTimeout(step, 2400); return; } set(i); timer = setTimeout(step, 360); }
-    ST.create({ trigger: ul, start: 'top 90%', end: 'bottom top', onToggle: function (s) { clearTimeout(timer); if (s.isActive) { i = -1; step(); } else set(today); } });
+    var lis = $$('li', ul), v = viennaNow(), today = v.wd, base;
+    try { base = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Vienna' })); } catch (e) { base = new Date(); }
+    lis.forEach(function (l, j) {
+      var dt = new Date(base); dt.setDate(base.getDate() - today + j); l.textContent = dt.getDate();
+      l.classList.add(j > 4 ? 'is-off' : j < today ? 'is-past' : j === today ? 'is-today' : 'is-next');
+    });
+    if (!ANIM) return;
+    G.from(lis, { scale: 0.6, opacity: 0, duration: 0.7, ease: 'back.out(2)', stagger: 0.07, scrollTrigger: { trigger: ul, start: 'top 90%' } });
   }
 
   /* ================= Öffnungszeiten-Fortschritt ================= */
   function Hours(card) {
-    var bar = $('.k-progress', card); if (!bar) return;
+    var bar = $('.k-progress', card); if (!bar) return; /* Fortschritt des heutigen Öffnungstags (Wien) */
     function frac() { var v = viennaNow(); if (v.wd > 4) return 0; return Math.max(0, Math.min(1, (v.min - 540) / (1110 - 540))); }
     var o = { p: ANIM ? 0 : frac() }; bar.style.setProperty('--p', o.p);
     if (ANIM) G.to(o, { p: frac(), duration: 1.6, ease: 'expo.out', onUpdate: function () { bar.style.setProperty('--p', o.p); }, scrollTrigger: { trigger: card, start: 'top 85%' } });
@@ -409,6 +530,7 @@
     $$('.k-dotsicon').forEach(DotIcon);
     var chart = Chart();
     $$('.k-days').forEach(Days);
+    footLayout();
     $$('.k-hourscard').forEach(Hours);
     if (!ANIM) return;
 
@@ -418,15 +540,7 @@
       lenis = new W.Lenis({ lerp: 0.1, smoothWheel: true, wheelMultiplier: 1 });
       lenis.on('scroll', ST.update);
       G.ticker.add(function (t) { lenis.raf(t * 1000); }); G.ticker.lagSmoothing(0);
-      $$('a[href^="#"]:not(.bc-skip)').forEach(function (a) {
-        a.addEventListener('click', function (e) {
-          var id = a.getAttribute('href').slice(1), t = id && d.getElementById(id); if (!t) return;
-          e.preventDefault(); d.body.classList.remove('nav-open'); if (burger) burger.setAttribute('aria-expanded', 'false');
-          lenis.scrollTo(t, { offset: -72, duration: 1.4 });
-          if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex', '-1');
-          t.focus({ preventScroll: true }); history.replaceState(null, '', '#' + id);
-        });
-      });
+      lenisRef = lenis;
     }
 
     // Zeilen-Splits
@@ -462,9 +576,10 @@
     $$('.k-loader [data-odo], .k-dash [data-odo]').forEach(function (o) { setOdo(o, true); });
     if (loader) {
       if (lenis) lenis.stop();
-      var bars = $$('.k-loader__mark i'), lnum = $('.k-loader [data-odo]'), short = MOBILE ? 0.65 : 1;
+      var lnum = $('.k-loader [data-odo]'), short = MOBILE ? 0.65 : 1;
       var lt = G.timeline({ defaults: { ease: 'expo.out' } });
-      lt.from(bars, { scaleY: 0, transformOrigin: '50% 100%', duration: 0.7 * short, stagger: 0.18 * short }, 0.1)
+      // Barber-Crew-Logo baut sich von unten auf (eigenes Logo, kein Template-Asset)
+      lt.fromTo('.k-loader__logo', { clipPath: 'inset(100% 0% 0% 0%)', y: 12 }, { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: 1.0 * short }, 0.1)
         .from('.k-loader__label, .k-loader__num', { opacity: 0, y: 10, duration: .6, stagger: .08 }, 0.15)
         .add(function () { rollOdo(lnum, 1.25 * short); }, 0.2)
         .to(loader, { opacity: 0, scale: 1.04, duration: 0.8, ease: 'power2.inOut' }, 1.55 * short + 0.25)
@@ -488,7 +603,7 @@
     $$('[data-odo]').forEach(function (o) {
       if (o.closest('.k-loader') || o.closest('.k-dash')) return;
       setOdo(o, true);
-      ST.create({ trigger: o, start: 'top 90%', once: true, onEnter: function () { rollOdo(o, 1.6); } });
+      ST.create({ trigger: o, start: 'top 97%', once: true, onEnter: function () { rollOdo(o, 1.2); } });
     });
     // Balken wachsen
     $$('[data-bars]').forEach(function (el) { G.from($$('i', el), { scaleY: 0, duration: 1.2, ease: 'expo.out', stagger: 0.06, scrollTrigger: { trigger: el, start: 'top 90%' } }); });
@@ -538,13 +653,10 @@
     }
 
     // Footer: Vorhang-Reveal + Wortmarke steigt Buchstabe für Buchstabe
-    var fin = $('.k-footer__in');
-    if (fin) G.fromTo(fin, { yPercent: -30 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: '.k-footer', start: 'top bottom', end: 'bottom bottom', scrub: true } });
-    var chs = $$('.k-wordmark .k-ch');
-    if (chs.length) G.from(chs, { yPercent: 110, opacity: 0, ease: 'expo.out', duration: 1.4, stagger: 0.045, scrollTrigger: { trigger: '.k-footer', start: 'top 75%' } });
+    footState();
 
     // Sprache/Größe: offene Zeilen-Splits neu aufbauen, Diagramm & Trigger aktualisieren
-    function relayout() { splits.forEach(function (s) { if (!s.done) s.build(); }); if (chart) chart.refresh(); ST.refresh(); }
+    function relayout() { splits.forEach(function (s) { if (!s.done) s.build(); }); if (chart) chart.refresh(); footLayout(); ST.refresh(); }
     d.addEventListener('bc:lang', function () { requestAnimationFrame(relayout); });
     var rt; W.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(relayout, 200); });
     if (d.fonts && d.fonts.ready) d.fonts.ready.then(function () { splits.forEach(function (s) { if (!s.done) s.build(); }); ST.refresh(); });

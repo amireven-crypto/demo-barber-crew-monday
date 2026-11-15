@@ -14,19 +14,19 @@
   --k-bg:#f1f4f9; --k-bg2:#e8edf6; --k-card:#ffffff; --k-ink:#0a1630; --k-muted:#56627c; --k-line:rgba(10,22,48,.10);
   --k-soft:#eaf0fd; --k-soft-ink:#1d4fd8;
   --k-navy:#050d24; --k-blue:#0c2f86; --k-blue2:#1747c4; --k-blue3:#3a7bff; --k-sky:#a8c8ff;
-  --k-accent:#ff6a13; --k-accent-hi:#ff8540; --k-accent-ink:#0b0b0b; /* Marken-Orange statt KELDER-Limette */
+  --k-accent:#daf641; --k-accent-hi:#e6fb73; --k-accent-ink:#0a1630; /* KELDER-Limette */ --k-focus:#1747c4;
   --k-r:18px; --k-max:1200px; --k-gut:clamp(16px,4vw,40px);
   --k-ease:cubic-bezier(.16,1,.3,1); --k-fast:180ms;
   --k-heroend:var(--k-bg);
   /* Tokens für den Sprachumschalter (immer dunkles Panel) */
   --bc-card:#0f1b3d; --bc-card-hi:#1b2b58; --bc-white:#fff; --bc-muted:rgba(255,255,255,.72); --bc-line:rgba(255,255,255,.14);
-  --bc-orange:#ff6a13; --bc-r:12px; --bc-sans:var(--k-sans); --ma-fast:160ms; --ma-out:cubic-bezier(.16,1,.3,1);
+  --bc-orange:#daf641; --bc-r:12px; --bc-sans:var(--k-sans); --ma-fast:160ms; --ma-out:cubic-bezier(.16,1,.3,1);
   color-scheme:light dark;
 }
 @media (prefers-color-scheme: dark){
   :root{
     --k-bg:#040a1a; --k-bg2:#071128; --k-card:#0b1531; --k-ink:#eef2fb; --k-muted:#a3aec8; --k-line:rgba(255,255,255,.10);
-    --k-soft:#0f1e46; --k-soft-ink:#8fb4ff;
+    --k-soft:#0f1e46; --k-soft-ink:#8fb4ff; --k-focus:#8fb4ff;
   }
 }
 html{background:var(--k-navy);scroll-padding-top:84px}
@@ -40,7 +40,8 @@ a{color:inherit}
 p{margin:0 0 1em}
 h1,h2,h3{margin:0;font-weight:500}
 em{font-style:normal}
-:focus-visible{outline:2px solid var(--k-accent);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:2px solid var(--k-focus);outline-offset:3px;border-radius:6px}
+.bc-header,.k-hero,.k-dash,.k-footer,.k-card--blue,.k-panel,.k-loader{--k-focus:#daf641}
 
 /* Skip-Link (bleibt wie Runde 2: schwarz auf weiß) */
 .bc-skip{position:fixed;left:1em;top:1em;transform:translateY(-300%);background:#fff;color:#000;padding:.7em 1.2em;z-index:400;font-weight:700;border-radius:999px;text-decoration:none}
@@ -99,8 +100,8 @@ em{font-style:normal}
 .k-btn:hover::before{transform:translateX(120%)}
 .k-btn:hover{transform:translateY(-1px)}
 .k-btn:active{transform:translateY(0) scale(.98)}
-.k-btn--accent{background:var(--k-accent);color:var(--k-accent-ink);box-shadow:0 8px 24px -10px rgba(255,106,19,.7)}
-.k-btn--accent:hover{background:var(--k-accent-hi);box-shadow:0 12px 30px -10px rgba(255,106,19,.85)}
+.k-btn--accent{background:var(--k-accent);color:var(--k-accent-ink);box-shadow:0 8px 24px -10px rgba(218,246,65,.7)}
+.k-btn--accent:hover{background:var(--k-accent-hi);box-shadow:0 12px 30px -10px rgba(218,246,65,.85)}
 .k-btn--line,.k-btn--ghost{border-color:rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.04)}
 .k-btn--line:hover,.k-btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
 .k-btn--dark{background:var(--k-navy);color:#fff}
@@ -149,8 +150,8 @@ em{font-style:normal}
 .k-dash__big{margin:0 0 12px;font-size:clamp(40px,5.2vw,64px);line-height:1.05;letter-spacing:-.03em;font-weight:500}
 .k-chip{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:5px 12px;border-radius:999px;font-size:12.5px}
 .k-chip--glass{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14)}
-.k-dot{width:7px;height:7px;border-radius:50%;background:var(--k-accent);box-shadow:0 0 0 0 rgba(255,106,19,.6);animation:kPing 2.2s infinite}
-@keyframes kPing{0%{box-shadow:0 0 0 0 rgba(255,106,19,.55)}70%{box-shadow:0 0 0 9px rgba(255,106,19,0)}100%{box-shadow:0 0 0 0 rgba(255,106,19,0)}}
+.k-dot{width:7px;height:7px;border-radius:50%;background:var(--k-accent);box-shadow:0 0 0 0 rgba(218,246,65,.6);animation:kPing 2.2s infinite}
+@keyframes kPing{0%{box-shadow:0 0 0 0 rgba(218,246,65,.55)}70%{box-shadow:0 0 0 9px rgba(218,246,65,0)}100%{box-shadow:0 0 0 0 rgba(218,246,65,0)}}
 .k-rows{margin:0}
 .k-rows>div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14px}
 .k-rows dt{color:rgba(255,255,255,.72)}.k-rows dd{margin:0;font-weight:600}
@@ -170,7 +171,7 @@ em{font-style:normal}
 .k-chart__pt,.k-chart__end{position:absolute;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;pointer-events:none}
 .k-chart__pt{background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.18);opacity:0;transition:opacity .2s}
 .k-chart.is-hover .k-chart__pt{opacity:1}
-.k-chart__end{background:var(--k-accent);box-shadow:0 0 0 5px rgba(255,106,19,.25),0 0 18px rgba(255,106,19,.8)}
+.k-chart__end{background:var(--k-accent);box-shadow:0 0 0 5px rgba(218,246,65,.25),0 0 18px rgba(218,246,65,.8)}
 .k-chart__tip{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 14px));padding:8px 10px;border-radius:9px;background:#fff;color:var(--k-navy);font-size:12px;line-height:1.3;white-space:nowrap;box-shadow:0 10px 24px rgba(0,0,0,.25);pointer-events:none;max-width:240px}
 .k-chart__tip b{display:block;font-size:13px}
 .k-chart__tip span{display:block;white-space:normal;color:#4a5878}
@@ -262,7 +263,7 @@ em{font-style:normal}
 .k-step__body h3{font-size:18px;font-weight:600;margin:0 0 4px}
 .k-step__body p{margin:0;color:rgba(255,255,255,.72);font-size:14.5px;max-width:30em}
 .k-step:nth-child(even) .k-step__body p{margin-inline-start:auto}
-.k-step.is-active .k-step__n{background:var(--k-accent);color:var(--k-accent-ink);transform:scale(1.06);box-shadow:0 10px 26px -8px rgba(255,106,19,.8)}
+.k-step.is-active .k-step__n{background:var(--k-accent);color:var(--k-accent-ink);transform:scale(1.06);box-shadow:0 10px 26px -8px rgba(218,246,65,.8)}
 .k-step.is-active .k-step__dot{background:#3a7bff;border-color:#9cc0ff;box-shadow:0 0 0 6px rgba(58,123,255,.25)}
 
 /* Preise: Instrumente */
@@ -360,7 +361,7 @@ em{font-style:normal}
 .k-progress{position:relative;height:6px;border-radius:6px;background:var(--k-bg2)}
 .k-progress__fill{position:absolute;inset:0;border-radius:6px;background:linear-gradient(90deg,var(--k-blue2),var(--k-blue3));transform-origin:left;transform:scaleX(var(--p,0))}
 [dir="rtl"] .k-progress__fill{transform-origin:right}
-.k-progress__mark{position:absolute;top:50%;left:calc(var(--p,0)*100%);width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--k-accent);box-shadow:0 0 0 4px rgba(255,106,19,.25)}
+.k-progress__mark{position:absolute;top:50%;left:calc(var(--p,0)*100%);width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--k-accent);box-shadow:0 0 0 4px rgba(218,246,65,.25)}
 [dir="rtl"] .k-progress__mark{left:auto;right:calc(var(--p,0)*100%);margin:-7px -7px 0 0}
 .k-progress__ends{display:flex;justify-content:space-between;font-size:12px;color:var(--k-muted);margin:8px 0 0}
 
@@ -403,7 +404,7 @@ em{font-style:normal}
 .bc-lang__opt .bc-flag{box-shadow:0 0 0 1px rgba(255,255,255,.18)}
 .bc-lang__tag{margin-inline-start:auto;font-size:.72rem;font-weight:700;color:var(--bc-muted);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.25em .7em;white-space:nowrap}
 .bc-lang__check{margin-inline-start:auto;width:10px;height:10px;border-radius:50%}
-.bc-lang__opt[aria-current="true"] .bc-lang__check{background:var(--k-accent);box-shadow:0 0 10px rgba(255,106,19,.8)}
+.bc-lang__opt[aria-current="true"] .bc-lang__check{background:var(--k-accent);box-shadow:0 0 10px rgba(218,246,65,.8)}
 .bc-lang__opt--default[aria-current="true"] .bc-lang__tag{border-color:var(--k-accent);color:#fff}
 .bc-lang__list[data-stagger]>*{transition-duration:var(--ma-fast)!important;transform:translateY(6px)}
 .bc-lang__panel:not(.is-up) .bc-lang__list[data-stagger]>*{transform:translateY(-6px)}
@@ -486,7 +487,7 @@ em{font-style:normal}
 @media (prefers-reduced-motion: reduce){
   .js .k-loader{display:none}
   .k-dot{animation:none}
-  .k-btn,.k-btn::before,.k-arrow::before,.k-arrow::after,.k-card,.k-inst,.k-gallery img,.bc-nav a::after{transition:none!important}
+  .k-btn,.k-btn::before,.k-arrow::before,.k-arrow::after,.k-card,.k-inst,.k-gallery img,.bc-nav a::after,.bc-header,.bc-burger::before,.bc-burger span,.bc-nav,.k-seg__ind,.k-seg__b,.bc-tab,.bc-sticky-book,.k-days li,.k-step__n,.k-step__dot{transition:none!important}
   .k-card:hover,.k-inst:hover,.k-btn:hover{transform:none}
   .k-anim [data-reveal],.k-anim [data-intro],.k-anim .k-dash{opacity:1;transform:none}
   .k-anim [data-mask]{clip-path:none}
@@ -498,3 +499,269 @@ em{font-style:normal}
 .k-chart__axis span{line-height:16px;padding-inline-start:6px;background:linear-gradient(90deg,transparent,#0b2672 40%)}
 .k-chart__svg{right:44px;width:calc(100% - 44px)}
 .k-wordmark .k-ch{background:inherit;-webkit-background-clip:text;background-clip:text;color:transparent}
+
+
+/* =====================================================================
+   v4.1 – 1:1 KELDER-Struktur (Nov 2026): Limette, Abschnittsreihenfolge, fixierter Footer
+   ===================================================================== */
+.k-hero__title{font-size:clamp(46px,7.4vw,96px)}
+.k-hero__note{margin:18px 0 0;font-size:12px;color:rgba(255,255,255,.62)}
+.k-btn--accent{box-shadow:none}
+.k-btn--accent:hover{box-shadow:0 10px 26px -12px rgba(218,246,65,.8)}
+.k-btn--line,.k-btn--ghost{border-color:rgba(255,255,255,.7)}
+.k-pill__icon{background:rgba(218,246,65,.95)}
+.k-chip__ico{color:var(--k-accent);font-weight:700}
+.k-time{display:inline-block;direction:ltr;unicode-bidi:isolate}
+.bc-item__dur{direction:ltr;unicode-bidi:isolate}
+[dir="rtl"] .bc-item__dur{text-align:right}
+
+/* Dashboard wie KELDER: linke Spalte mit Abstand zu den Zeilen, x-Achse, Legende */
+.k-dash{grid-template-columns:minmax(260px,330px) 1fr;padding:28px 28px 22px}
+.k-dash__left{display:flex;flex-direction:column}
+.k-dash__left .k-chip{align-self:flex-start}
+.k-rows{margin-top:auto}
+.k-rows>div{border-top:1px dashed rgba(255,255,255,.22)}
+.k-chart{min-height:230px}
+.k-chart__svg{inset:0 0 30px 0;height:calc(100% - 30px)}
+.k-chart__x{position:absolute;left:0;right:44px;bottom:0;display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.6);direction:ltr}
+.k-chart__x span{white-space:nowrap}
+.k-chart__axis{bottom:calc(30px + 2% - 8px)}
+.k-dash__legend{display:flex;gap:6px;margin-top:14px}
+.k-dash__legend i{flex:1 1 0;height:5px}
+.k-legend{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;margin:10px 0 0;padding:0;font-size:12px;color:rgba(255,255,255,.75)}
+.k-legend li{display:inline-flex;align-items:center;gap:6px}
+.k-legend b{width:6px;height:6px;border-radius:50%;background:#fff}
+.k-legend li:nth-child(2) b{background:rgba(160,200,255,.85)}.k-legend li:nth-child(3) b{background:rgba(110,160,255,.9)}
+.k-seg__b{min-height:38px;padding:0 16px}
+.k-seg__b::after{content:"";position:absolute;inset:-3px 0}
+.bc-tab{min-height:44px}
+.bc-nav a{padding:12px 0}
+
+/* Überschriften wie KELDER: einfarbig, Eyebrow links, H2 rechts */
+.k-h2 em{color:inherit}
+.k-head{border-top:1px dashed color-mix(in srgb,var(--k-ink) 22%,transparent)}
+.k-head--center{grid-template-columns:minmax(150px,1fr) 3fr minmax(0,1fr)}
+.k-head--center .k-h2{grid-column:2;text-align:center}
+.k-head--center .k-eyebrow{grid-column:1;grid-row:1}
+.k-lead{font-size:16px}
+
+/* Bento (KELDER "What you control") */
+.k-bento{grid-template-columns:1fr 1fr 1fr;grid-template-areas:"a b d" "a c d" "a e e"}
+.k-bento__a{display:flex;flex-direction:column;min-height:0}
+.k-bento__b,.k-bento__c,.k-bento__e{min-height:0}
+.k-card__t{font-size:17px;font-weight:500;letter-spacing:-.01em}
+.k-floor{position:relative;flex:1;display:flex;flex-direction:column;justify-content:flex-end;min-height:260px;margin-top:24px}
+.k-floor__bars{display:flex;align-items:flex-end;gap:7px;height:220px}
+.k-floor__bar{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:3px}
+.k-floor__bar b{display:block;border-radius:3px;height:var(--h);transform-origin:bottom}
+.k-floor__hi{background:#c3d6fb}
+.k-floor__lo{background:linear-gradient(180deg,#1f56d6,#0c2f86)}
+@media (prefers-color-scheme: dark){.k-floor__hi{background:#28457f}}
+.k-floor__tag{position:absolute;left:0;bottom:calc(220px * .045 + 10px);z-index:2;padding:4px 8px;border-radius:6px;background:var(--k-navy);color:#fff;font-size:11.5px;font-weight:500}
+@media (prefers-color-scheme: dark){.k-floor__tag{background:#fff;color:var(--k-navy)}}
+[dir="rtl"] .k-floor__tag{left:auto;right:0}
+.k-week{margin-top:16px}
+.k-week__l{display:flex;gap:6px;list-style:none;margin:0 0 6px;padding:0}
+.k-week__l li{width:36px;text-align:center;font-size:11px;color:var(--k-muted)}
+.k-days li{background:transparent;color:var(--k-ink);border:1px solid transparent;font-size:13px;font-weight:500}
+.k-days li.is-past{background:var(--k-blue2);color:#fff}
+.k-days li.is-today{background:var(--k-accent);color:var(--k-accent-ink)}
+.k-days li.is-next{border-color:color-mix(in srgb,var(--k-blue2) 55%,transparent);color:var(--k-blue2)}
+@media (prefers-color-scheme: dark){.k-days li.is-next{color:#9fc0ff;border-color:#4e78d8}}
+.k-days li.is-off{border:0;color:var(--k-muted);opacity:.7}
+.k-bento__c .k-big{font-size:clamp(72px,8vw,112px);margin:18px 0 12px}
+.k-bento__d{min-height:0;justify-content:flex-start}
+.k-bento__d .k-giant{margin-bottom:auto}
+.k-bento__d .k-ticks{margin:28px 0 30px}
+.k-ticks li{align-items:flex-start;border:0;padding:4px 0 12px;position:relative}
+.k-ticks li::before{content:"";position:absolute;left:3.5px;top:14px;bottom:-4px;width:1px;background:rgba(255,255,255,.35)}
+.k-ticks li:last-child::before{display:none}
+[dir="rtl"] .k-ticks li::before{left:auto;right:3.5px}
+.k-ticks b{flex:0 0 8px;margin-top:6px;background:#fff}
+.k-ticks li:last-child b{background:var(--k-accent)}
+.k-ticks small{display:block;font-size:11.5px;color:rgba(255,255,255,.66)}
+.k-bento__d .k-card__s em{color:#fff}
+.k-bento__photo{position:absolute!important;inset:0;margin:0;opacity:.2;mix-blend-mode:luminosity;pointer-events:none;-webkit-mask-image:linear-gradient(200deg,#000 0%,transparent 65%);mask-image:linear-gradient(200deg,#000 0%,transparent 65%)}
+.k-bento__photo img{width:100%;height:100%;object-fit:cover}
+.k-bento__d::after{content:"";position:absolute;inset:0 0 50% 40%;background-image:radial-gradient(rgba(255,255,255,.28) 1px,transparent 1.4px);background-size:12px 12px;-webkit-mask-image:radial-gradient(80% 80% at 100% 0%,#000,transparent);mask-image:radial-gradient(80% 80% at 100% 0%,#000,transparent);pointer-events:none}
+.k-bento__e{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.k-bento__e .k-flow{margin:0;justify-content:flex-end}
+.k-flow i{width:auto;height:auto;background:none;color:var(--k-muted);font-style:normal;font-size:13px}
+.k-flow i::after{display:none}
+.k-flow span{min-height:40px;padding:0 14px;border:0;background:var(--k-bg)}
+
+/* Instrumente */
+.k-inst__row{padding:18px 10px 4px}
+.k-inst__row h3{font-weight:500}
+.k-inst__sub{margin:0;padding:0 10px 14px;font-size:13.5px;color:var(--k-muted)}
+.k-inst__dl{padding:0 10px}
+.k-inst__dl>div{border-top:1px dashed color-mix(in srgb,var(--k-ink) 22%,transparent);padding:12px 0}
+.k-inst__dl dd{font-weight:500}
+.k-inst__pct{font-size:clamp(26px,2.6vw,34px)}
+.bc-item{border-top:1px dashed color-mix(in srgb,var(--k-ink) 18%,transparent)}
+.k-prices .bc-tabs{margin-top:8px}
+
+/* Besuch-Panel: zentrierte Überschrift wie KELDER "Getting started" */
+.k-visit{padding-top:clamp(56px,7vw,96px)}
+.k-panel__head{display:flex;flex-direction:column;align-items:center;text-align:center;grid-template-columns:none;margin-bottom:clamp(36px,5vw,64px)}
+.k-panel__head .k-h2{max-width:14em;font-size:clamp(32px,4.2vw,54px)}
+.k-panel__text{max-width:44em;margin:20px auto 0;font-size:15px}
+.k-panel__bg{position:absolute;inset:0;margin:0;opacity:.12;mix-blend-mode:luminosity;pointer-events:none;-webkit-mask-image:radial-gradient(60% 50% at 50% 0%,#000,transparent);mask-image:radial-gradient(60% 50% at 50% 0%,#000,transparent)}
+.k-panel__bg img{width:100%;height:100%;object-fit:cover}
+.k-panel>*{position:relative}
+.k-panel>.k-panel__bg,.k-panel>.k-silk{position:absolute}
+.k-step.is-active .k-step__n{box-shadow:0 10px 26px -10px rgba(218,246,65,.7)}
+
+/* Bewertungen (KELDER "Three situations") */
+.k-review{padding:16px 16px 22px}
+.k-review__vis{flex-direction:column;align-items:stretch;justify-content:space-between;height:170px;padding:16px 18px;background:color-mix(in srgb,var(--k-soft) 70%,var(--k-card))}
+.k-review__top{display:flex;justify-content:space-between;align-items:center}
+.k-review__top img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.k-review__top .k-quote{width:34px;height:26px}
+.k-review__bars{height:78px;gap:7px}
+.k-review__bars i{flex:1;width:auto;border-radius:3px;opacity:1;background:linear-gradient(180deg,#5d8bff,#1747c4)}
+.k-review__bars i:nth-child(-n+3){opacity:.45}
+.k-review__bars i:last-child{background:linear-gradient(180deg,#1747c4,#0c2f86)}
+.k-review__who{margin:20px 6px 6px;font-size:12.5px;font-weight:500;color:var(--k-soft-ink)}
+.k-review__txt{padding:0 6px}
+.k-review__txt p:first-child{font-size:19px;line-height:1.3;color:var(--k-ink)}
+.k-review__txt p{font-size:14.5px;color:var(--k-muted)}
+
+/* Portfolio-Zeile (KELDER "Security" + "Pricing") */
+.k-port{grid-template-columns:1fr 1fr;align-items:stretch}
+.k-cubecard{min-height:440px;justify-content:center;padding:36px 30px}
+.k-cubecard>.k-pill,.k-cubecard>.k-cubecard__t,.k-cubecard>.k-cubecard__s,.k-cubecard>.k-btn{max-width:56%}
+.k-cubecard__t{font-size:clamp(28px,3vw,40px);margin:18px 0 14px;color:#fff}
+.k-cubecard__s{margin:0 0 26px;color:rgba(255,255,255,.82);font-size:15px}
+.k-cube-scene{inset:0 -8% 0 42%;perspective:1100px}
+[dir="rtl"] .k-cube-scene{inset:0 42% 0 -8%}
+.k-cube{--s:230px}
+.k-cube span{background-color:#3a74ff;background-blend-mode:luminosity;border:1px solid rgba(255,255,255,.45);border-radius:4px;opacity:.92;box-shadow:inset 0 0 60px rgba(30,80,220,.55)}
+.k-cube span::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.18) 1px,transparent 1px) 0 0/33.33% 33.33%,linear-gradient(90deg,rgba(255,255,255,.18) 1px,transparent 1px) 0 0/33.33% 33.33%}
+.k-hourscard{display:flex;flex-direction:column;padding:32px 30px}
+.k-hourscard .k-eyebrow{align-self:flex-start;background:var(--k-soft);border-color:transparent}
+.k-hours__top{display:flex;align-items:center;gap:24px;margin:22px 0 16px}
+.k-hours__big{margin:0;font-size:clamp(54px,6.4vw,92px);line-height:1;letter-spacing:-.04em;font-weight:400;flex:0 0 auto}
+.k-hours__side{margin:0;font-size:14px;color:var(--k-muted);max-width:16em}
+.k-hours__side span{color:var(--k-ink)}
+.k-hours__ex{margin:auto 0 8px;font-size:12.5px;color:var(--k-muted)}
+.k-progress{height:5px;background:transparent;display:flex}
+.k-progress::before{content:"";position:absolute;inset:0;border-radius:5px;background:color-mix(in srgb,var(--k-blue2) 14%,transparent)}
+.k-progress__fill{background:var(--k-blue2);right:12%;transform:scaleX(var(--p,0))}
+.k-progress__end{position:absolute;right:0;top:0;bottom:0;width:10%;border-radius:5px;background:var(--k-accent)}
+[dir="rtl"] .k-progress__fill{right:0;left:12%}
+[dir="rtl"] .k-progress__end{right:auto;left:0}
+.k-progress__mark{left:calc(var(--p,0)*88%);background:#fff;border:3px solid var(--k-blue2);box-shadow:none}
+[dir="rtl"] .k-progress__mark{right:calc(var(--p,0)*88%)}
+.k-progress__ends{color:var(--k-ink);font-size:13.5px;margin:10px 0 26px}
+.k-gallery{margin-top:14px}
+.k-gallery:focus{outline:none}
+
+/* CTA (KELDER "Monthly note") */
+.k-ctacard{padding:12px;border-radius:22px}
+.k-ctacard__txt{justify-content:flex-start;padding:clamp(22px,3.4vw,40px)}
+.k-ctacard__txt .k-h2{font-size:clamp(30px,3.4vw,44px);margin-top:16px}
+.k-field{display:flex;align-items:center;gap:8px;width:min(100%,420px);margin-top:clamp(28px,5vw,64px);padding:5px 5px 5px 16px;border:1px solid var(--k-line);border-radius:12px;background:var(--k-card)}
+[dir="rtl"] .k-field{padding:5px 16px 5px 5px}
+.k-field__in{flex:1;color:var(--k-muted);font-size:14.5px;text-decoration:none}
+.k-field__in .bc-tel__num{color:var(--k-ink)}
+.k-field__note{margin:12px 0 0;font-size:12px;color:var(--k-muted)}
+.k-ctacard__vis{min-height:380px;border-radius:14px;background:radial-gradient(60% 60% at 25% 35%,#eaf1ff 0%,rgba(234,241,255,0) 60%),linear-gradient(160deg,#c9dcff 0%,#7ea6ff 55%,#4f86ff 100%)}
+.k-ctacard__vis::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.4px);background-size:14px 14px;-webkit-mask-image:linear-gradient(0deg,#000,transparent 70%);mask-image:linear-gradient(0deg,#000,transparent 70%)}
+.k-ticket{width:min(300px,70%);aspect-ratio:3/2;transform:rotateX(14deg) rotateY(-18deg) rotateZ(-6deg)}
+.k-ticket__body{border-radius:14px;background:linear-gradient(165deg,#3f7bff 0%,#1d55d8 55%,#123ea8 100%);border:1px solid rgba(255,255,255,.55);justify-content:flex-end;padding:0 0 18px}
+.k-ticket__v{position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - 1px),rgba(255,255,255,.45) 50%,transparent calc(50% + 1px)) 0 100%/50% 62% no-repeat,linear-gradient(to top left,transparent calc(50% - 1px),rgba(255,255,255,.45) 50%,transparent calc(50% + 1px)) 100% 100%/50% 62% no-repeat}
+.k-ticket__flap{clip-path:polygon(0 0,100% 0,50% 60%);background:linear-gradient(180deg,#5d90ff,#2b62e0);border-top:1px solid rgba(255,255,255,.6)}
+.k-ticket__badge{position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);z-index:3;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#1846c2;border:2px solid rgba(255,255,255,.8)}
+.k-ticket__badge .k-logo-mark{transform:scale(.62)}
+.k-ticket__line{font-size:11.5px;transform:rotate(-4deg)}
+
+/* Footer – fixiert unter der Seite (KELDER) */
+.k-main{border-radius:0 0 24px 24px}
+.k-footer{color:#fff;background:linear-gradient(180deg,#1f56d0 0%,#0c2f86 34%,#071a4f 62%,#040b20 100%)}
+.k-footer.is-fixed{position:fixed;left:0;right:0;bottom:0;z-index:0;margin:0;padding-top:0}
+html{--foot-h:0px}
+.js .k-main{margin-bottom:var(--foot-h)}
+.k-footer:focus{outline:none}
+.k-footer__in{max-width:1320px;margin:0 auto;padding:44px var(--k-gut) 0}
+.k-footer:not(.is-fixed) .k-footer__in{padding-top:76px}
+.k-footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.k-footer__tag{margin:0 0 22px;font-size:clamp(20px,1.9vw,24px);line-height:1.2;letter-spacing:-.02em;max-width:12em}
+.k-footer__btns{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+.k-btn--fline{border-color:rgba(255,255,255,.6);color:#fff;font-weight:500;font-size:14px}
+.k-btn--fline:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.k-footer__col{display:flex;flex-direction:column;align-items:flex-start;font-size:14.5px}
+.k-footer__col h2{margin:0 0 8px;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.6)}
+.k-footer__col a{display:inline-flex;align-items:center;min-height:36px;color:#fff;text-decoration:none}
+.k-footer__col a:hover{text-decoration:underline;text-underline-offset:3px}
+.k-footer__col p{margin:4px 0;color:rgba(255,255,255,.86)}
+.k-footer__col .bc-tel{min-height:36px}
+.k-footer__hours{font-size:13px}
+.k-footer__hours>span:first-child{color:rgba(255,255,255,.6)}
+.k-footer .bc-lang{margin:8px 0 0}
+.k-footer__bottom{display:flex;justify-content:space-between;gap:24px;margin-top:34px;padding-top:20px;border-top:1px dashed rgba(255,255,255,.35);font-size:12px;color:rgba(255,255,255,.75)}
+.k-footer__disc{margin:0;max-width:34em}
+.k-footer__meta{margin:0;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:4px 22px;text-align:end}
+.k-totop{display:inline-flex;align-items:center;min-height:36px;color:#fff;text-decoration:none}
+.k-wordmark{margin-top:18px;padding:0;text-align:start;font-size:clamp(64px,15.6vw,236px);line-height:.8;transform:translateY(10%);letter-spacing:-.055em;font-weight:500}
+[dir="rtl"] .k-wordmark{direction:ltr;text-align:right}
+.bc-footer__inner{display:none}
+
+/* Schnellbuchung nur mobil (KELDER hat Header-CTA; auf dem Handy ist der verborgen) */
+@media (min-width:781px){.bc-quick{display:none}}
+
+@media (max-width:960px){
+  .k-bento{grid-template-columns:1fr 1fr;grid-template-areas:"a d" "b c" "e e"}
+  .k-port{grid-template-columns:1fr}
+  .k-footer__grid{grid-template-columns:1fr 1fr 1fr}
+  .k-footer__brand{grid-column:1/-1}
+  .k-head--center{grid-template-columns:1fr}
+  .k-head--center .k-h2{grid-column:1}
+}
+@media (max-width:780px){
+  .k-dash{grid-template-columns:1fr}
+  .k-rows{margin-top:8px}
+  .k-chart__x span:nth-child(even){visibility:hidden}
+  .k-bento{grid-template-columns:1fr;grid-template-areas:"a" "b" "c" "d" "e"}
+  .k-floor{min-height:240px}
+  .k-week__l li,.k-days li{width:auto;flex:1}
+  .k-bento__d{min-height:420px}
+  .k-bento__e{flex-direction:column;align-items:flex-start}
+  .k-bento__e .k-flow{justify-content:flex-start}
+  .k-cubecard{min-height:520px;justify-content:flex-end}
+  .k-cubecard>.k-pill,.k-cubecard>.k-cubecard__t,.k-cubecard>.k-cubecard__s,.k-cubecard>.k-btn{max-width:none}
+  .k-cube-scene{inset:0 0 45% 0}
+  [dir="rtl"] .k-cube-scene{inset:0 0 45% 0}
+  .k-cube{--s:170px}
+  .k-hours__top{flex-direction:column;align-items:flex-start;gap:10px}
+  .k-field{flex-wrap:wrap;padding:10px}
+  .k-field .k-btn{flex:1 1 100%}
+  .k-footer__grid{grid-template-columns:1fr 1fr;gap:22px}
+  .k-footer__bottom{flex-direction:column}
+  .k-footer__meta{justify-content:flex-start;text-align:start}
+  .k-gallery{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion: reduce){.k-footer__in{transform:none!important}}
+.k-head .k-eyebrow,.k-ctacard .k-eyebrow{justify-self:start;align-self:start}
+.k-chart__tip b,.k-chart__axis span{direction:ltr;unicode-bidi:isolate}
+.k-chart__axis{direction:ltr}
+
+/* v4.1b – Design-Review Miki */
+/* P1.2: eigenes Barber-Crew-Logo statt Template-Zeichen */
+.k-loader__logo{width:120px;height:auto;margin-bottom:14px}
+.k-ticket__badge{width:76px;height:48px;border-radius:12px;padding:6px}
+.k-ticket__badge img{width:100%;height:auto}
+/* P1.1: Wortmarke – Verlauf nur einmal (pro Buchstabe), keine Geisterbuchstaben */
+.k-wordmark{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:rgba(255,255,255,.4)}
+.k-wordmark .k-ch{background:linear-gradient(180deg,rgba(255,255,255,.7) 0%,rgba(255,255,255,.08) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* P1.5: Diagramm-Beschriftungen und Legende */
+.k-chart__x span{flex:0 0 auto}
+.k-legend{list-style:none}
+/* Limette in hellem Modus: dunkle Oliv-Kante / -Variante für 3:1 */
+:root{--k-olive:#6b7a00}
+@media (prefers-color-scheme: light){
+  .k-days li.is-today{box-shadow:inset 0 0 0 2px var(--k-olive);color:#1d2400}
+  .k-progress__end{background:var(--k-olive)}
+  .bc-sticky-book{box-shadow:0 0 0 2px var(--k-olive)}
+  .k-step__n{}
+}

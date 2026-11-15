@@ -48,7 +48,7 @@
     ['Leistungen', 'Services', 'Услуги', 'שירותים'],
     ['Preise & ', 'Prices & ', 'Цены и ', 'מחירים ו\u2060'],
     ['Services', 'services', 'услуги', 'שירותים'],
-    ['Alle Leistungen und Preise direkt aus unserem Online-Buchungssystem. Wähle deinen Service und buche den Termin in wenigen Klicks.', 'All services and prices straight from our online booking system. Pick your service and book in a few clicks.', 'Все услуги и цены — прямо из нашей системы онлайн-записи. Выберите услугу и запишитесь в пару кликов.', 'כל השירותים והמחירים ישירות ממערכת ההזמנות המקוונת שלנו. בחרו שירות וקבעו תור בכמה קליקים.'],
+    ['Alle Leistungen und Preise direkt aus unserem Online-Buchungssystem. Wählen Sie Ihren Service und buchen Sie den Termin in wenigen Klicks.', 'All services and prices straight from our online booking system. Choose your service and book in a few clicks.', 'Все услуги и цены — прямо из нашей системы онлайн-записи. Выберите услугу и запишитесь в пару кликов.', 'כל השירותים והמחירים ישירות ממערכת ההזמנות המקוונת שלנו. בחרו שירות וקבעו תור בכמה קליקים.'],
     ['Preiskategorien filtern', 'Filter price categories', 'Фильтр категорий цен', 'סינון קטגוריות מחיר'],
     ['Alle', 'All', 'Все', 'הכול'],
     ['Haare', 'Hair', 'Волосы', 'שיער'],
@@ -61,9 +61,9 @@
     ['Kopfrasur', 'Head shave', 'Бритьё головы', 'גילוח ראש'],
     ['Haarschnitt (Mittel Lang)', 'Haircut (medium-long)', 'Стрижка (средние)', 'תספורת (בינוני-ארוך)'],
     ['Kombis', 'Combos', 'Комплексы', 'חבילות'],
-    ['Haarschnitt & Bart Styling – Kurz (ohne heißer Kompresse)', 'Haircut & beard styling – short (without hot towel)', 'Стрижка и оформление бороды – короткие (без горячего компресса)', 'תספורת ועיצוב זקן – קצר (בלי מגבת חמה)'],
-    ['Haarschnitt & Bart Styling – Mittel (ohne heißer Kompresse)', 'Haircut & beard styling – medium (without hot towel)', 'Стрижка и оформление бороды – средние (без горячего компресса)', 'תספורת ועיצוב זקן – בינוני (בלי מגבת חמה)'],
-    ['Haarschnitt & Bart Styling – Lang (ohne heißer Kompresse)', 'Haircut & beard styling – long (without hot towel)', 'Стрижка и оформление бороды – длинные (без горячего компресса)', 'תספורת ועיצוב זקן – ארוך (בלי מגבת חמה)'],
+    ['Haarschnitt & Bart Styling – Kurz (ohne heiße Kompresse)', 'Haircut & beard styling – short (without hot towel)', 'Стрижка и оформление бороды – короткие (без горячего компресса)', 'תספורת ועיצוב זקן – קצר (בלי מגבת חמה)'],
+    ['Haarschnitt & Bart Styling – Mittel (ohne heiße Kompresse)', 'Haircut & beard styling – medium (without hot towel)', 'Стрижка и оформление бороды – средние (без горячего компресса)', 'תספורת ועיצוב זקן – בינוני (בלי מגבת חמה)'],
+    ['Haarschnitt & Bart Styling – Lang (ohne heiße Kompresse)', 'Haircut & beard styling – long (without hot towel)', 'Стрижка и оформление бороды – длинные (без горячего компресса)', 'תספורת ועיצוב זקן – ארוך (בלי מגבת חמה)'],
     ['Premium Haarschnitt & Bartschnitt mit Hot Towel', 'Premium haircut & beard trim with hot towel', 'Премиум-стрижка и стрижка бороды с горячим полотенцем', 'תספורת פרימיום ותספורת זקן עם מגבת חמה'],
     ['Haarschnitt & Hot Towel + Ohren- & Nasenwaxing', 'Haircut & hot towel + ear & nose waxing', 'Стрижка и горячее полотенце + воск для ушей и носа', 'תספורת ומגבת חמה + שעווה לאוזניים ולאף'],
     ['Dauerwelle', 'Perm', 'Химическая завивка', 'סלסול'],
@@ -76,7 +76,7 @@
     ['Beard Styling', 'Beard styling', 'Оформление бороды', 'עיצוב זקן'],
     ['Bart trimmen (ohne Rasur)', 'Beard trim (no shave)', 'Подравнивание бороды (без бритья)', 'גיזום זקן (בלי גילוח)'],
     ['Young Barber', 'Young Barber', 'Young Barber', 'Young Barber'],
-    ['Ermäßigter Kennenlernpreis – du wirst von unserem Young Barber bedient, der Termin dauert etwas länger.', 'Reduced introductory price – you will be served by our Young Barber; the appointment takes a little longer.', 'Сниженная цена для знакомства – вас обслужит наш Young Barber, визит длится немного дольше.', 'מחיר היכרות מוזל – יטפל בך ה-Young Barber שלנו, והתור אורך קצת יותר.'],
+    ['Ermäßigter Kennenlernpreis – Sie werden von unserem Young Barber bedient, der Termin dauert etwas länger.', 'Reduced introductory price – you will be served by our Young Barber; the appointment takes a little longer.', 'Сниженная цена для знакомства – вас обслужит наш Young Barber, визит длится немного дольше.', 'מחיר היכרות מוזל – יטפל בך ה-Young Barber שלנו, והתור אורך קצת יותר.'],
     ['Haarschnitt', 'Haircut', 'Стрижка', 'תספורת'],
     ['Bart trimmen', 'Beard trim', 'Подравнивание бороды', 'גיזום זקן'],
     ['Bartschnitt', 'Beard cut', 'Стрижка бороды', 'תספורת זקן'],
@@ -113,9 +113,8 @@
     ['Ich freue mich auf das nächste Mal!', 'Looking forward to next time!', 'Жду следующего раза!', 'מחכה לפעם הבאה!'],
     ['Ich bin überwältigt von den Engagement und Einsatz der Fachkräfte', 'I am overwhelmed by the dedication and commitment of the professionals', 'Я в восторге от увлечённости и отдачи мастеров', 'אני המום מהמסירות וההשקעה של אנשי המקצוע'],
     ['Da merkt man gleich dass man mit einem Profi zu tun hat ich wollte gar nicht raus man wird verwöhnt und als wahren Kunden wahrgenommen top weiter so komme bestimmt wieder solange ich Haare im Kopf hab', 'You notice right away that you are dealing with a pro. I didn’t want to leave – you get pampered and treated like a real customer. Top, keep it up, I’ll definitely be back as long as I have hair on my head', 'Сразу видно, что имеешь дело с профи. Не хотелось уходить – тебя балуют и относятся как к настоящему клиенту. Супер, так держать, обязательно приду снова, пока у меня есть волосы на голове', 'רואים מיד שמדובר במקצוען. לא רציתי לצאת – מפנקים אותך ומתייחסים אליך כמו ללקוח אמיתי. מעולה, תמשיכו ככה, אחזור בטוח כל עוד יש לי שיער על הראש'],
-    ['Bereit für deinen ', 'Ready for your ', 'Готов к ', 'מוכן '],
-    ['neuen Look?', 'new look?', 'новому образу?', 'ללוק חדש?'],
-    ['Freien Termin wählen und online buchen – schnell und unkompliziert.', 'Pick a free slot and book online – quick and easy.', 'Выберите свободное время и запишитесь онлайн – быстро и просто.', 'בחרו מועד פנוי והזמינו אונליין – מהר ופשוט.'],
+    ['Bereit für Ihren neuen Look?', 'Ready for your new look?', 'Готовы к новому образу?', 'מוכנים ללוק חדש?'],
+        ['Verfügbaren Termin wählen und online buchen – schnell und unkompliziert.', 'Pick an available time and book online – quick and easy.', 'Выберите свободное время и запишитесь онлайн – быстро и просто.', 'בוחרים מועד פנוי וקובעים תור אונליין – מהר ופשוט.'],
     ['Besuchen Sie ', 'Visit ', 'Приходите ', 'בואו '],
     ['uns', 'us', 'к нам', 'אלינו'],
     ['Adresse', 'Address', 'Адрес', 'כתובת'],
@@ -134,16 +133,39 @@
     ['Preise nach Kategorie', 'Prices by category', 'Цены по категориям', 'מחירים לפי קטגוריה'],
     ['ab', 'from', 'от', 'החל מ־'],
     ['Dauer', 'Duration', 'Длительность', 'משך'],
-    ['Mo', 'Mo', 'Пн', 'ב׳'], ['Di', 'Tu', 'Вт', 'ג׳'], ['Mi', 'We', 'Ср', 'ד׳'], ['Do', 'Th', 'Чт', 'ה׳'], ['Fr', 'Fr', 'Пт', 'ו׳'], ['Sa', 'Sa', 'Сб', 'ש׳'], ['So', 'Su', 'Вс', 'א׳'],
-    ['Online buchen', 'Book online', 'Онлайн-запись', 'הזמנה אונליין'],
-    ['Service wählen und freien Termin über Treatwell buchen – in wenigen Klicks.', 'Pick a service and book a free slot on Treatwell – in a few clicks.', 'Выберите услугу и свободное время на Treatwell – всего за несколько кликов.', 'בוחרים שירות ותור פנוי ב-Treatwell – בכמה קליקים.'],
-    ['Ankommen', 'Arrive', 'Приходите', 'מגיעים'],
+    ['Mo', 'Mon', 'Пн', 'ב׳'], ['Di', 'Tue', 'Вт', 'ג׳'], ['Mi', 'Wed', 'Ср', 'ד׳'], ['Do', 'Thu', 'Чт', 'ה׳'], ['Fr', 'Fri', 'Пт', 'ו׳'], ['Sa', 'Sat', 'Сб', 'ש׳'], ['So', 'Sun', 'Вс', 'א׳'],
+    ['Online buchen', 'Book online', 'Онлайн-запись', 'קובעים תור אונליין'],
+    ['Service wählen und verfügbaren Termin über Treatwell buchen – in wenigen Klicks.', 'Pick a service and book an available time on Treatwell – in a few clicks.', 'Выберите услугу и свободное время на Treatwell – всего за несколько кликов.', 'בוחרים שירות ומועד פנוי ב-Treatwell – בכמה קליקים.'],
+    ['Ankommen', 'Arrival', 'Встреча', 'מגיעים'],
     ['Wir heißen Sie herzlich willkommen – mit heißem Kaffee oder einem kühlen Getränk Ihrer Wahl.', 'We welcome you warmly – with a hot coffee or a cool drink of your choice.', 'Мы тепло встречаем вас – горячим кофе или прохладным напитком на ваш выбор.', 'מקבלים אותך בחום – עם קפה חם או משקה קר לבחירתך.'],
     ['Ihr Schnitt', 'Your cut', 'Ваша стрижка', 'התספורת שלך'],
     ['Haarschnitt, Bart und Rasur – traditionelles Handwerk mit hochwertigen Produkten.', 'Haircut, beard and shave – traditional craft with high-quality products.', 'Стрижка, борода и бритьё – традиционное мастерство и качественные продукты.', 'תספורת, זקן וגילוח – מלאכת יד מסורתית עם מוצרים איכותיים.'],
     ['Neuer Look', 'New look', 'Новый образ', 'לוק חדש'],
-    ['Entspannt nach Hause – und gern bis zum nächsten Mal.', 'Head home relaxed – see you next time.', 'Уходите отдохнувшим – до новой встречи.', 'יוצאים רגועים – ונתראה בפעם הבאה.'],
+    ['Entspannt nach Hause – und gern bis zum nächsten Mal.', 'Head home relaxed – see you next time.', 'Домой уже отдохнувшим – до новой встречи.', 'יוצאים רגועים – ונתראה בפעם הבאה.'],
     ['Bis bald', 'See you soon', 'До встречи', 'להתראות'],
+    // KELDER-Struktur v4.1 (Nov 2026): ganze Überschriften, Konzept-Hinweis, Footer
+    ['Konzept-Redesign von PIXELPOP – keine offizielle Seite von The Barber Crew', 'Concept redesign by PIXELPOP – not the official The Barber Crew website', 'Концепт-редизайн от PIXELPOP – это не официальный сайт The Barber Crew', 'רידיזיין קונספט של PIXELPOP – לא האתר הרשמי של The Barber Crew'],
+    ['Konzept-Redesign von PIXELPOP – keine offizielle Seite von The Barber Crew. Preise laut Treatwell (Stand: 31.10.2026).', 'Concept redesign by PIXELPOP – not the official The Barber Crew website. Prices as listed on Treatwell (as of 31.10.2026).', 'Концепт-редизайн от PIXELPOP – это не официальный сайт The Barber Crew. Цены по данным Treatwell (на 31.10.2026).', 'רידיזיין קונספט של PIXELPOP – לא האתר הרשמי של The Barber Crew. המחירים לפי Treatwell (נכון ל-31.10.2026).'],
+    ['Unsere Mission', 'Our mission', 'Наша миссия', 'המשימה שלנו'],
+    ['Preise & Services', 'Prices & services', 'Цены и услуги', 'מחירים ושירותים'],
+    ['Wohlfühlfaktor', 'Feel-good factor', 'Фактор комфорта', 'תחושת רווחה'],
+    ['Handwerk, das man sieht', 'Craft you can see', 'Мастерство, которое видно', 'עבודה שרואים'],
+    ['Ein Auszug aus über 120 positiven Bewertungen', 'A selection from over 120 positive reviews', 'Выдержки из более чем 120 положительных отзывов', 'מבחר מתוך 120 ויותר ביקורות חיוביות'],
+    ['Von – bis je Kategorie, vom günstigsten bis zum teuersten Service.', 'Price range per category, from the lowest to the highest-priced service.', 'Диапазон цен по категориям – от самой доступной до самой дорогой услуги.', 'טווח מחירים לכל קטגוריה, מהשירות הזול ביותר ועד היקר ביותר.'],
+    ['Preise in Euro inkl. MwSt.', 'Prices in euros incl. VAT', 'Цены в евро с НДС', 'המחירים באירו כולל מע״מ'],
+    ['Haare, Bart, Kombis, Dauerwelle, Young Barber, Kinder, Extras & Waxing', 'Hair, beard, combos, perm, Young Barber, kids, extras & waxing', 'Волосы, борода, комплексы, завивка, Young Barber, дети, дополнительно и воск', 'שיער, זקן, חבילות, סלסול, Young Barber, ילדים, תוספות ושעווה'],
+    ['Taborstraße 20/G3, 1020 Wien', 'Taborstraße 20/G3, 1020 Vienna', 'Taborstraße 20/G3, 1020 Вена', 'Taborstraße 20/G3, 1020 וינה'],
+    ['© 2026 The Barber Crew · Taborstraße 20/G3, 1020 Wien', '© 2026 The Barber Crew · Taborstraße 20/G3, 1020 Vienna', '© 2026 The Barber Crew · Taborstraße 20/G3, 1020 Вена', '© 2026 The Barber Crew · Taborstraße 20/G3, 1020 וינה'],
+    ['Schnitt, Rasur & Kopfmassage', 'Cuts, shaves & head massage', 'Стрижка, бритьё и массаж головы', 'תספורת, גילוח ועיסוי ראש'],
+    ['Hot Towel, Styling & Trimmen', 'Hot towel, styling & trims', 'Горячее полотенце, оформление и подравнивание', 'מגבת חמה, עיצוב וגיזום'],
+    ['Haarschnitt & Bart in einem Termin', 'Haircut & beard in one appointment', 'Стрижка и борода за один визит', 'תספורת וזקן בתור אחד'],
+    ['Galerie ansehen', 'View gallery', 'Смотреть галерею', 'לגלריה'],
+    ['Online über Treatwell oder telefonisch.', 'Online via Treatwell or by phone.', 'Онлайн через Treatwell или по телефону.', 'אונליין דרך Treatwell או בטלפון.'],
+    ['Navigation', 'Navigation', 'Навигация', 'ניווט'],
+    ['Seitennavigation', 'Page navigation', 'Навигация по странице', 'ניווט בעמוד'],
+    ['Nach oben', 'Back to top', 'Наверх', 'חזרה למעלה'],
+    ['Menü schließen', 'Close menu', 'Закрыть меню', 'סגירת תפריט'],
+    ['Taborstraße 20 → 1020 Wien', 'Taborstraße 20 → 1020 Vienna', 'Taborstraße 20 → 1020 Вена', 'Taborstraße 20 → 1020 וינה'],
     // Sprachumschalter selbst
     ['Sprache wählen', 'Choose language', 'Выбрать язык', 'בחירת שפה'],
     ['Standardsprache', 'Default', 'По умолчанию', 'ברירת מחדל'],
@@ -155,6 +177,13 @@
   var MAP = {};
   T.forEach(function (r) { MAP[norm(r[0])] = r; });
   var TITLE = { de: document.title, en: 'The Barber Crew – Barbershop Vienna, Taborstraße 20', ru: 'The Barber Crew – барбершоп в Вене, Taborstraße 20', he: 'The Barber Crew – מספרה בווינה, Taborstraße 20' };
+  var DESC = {
+    de: document.querySelector('meta[name="description"]') ? document.querySelector('meta[name="description"]').getAttribute('content') : '',
+    en: 'Concept redesign by PIXELPOP for The Barber Crew – barbershop in Vienna, Taborstraße 20, 1020 Vienna. Haircuts, beards, shaves. Book online.',
+    ru: 'Концепт-редизайн от PIXELPOP для The Barber Crew – барбершоп в Вене, Taborstraße 20, 1020 Вена. Стрижка, борода, бритьё. Онлайн-запись.',
+    he: 'רידיזיין קונספט של PIXELPOP ל-The Barber Crew – מספרה בווינה, Taborstraße 20, 1020 וינה. תספורת, זקן וגילוח. קביעת תור אונליין.'
+  };
+  var OGL = { de: 'de_AT', en: 'en_GB', ru: 'ru_RU', he: 'he_IL' };
   var DUR = {
     en: [/(\d+) Std\./g, '$1 h', /(\d+) Min\./g, '$1 min'],
     ru: [/(\d+) Std\./g, '$1 ч', /(\d+) Min\./g, '$1 мин'],
@@ -204,10 +233,13 @@
     html.lang = lang === 'de' ? 'de-AT' : lang;
     html.dir = lang === 'he' ? 'rtl' : 'ltr';
     document.title = TITLE[lang];
+    var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute('content', DESC[lang]);
+    var ol = document.querySelector('meta[property="og:locale"]'); if (ol) ol.setAttribute('content', OGL[lang]);
     try { if (lang === 'de') localStorage.removeItem('bc-lang'); else localStorage.setItem('bc-lang', lang); } catch (e) {}
     switchers.forEach(function (s) { s.update(); });
     try { document.dispatchEvent(new CustomEvent('bc:lang', { detail: lang })); } catch (e) {}
   }
+  window.bcTr = function (de) { return current === 'de' ? de : (tr(de, current) || de); };
   function ui(key) { return current === 'de' ? key : MAP[norm(key)][IDX[current]]; }
 
   // ---------- geteilte Flagge Deutschland / Österreich (Diagonale) ----------
