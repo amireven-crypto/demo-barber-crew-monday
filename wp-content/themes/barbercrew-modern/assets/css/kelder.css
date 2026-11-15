@@ -945,7 +945,10 @@ html{--foot-h:594px}
 .k-footer__col a{min-height:44px}
 .k-wordmark{transform:none;margin-top:12px;padding-bottom:.12em;line-height:1}
 .k-totop{gap:.35em}
-@media (min-width:961px){.js .k-section.k-cta{padding-bottom:max(80px, calc(100svh - var(--foot-h, 80vh) + 16px))}}
+/* Tight last section: hug the CTA card so the curtain does not show a light band. */
+@media (min-width:961px){
+  .js .k-section.k-cta{padding-bottom:32px}
+}
 
 /* Sticky book: mobile only, and page content clears it */
 @media (min-width:961px){
