@@ -14,13 +14,13 @@
   --k-bg:#f1f4f9; --k-bg2:#e8edf6; --k-card:#ffffff; --k-ink:#0a1630; --k-muted:#56627c; --k-line:rgba(10,22,48,.10);
   --k-soft:#eaf0fd; --k-soft-ink:#1d4fd8;
   --k-navy:#050d24; --k-blue:#0c2f86; --k-blue2:#1747c4; --k-blue3:#3a7bff; --k-sky:#a8c8ff;
-  --k-accent:#daf641; --k-accent-hi:#e6fb73; --k-accent-ink:#0a1630; /* KELDER-Limette */ --k-focus:#1747c4;
+  --k-accent:#ff6a13; --k-accent-hi:#ff8540; --k-accent-ink:#0a1630; /* Barber-Crew-Orange #FF6A13 / Hover #FF8540 */ --k-focus:#1747c4;
   --k-r:18px; --k-max:1200px; --k-gut:clamp(16px,4vw,40px);
   --k-ease:cubic-bezier(.16,1,.3,1); --k-fast:180ms;
   --k-heroend:var(--k-bg);
   /* Tokens für den Sprachumschalter (immer dunkles Panel) */
   --bc-card:#0f1b3d; --bc-card-hi:#1b2b58; --bc-white:#fff; --bc-muted:rgba(255,255,255,.72); --bc-line:rgba(255,255,255,.14);
-  --bc-orange:#daf641; --bc-r:12px; --bc-sans:var(--k-sans); --ma-fast:160ms; --ma-out:cubic-bezier(.16,1,.3,1);
+  --bc-orange:#ff6a13; --bc-r:12px; --bc-sans:var(--k-sans); --ma-fast:160ms; --ma-out:cubic-bezier(.16,1,.3,1);
   color-scheme:light dark;
 }
 @media (prefers-color-scheme: dark){
@@ -41,7 +41,7 @@ p{margin:0 0 1em}
 h1,h2,h3{margin:0;font-weight:500}
 em{font-style:normal}
 :focus-visible{outline:2px solid var(--k-focus);outline-offset:3px;border-radius:6px}
-.bc-header,.k-hero,.k-dash,.k-footer,.k-card--blue,.k-panel,.k-loader{--k-focus:#daf641}
+.bc-header,.k-hero,.k-dash,.k-footer,.k-card--blue,.k-panel,.k-loader{--k-focus:#ff6a13}
 
 /* Skip-Link (bleibt wie Runde 2: schwarz auf weiß) */
 .bc-skip{position:fixed;left:1em;top:1em;transform:translateY(-300%);background:#fff;color:#000;padding:.7em 1.2em;z-index:400;font-weight:700;border-radius:999px;text-decoration:none}
@@ -100,8 +100,8 @@ em{font-style:normal}
 .k-btn:hover::before{transform:translateX(120%)}
 .k-btn:hover{transform:translateY(-1px)}
 .k-btn:active{transform:translateY(0) scale(.98)}
-.k-btn--accent{background:var(--k-accent);color:var(--k-accent-ink);box-shadow:0 8px 24px -10px rgba(218,246,65,.7)}
-.k-btn--accent:hover{background:var(--k-accent-hi);box-shadow:0 12px 30px -10px rgba(218,246,65,.85)}
+.k-btn--accent{background:var(--k-accent);color:var(--k-accent-ink);box-shadow:0 8px 24px -10px rgba(255,106,19,.7)}
+.k-btn--accent:hover{background:var(--k-accent-hi);box-shadow:0 12px 30px -10px rgba(255,106,19,.85)}
 .k-btn--line,.k-btn--ghost{border-color:rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.04)}
 .k-btn--line:hover,.k-btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
 .k-btn--dark{background:var(--k-navy);color:#fff}
@@ -150,8 +150,8 @@ em{font-style:normal}
 .k-dash__big{margin:0 0 12px;font-size:clamp(40px,5.2vw,64px);line-height:1.05;letter-spacing:-.03em;font-weight:500}
 .k-chip{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:5px 12px;border-radius:999px;font-size:12.5px}
 .k-chip--glass{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14)}
-.k-dot{width:7px;height:7px;border-radius:50%;background:var(--k-accent);box-shadow:0 0 0 0 rgba(218,246,65,.6);animation:kPing 2.2s infinite}
-@keyframes kPing{0%{box-shadow:0 0 0 0 rgba(218,246,65,.55)}70%{box-shadow:0 0 0 9px rgba(218,246,65,0)}100%{box-shadow:0 0 0 0 rgba(218,246,65,0)}}
+.k-dot{width:7px;height:7px;border-radius:50%;background:var(--k-accent);box-shadow:0 0 0 0 rgba(255,106,19,.6);animation:kPing 2.2s infinite}
+@keyframes kPing{0%{box-shadow:0 0 0 0 rgba(255,106,19,.55)}70%{box-shadow:0 0 0 9px rgba(255,106,19,0)}100%{box-shadow:0 0 0 0 rgba(255,106,19,0)}}
 .k-rows{margin:0}
 .k-rows>div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14px}
 .k-rows dt{color:rgba(255,255,255,.72)}.k-rows dd{margin:0;font-weight:600}
@@ -171,7 +171,7 @@ em{font-style:normal}
 .k-chart__pt,.k-chart__end{position:absolute;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;pointer-events:none}
 .k-chart__pt{background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.18);opacity:0;transition:opacity .2s}
 .k-chart.is-hover .k-chart__pt{opacity:1}
-.k-chart__end{background:var(--k-accent);box-shadow:0 0 0 5px rgba(218,246,65,.25),0 0 18px rgba(218,246,65,.8)}
+.k-chart__end{background:var(--k-accent);box-shadow:0 0 0 5px rgba(255,106,19,.25),0 0 18px rgba(255,106,19,.8)}
 .k-chart__tip{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 14px));padding:8px 10px;border-radius:9px;background:#fff;color:var(--k-navy);font-size:12px;line-height:1.3;white-space:nowrap;box-shadow:0 10px 24px rgba(0,0,0,.25);pointer-events:none;max-width:240px}
 .k-chart__tip b{display:block;font-size:13px}
 .k-chart__tip span{display:block;white-space:normal;color:#4a5878}
@@ -263,7 +263,7 @@ em{font-style:normal}
 .k-step__body h3{font-size:18px;font-weight:600;margin:0 0 4px}
 .k-step__body p{margin:0;color:rgba(255,255,255,.72);font-size:14.5px;max-width:30em}
 .k-step:nth-child(even) .k-step__body p{margin-inline-start:auto}
-.k-step.is-active .k-step__n{background:var(--k-accent);color:var(--k-accent-ink);transform:scale(1.06);box-shadow:0 10px 26px -8px rgba(218,246,65,.8)}
+.k-step.is-active .k-step__n{background:var(--k-accent);color:var(--k-accent-ink);transform:scale(1.06);box-shadow:0 10px 26px -8px rgba(255,106,19,.8)}
 .k-step.is-active .k-step__dot{background:#3a7bff;border-color:#9cc0ff;box-shadow:0 0 0 6px rgba(58,123,255,.25)}
 
 /* Preise: Instrumente */
@@ -361,7 +361,7 @@ em{font-style:normal}
 .k-progress{position:relative;height:6px;border-radius:6px;background:var(--k-bg2)}
 .k-progress__fill{position:absolute;inset:0;border-radius:6px;background:linear-gradient(90deg,var(--k-blue2),var(--k-blue3));transform-origin:left;transform:scaleX(var(--p,0))}
 [dir="rtl"] .k-progress__fill{transform-origin:right}
-.k-progress__mark{position:absolute;top:50%;left:calc(var(--p,0)*100%);width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--k-accent);box-shadow:0 0 0 4px rgba(218,246,65,.25)}
+.k-progress__mark{position:absolute;top:50%;left:calc(var(--p,0)*100%);width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--k-accent);box-shadow:0 0 0 4px rgba(255,106,19,.25)}
 [dir="rtl"] .k-progress__mark{left:auto;right:calc(var(--p,0)*100%);margin:-7px -7px 0 0}
 .k-progress__ends{display:flex;justify-content:space-between;font-size:12px;color:var(--k-muted);margin:8px 0 0}
 
@@ -404,7 +404,7 @@ em{font-style:normal}
 .bc-lang__opt .bc-flag{box-shadow:0 0 0 1px rgba(255,255,255,.18)}
 .bc-lang__tag{margin-inline-start:auto;font-size:.72rem;font-weight:700;color:var(--bc-muted);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.25em .7em;white-space:nowrap}
 .bc-lang__check{margin-inline-start:auto;width:10px;height:10px;border-radius:50%}
-.bc-lang__opt[aria-current="true"] .bc-lang__check{background:var(--k-accent);box-shadow:0 0 10px rgba(218,246,65,.8)}
+.bc-lang__opt[aria-current="true"] .bc-lang__check{background:var(--k-accent);box-shadow:0 0 10px rgba(255,106,19,.8)}
 .bc-lang__opt--default[aria-current="true"] .bc-lang__tag{border-color:var(--k-accent);color:#fff}
 .bc-lang__list[data-stagger]>*{transition-duration:var(--ma-fast)!important;transform:translateY(6px)}
 .bc-lang__panel:not(.is-up) .bc-lang__list[data-stagger]>*{transform:translateY(-6px)}
@@ -502,14 +502,14 @@ em{font-style:normal}
 
 
 /* =====================================================================
-   v4.1 – 1:1 KELDER-Struktur (Nov 2026): Limette, Abschnittsreihenfolge, fixierter Footer
+   v4.1 – 1:1 KELDER-Struktur (Nov 2026): Barber-Crew-Orange, Abschnittsreihenfolge, fixierter Footer
    ===================================================================== */
 .k-hero__title{font-size:clamp(46px,7.4vw,96px)}
 .k-hero__note{margin:18px 0 0;font-size:12px;color:rgba(255,255,255,.62)}
 .k-btn--accent{box-shadow:none}
-.k-btn--accent:hover{box-shadow:0 10px 26px -12px rgba(218,246,65,.8)}
+.k-btn--accent:hover{box-shadow:0 10px 26px -12px rgba(255,106,19,.8)}
 .k-btn--line,.k-btn--ghost{border-color:rgba(255,255,255,.7)}
-.k-pill__icon{background:rgba(218,246,65,.95)}
+.k-pill__icon{background:rgba(255,106,19,.95)}
 .k-chip__ico{color:var(--k-accent);font-weight:700}
 .k-time{display:inline-block;direction:ltr;unicode-bidi:isolate}
 .bc-item__dur{direction:ltr;unicode-bidi:isolate}
@@ -610,7 +610,7 @@ em{font-style:normal}
 .k-panel__bg img{width:100%;height:100%;object-fit:cover}
 .k-panel>*{position:relative}
 .k-panel>.k-panel__bg,.k-panel>.k-silk{position:absolute}
-.k-step.is-active .k-step__n{box-shadow:0 10px 26px -10px rgba(218,246,65,.7)}
+.k-step.is-active .k-step__n{box-shadow:0 10px 26px -10px rgba(255,106,19,.7)}
 
 /* Bewertungen (KELDER "Three situations") */
 .k-review{padding:16px 16px 22px}
@@ -757,11 +757,11 @@ html{--foot-h:0px}
 /* P1.5: Diagramm-Beschriftungen und Legende */
 .k-chart__x span{flex:0 0 auto}
 .k-legend{list-style:none}
-/* Limette in hellem Modus: dunkle Oliv-Kante / -Variante für 3:1 */
-:root{--k-olive:#6b7a00}
+/* Orange in hellem Modus: dunklere Stufe #B24200 (gleicher Farbton/Sättigung wie #FF6A13, L=0.35) für WCAG AA auf hellen Flächen */
+:root{--k-accent-deep:#b24200}
 @media (prefers-color-scheme: light){
-  .k-days li.is-today{box-shadow:inset 0 0 0 2px var(--k-olive);color:#1d2400}
-  .k-progress__end{background:var(--k-olive)}
-  .bc-sticky-book{box-shadow:0 0 0 2px var(--k-olive)}
+  .k-days li.is-today{box-shadow:inset 0 0 0 2px var(--k-accent-deep);color:var(--k-accent-ink)}
+  .k-progress__end{background:var(--k-accent-deep)}
+  .bc-sticky-book{box-shadow:0 0 0 2px var(--k-accent-deep)}
   .k-step__n{}
 }

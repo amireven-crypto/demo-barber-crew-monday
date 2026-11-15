@@ -276,7 +276,7 @@
   function Halftone(cv) {
     var ctx = cv.getContext('2d'), host = cv.parentNode, w = 0, h = 0, dpr = Math.min(W.devicePixelRatio || 1, MOBILE ? 1.5 : 2);
     var sp = MOBILE ? 12 : 11, maxR = sp * 0.36, mx = -9999, my = -9999, cm = 0, on = true, t0 = performance.now(), frame = 0;
-    var accent = [218, 246, 65];
+    var accent = [255, 106, 19];
     function size() { var r = host.getBoundingClientRect(); w = r.width; h = r.height; cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
     function ss(a, b, x) { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); }
     function draw(now) {
@@ -501,7 +501,7 @@
       return { wd: wd, min: (+o.hour % 24) * 60 + +o.minute };
     } catch (e) { var n = new Date(); return { wd: (n.getDay() + 6) % 7, min: n.getHours() * 60 + n.getMinutes() }; }
   }
-  // KELDER "Swept every business day": Datumschips der aktuellen Woche (Wien); vergangene Werktage blau, heute Limette, kommende umrandet, Wochenende grau
+  // KELDER "Swept every business day": Datumschips der aktuellen Woche (Wien); vergangene Werktage blau, heute Orange, kommende umrandet, Wochenende grau
   function Days(ul) {
     var lis = $$('li', ul), v = viennaNow(), today = v.wd, base;
     try { base = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Vienna' })); } catch (e) { base = new Date(); }
