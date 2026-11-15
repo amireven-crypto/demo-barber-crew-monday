@@ -184,6 +184,55 @@
     he: 'רידיזיין קונספט של PIXELPOP ל-The Barber Crew – מספרה בווינה, Taborstraße 20, 1020 וינה. תספורת, זקן וגילוח. קביעת תור אונליין.'
   };
   var OGL = { de: 'de_AT', en: 'en_GB', ru: 'ru_RU', he: 'he_IL' };
+  var OG_TITLE = {
+    de: (document.querySelector('meta[property="og:title"]') || {}).content || document.title,
+    en: 'The Barber Crew – Barbershop Vienna, Taborstraße 20 (concept redesign)',
+    ru: 'The Barber Crew – барбершоп в Вене, Taborstraße 20 (концепт-редизайн)',
+    he: 'The Barber Crew – מספרה בווינה, Taborstraße 20 (רידיזיין קונספט)'
+  };
+  var OG_DESC = {
+    de: (document.querySelector('meta[property="og:description"]') || {}).content || '',
+    en: 'Concept redesign by PIXELPOP: barbershop in Vienna, Taborstraße 20, 1020 Vienna. Haircuts, beards, shaves.',
+    ru: 'Концепт-редизайн от PIXELPOP: барбершоп в Вене, Taborstraße 20, 1020 Вена. Стрижка, борода, бритьё.',
+    he: 'רידיזיין קונספט של PIXELPOP: מספרה בווינה, Taborstraße 20, 1020 וינה. תספורת, זקן וגילוח.'
+  };
+  var OG_ALT = {
+    de: (document.querySelector('meta[property="og:image:alt"]') || {}).content || '',
+    en: 'The Barber Crew logo on a dark blue background with a “Book now” button',
+    ru: 'Логотип The Barber Crew на тёмно-синем фоне с кнопкой «Записаться»',
+    he: 'לוגו The Barber Crew על רקע כחול כהה עם כפתור „קביעת תור“'
+  };
+  var TW_TITLE = {
+    de: (document.querySelector('meta[name="twitter:title"]') || {}).content || document.title,
+    en: 'The Barber Crew – Barbershop Vienna (concept redesign)',
+    ru: 'The Barber Crew – барбершоп в Вене (концепт-редизайн)',
+    he: 'The Barber Crew – מספרה בווינה (רידיזיין קונספט)'
+  };
+  var TW_DESC = {
+    de: (document.querySelector('meta[name="twitter:description"]') || {}).content || '',
+    en: 'Concept redesign by PIXELPOP: barbershop in Vienna, Taborstraße 20, 1020 Vienna.',
+    ru: 'Концепт-редизайн от PIXELPOP: барбершоп в Вене, Taborstraße 20, 1020 Вена.',
+    he: 'רידיזיין קונספט של PIXELPOP: מספרה בווינה, Taborstraße 20, 1020 וינה.'
+  };
+  var TW_ALT = {
+    de: (document.querySelector('meta[name="twitter:image:alt"]') || {}).content || '',
+    en: 'The Barber Crew logo on a dark blue background',
+    ru: 'Логотип The Barber Crew на тёмно-синем фоне',
+    he: 'לוגו The Barber Crew על רקע כחול כהה'
+  };
+  function setMeta(sel, val) {
+    var el = document.querySelector(sel);
+    if (el && val) el.setAttribute('content', val);
+  }
+  function syncUrl(lang) {
+    try {
+      var u = new URL(location.href);
+      if (lang === 'de') u.searchParams.delete('lang');
+      else u.searchParams.set('lang', lang);
+      var next = u.pathname + u.search + u.hash;
+      if (next !== location.pathname + location.search + location.hash) history.replaceState(null, '', next);
+    } catch (e) {}
+  }
   var DUR = {
     en: [/(\d+) Std\./g, '$1 h', /(\d+) Min\./g, '$1 min'],
     ru: [/(\d+) Std\./g, '$1 ч', /(\d+) Min\./g, '$1 мин'],
@@ -233,9 +282,16 @@
     html.lang = lang === 'de' ? 'de-AT' : lang;
     html.dir = lang === 'he' ? 'rtl' : 'ltr';
     document.title = TITLE[lang];
-    var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute('content', DESC[lang]);
-    var ol = document.querySelector('meta[property="og:locale"]'); if (ol) ol.setAttribute('content', OGL[lang]);
+    setMeta('meta[name="description"]', DESC[lang]);
+    setMeta('meta[property="og:locale"]', OGL[lang]);
+    setMeta('meta[property="og:title"]', OG_TITLE[lang]);
+    setMeta('meta[property="og:description"]', OG_DESC[lang]);
+    setMeta('meta[property="og:image:alt"]', OG_ALT[lang]);
+    setMeta('meta[name="twitter:title"]', TW_TITLE[lang]);
+    setMeta('meta[name="twitter:description"]', TW_DESC[lang]);
+    setMeta('meta[name="twitter:image:alt"]', TW_ALT[lang]);
     try { if (lang === 'de') localStorage.removeItem('bc-lang'); else localStorage.setItem('bc-lang', lang); } catch (e) {}
+    syncUrl(lang);
     switchers.forEach(function (s) { s.update(); });
     try { document.dispatchEvent(new CustomEvent('bc:lang', { detail: lang })); } catch (e) {}
   }
@@ -335,7 +391,8 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') switchers.forEach(function (s) { s.close(); }); });
     var want = null;
     try { want = new URLSearchParams(location.search).get('lang') || localStorage.getItem('bc-lang'); } catch (e) {}
-    if (want && LANGS.indexOf(want) > -1) apply(want); else switchers.forEach(function (s) { s.update(); });
+    if (want && LANGS.indexOf(want) > -1) apply(want);
+    else { document.documentElement.dir = 'ltr'; switchers.forEach(function (s) { s.update(); }); }
   }
   if (document.readyState !== 'loading') init(); else document.addEventListener('DOMContentLoaded', init);
 })();
