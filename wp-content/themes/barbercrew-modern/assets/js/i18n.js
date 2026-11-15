@@ -397,6 +397,19 @@
     this.update();
   }
 
+  /* Measure the curtain before first paint so kelder.js is not the first to set --foot-h. */
+  function reserveFooter() {
+    var footer = document.getElementById('kontakt') || document.querySelector('.k-footer');
+    if (!footer) return;
+    var fin = footer.querySelector('.k-footer__in');
+    var desk = window.innerWidth >= 961;
+    var footH = Math.round(fin ? fin.offsetHeight : footer.offsetHeight);
+    var fixedFoot = desk && footH > 0 && footH < window.innerHeight - 40;
+    footer.classList.toggle('is-fixed', fixedFoot);
+    footer.classList.toggle('is-unfixed', desk && !fixedFoot);
+    if (fixedFoot) document.documentElement.style.setProperty('--foot-h', footH + 'px');
+    else document.documentElement.style.removeProperty('--foot-h');
+  }
   function init() {
     collect();
     var h = document.querySelector('.bc-header__tel'); if (h) switchers.push(new Switcher(h, 'header'));
@@ -406,6 +419,10 @@
     try { want = new URLSearchParams(location.search).get('lang') || localStorage.getItem('bc-lang'); } catch (e) {}
     if (want && LANGS.indexOf(want) > -1) apply(want);
     else { document.documentElement.dir = 'ltr'; switchers.forEach(function (s) { s.update(); }); }
+    reserveFooter();
   }
-  if (document.readyState !== 'loading') init(); else document.addEventListener('DOMContentLoaded', init);
+  /* Run immediately when this script is at the end of body (blocking, no defer) so
+     translations and the language control land before first paint. */
+  if (document.body) init();
+  else document.addEventListener('DOMContentLoaded', init);
 })();
