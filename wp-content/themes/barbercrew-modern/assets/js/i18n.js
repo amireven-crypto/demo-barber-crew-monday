@@ -307,6 +307,17 @@
     switchers.forEach(function (s) { s.update(); });
     try { document.dispatchEvent(new CustomEvent('bc:lang', { detail: lang })); } catch (e) {}
   }
+  // German source text of an element (for widgets built after this script ran)
+  window.bcDe = function (el) {
+    var out = '', hit = false;
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    var n; while ((n = w.nextNode())) {
+      var o = null; for (var i = 0; i < origText.length; i++) if (origText[i].n === n) { o = origText[i]; break; }
+      if (o) hit = true;
+      out += o ? o.de : n.nodeValue;
+    }
+    return hit ? out : el.textContent;
+  };
   window.bcTr = function (de) { return current === 'de' ? de : (tr(de, current) || de); };
   function ui(key) { return current === 'de' ? key : MAP[norm(key)][IDX[current]]; }
 

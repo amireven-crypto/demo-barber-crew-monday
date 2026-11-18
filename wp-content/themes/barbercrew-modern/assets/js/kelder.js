@@ -28,11 +28,11 @@
     var cats = [{ key: 'all', label: 'Alle' }];
     groups.forEach(function (g) {
       var h = $('h3', g), key = Array.prototype.find.call(g.classList, function (c) { return c.indexOf('cat-') === 0; });
-      if (h && key) cats.push({ key: key, label: h.textContent.trim() });
+      if (h && key) cats.push({ key: key, label: (W.bcDe ? W.bcDe(h) : h.textContent).trim() });
     });
     cats.forEach(function (c, i) {
       var b = d.createElement('button');
-      b.type = 'button'; b.className = 'bc-tab' + (i === 0 ? ' is-active' : ''); b.textContent = c.label; b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+      b.type = 'button'; b.className = 'bc-tab' + (i === 0 ? ' is-active' : ''); b.textContent = W.bcTr ? W.bcTr(c.label) : c.label; b._de = c.label; b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
       b.addEventListener('click', function () {
         $$('.bc-tab', tabs).forEach(function (t) { t.classList.remove('is-active'); t.setAttribute('aria-pressed', 'false'); });
         b.classList.add('is-active'); b.setAttribute('aria-pressed', 'true');
@@ -46,6 +46,14 @@
       tabs.appendChild(b);
     });
     grid.parentNode.insertBefore(tabs, grid);
+    // Tabs are built after the language script ran, so they follow every language switch here.
+    var tabsLang = function () {
+      if (!W.bcTr) return;
+      tabs.setAttribute('aria-label', W.bcTr('Preiskategorien filtern'));
+      $$('.bc-tab', tabs).forEach(function (t) { t.textContent = W.bcTr(t._de); });
+    };
+    tabsLang();
+    d.addEventListener('bc:lang', tabsLang);
     if (W.matchMedia('(max-width: 780px)').matches && tabs.children[1]) tabs.children[1].click();
   }
 
@@ -548,6 +556,7 @@
     $$('[data-silk]').forEach(Silk);
     $$('.k-dotsicon').forEach(DotIcon);
     var chart = Chart();
+    if (!ANIM && chart) d.addEventListener('bc:lang', function () { chart.refresh(); });
     $$('.k-days').forEach(Days);
     footLayout();
     $$('.k-hourscard').forEach(Hours);
