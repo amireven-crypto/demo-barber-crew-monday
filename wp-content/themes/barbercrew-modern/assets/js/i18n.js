@@ -381,7 +381,8 @@
       if (focusBack) trig.focus();
     };
     trig.addEventListener('click', function () { panel.hidden ? open() : self.close(); });
-    fbtn.addEventListener('click', function () { panel.hidden ? open() : self.close(); }); // Anzeige der aktuellen Sprache öffnet ebenfalls das Panel
+    // trig und fbtn sind derselbe Knopf: nur EIN Listener, sonst öffnet und schließt ein Tap das Panel sofort wieder
+    if (fbtn !== trig) fbtn.addEventListener('click', function () { panel.hidden ? open() : self.close(); });
     opts.forEach(function (o) { o.addEventListener('click', function () { var l = o.getAttribute('data-lang'); self.close(true); if (l !== current) apply(l); }); });
     panel.addEventListener('keydown', function (e) {
       var a = Array.prototype.indexOf.call(opts, document.activeElement);
