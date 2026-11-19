@@ -184,6 +184,10 @@
     ['Zurück zu Deutsch', 'Back to German', 'Вернуться на немецкий', 'חזרה לגרמנית'],
     ['Deutsch – Standardsprache', 'German – default language', 'Немецкий – язык по умолчанию', 'גרמנית – שפת ברירת המחדל']
   ];
+  // Unterseiten (z. B. Barrierefreiheitserklärung) bringen eigene Texte, Titel und Beschreibung mit
+  var PG = window.BC_PAGE || null;
+  if (PG && PG.rows) T = T.concat(PG.rows);
+  T.push(['Barrierefreiheit', 'Accessibility', 'Доступность', 'נגישות']);
   var IDX = { en: 1, ru: 2, he: 3 };
   var norm = function (s) { return s.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim(); };
   var MAP = {};
@@ -232,6 +236,8 @@
     ru: 'Логотип The Barber Crew на тёмно-синем фоне',
     he: 'לוגו The Barber Crew על רקע כחול כהה'
   };
+  if (PG && PG.title) { TITLE = PG.title; OG_TITLE = PG.title; TW_TITLE = PG.title; }
+  if (PG && PG.desc) { DESC = PG.desc; OG_DESC = PG.desc; TW_DESC = PG.desc; }
   function setMeta(sel, val) {
     var el = document.querySelector(sel);
     if (el && val) el.setAttribute('content', val);
@@ -400,9 +406,9 @@
       wrap.classList.toggle('is-de', isDe);
       if (shown !== current) { fbtn.querySelector('.bc-lang__cur').innerHTML = flag(current); shown = current; }
       fbtn.querySelector('.bc-lang__label').textContent = current.toUpperCase();
-      fbtn.setAttribute('aria-label', ui('Sprache wählen') + ': ' + NAMES[current]);
+      fbtn.setAttribute('aria-label', current.toUpperCase() + ' – ' + ui('Sprache wählen') + ': ' + NAMES[current]);
       fbtn.setAttribute('data-current', current);
-      trig.setAttribute('aria-label', ui('Sprache wählen') + (isDe ? '' : ' (' + NAMES[current] + ')'));
+      trig.setAttribute('aria-label', current.toUpperCase() + ' – ' + ui('Sprache wählen') + (isDe ? '' : ' (' + NAMES[current] + ')'));
       panel.querySelector('.bc-lang__tag').textContent = ui('Standardsprache');
       opts.forEach(function (o) { var on = o.getAttribute('data-lang') === current; o.setAttribute('aria-current', on ? 'true' : 'false'); });
     };
