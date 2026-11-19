@@ -438,6 +438,7 @@
     if (want && LANGS.indexOf(want) > -1) apply(want);
     else { document.documentElement.dir = 'ltr'; switchers.forEach(function (s) { s.update(); }); }
     reserveFooter();
+    document.documentElement.classList.remove('bc-i18n-wait');
   }
   /* Run immediately when this script is at the end of body (blocking, no defer) so
      translations and the language control land before first paint. */

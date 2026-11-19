@@ -5,16 +5,20 @@
    Animationen: GSAP + ScrollTrigger (Standard-Lizenz, kostenlos) und Lenis (MIT), lokal eingebunden. */
 
 @font-face{font-family:"Figtree";src:url("../fonts/figtree-latin-var.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Kelder Serif";src:url("../fonts/fraunces-latin-var.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:optional;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Kelder Serif";src:url("../fonts/source-serif-4-cyrillic-var.woff2") format("woff2");font-weight:200 900;font-style:normal;font-display:optional;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Kelder Serif";src:url("../fonts/frank-ruhl-libre-hebrew-var.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:optional;unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
 @font-face{font-family:"BC Cyrillic";src:url("../fonts/notosans-cyrillic-var.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:optional;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"BC Hebrew";src:url("../fonts/notosanshebrew-var.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:optional;unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
 
 :root{
   --k-sans:"Figtree","BC Cyrillic","BC Hebrew","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
-  /* hell (Standard, wie KELDER) */
-  --k-bg:#f1f4f9; --k-bg2:#e8edf6; --k-card:#ffffff; --k-ink:#0a1630; --k-muted:#56627c; --k-line:rgba(10,22,48,.10);
-  --k-soft:#eaf0fd; --k-soft-ink:#1d4fd8;
-  --k-navy:#050d24; --k-blue:#0c2f86; --k-blue2:#1747c4; --k-blue3:#3a7bff; --k-sky:#a8c8ff;
-  --k-accent:#ff6a13; --k-accent-hi:#ff8540; --k-accent-ink:#0a1630; /* Barber-Crew-Orange #FF6A13 / Hover #FF8540 */ --k-focus:#1747c4;
+  --k-serif:"Kelder Serif",Georgia,"Times New Roman",serif;
+  /* hell, warm (serif trial) */
+  --k-bg:#f3f1ec; --k-bg2:#e9e4da; --k-card:#fffdfa; --k-ink:#0a1630; --k-muted:#56627c; --k-line:rgba(10,22,48,.10);
+  --k-soft:#f3efe4; --k-soft-ink:#163a9c;
+  --k-navy:#050d24; --k-blue:#0c2f86; --k-blue2:#163a9c; --k-blue3:#3a7bff; --k-sky:#a8c8ff;
+  --k-accent:#ff6a13; --k-accent-hi:#ff8540; --k-accent-ink:#0a1630; --k-accent-text:#b24200; /* Barber-Crew-Orange #FF6A13 / Hover #FF8540 */ --k-focus:#1747c4;
   --k-r:18px; --k-max:1200px; --k-gut:clamp(16px,4vw,40px);
   --k-ease:cubic-bezier(.16,1,.3,1); --k-fast:180ms;
   --k-heroend:var(--k-bg);
@@ -26,7 +30,7 @@
 @media (prefers-color-scheme: dark){
   :root{
     --k-bg:#040a1a; --k-bg2:#071128; --k-card:#0b1531; --k-ink:#eef2fb; --k-muted:#a3aec8; --k-line:rgba(255,255,255,.10);
-    --k-soft:#0f1e46; --k-soft-ink:#8fb4ff; --k-focus:#8fb4ff;
+    --k-soft:#0f1e46; --k-soft-ink:#8fb4ff; --k-focus:#8fb4ff; --k-accent-text:#ff8540;
   }
 }
 html{background:var(--k-navy);scroll-padding-top:84px}
@@ -999,3 +1003,31 @@ html{--foot-h:594px}
 .k-statement a:not(.k-btn){color:var(--k-soft-ink);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
 .k-statement__back{margin-top:44px!important}
 .k-page-statement .bc-header{background:#050d24;box-shadow:0 1px 0 rgba(255,255,255,.08)}
+
+/* v4.1.4-serif: Fraunces + Source Serif 4 (Cyrillic) + Frank Ruhl Libre (Hebrew) for headings; warm surfaces */
+.k-hero__title,
+.k-h2,
+h2,h3,
+.k-footer__tag,
+.k-step__body h3,
+.k-review__txt p:first-child,
+.k-wordmark,
+.k-card--blue .k-card__t,
+.k-hours__num{
+  font-family:var(--k-serif);
+}
+.k-hero__title,.k-h2,.k-footer__tag,.k-wordmark{font-weight:500;letter-spacing:-.03em}
+.k-review__txt p:first-child{font-weight:500}
+
+/* Orange as a recurring accent (still #FF6A13) */
+.k-eyebrow__ico{background:var(--k-accent)}
+.k-eyebrow__ico::after{background:#fff}
+.k-head{border-top-color:color-mix(in srgb,var(--k-accent) 35%,var(--k-line))}
+.k-review__stars{color:var(--k-accent-text)}
+.bc-item__price{color:var(--k-accent-text)}
+@media (prefers-color-scheme: dark){
+  .k-eyebrow__ico::after{background:var(--k-navy)}
+}
+
+/* v4.1.9: first paint waits for the translation on EN/RU/HE (boot.js adds, i18n.js removes; 2.5 s failsafe) */
+html.bc-i18n-wait body{visibility:hidden}
